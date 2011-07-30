@@ -7,5 +7,10 @@ class Hidden extends Inputfield {
     return "hidden";
   }
 
+  public function displayLabel($inside)
+  {
+    return $inside;
+  }
+
 }
 ?>

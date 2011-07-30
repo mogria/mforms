@@ -31,7 +31,8 @@ abstract class Inputfield extends FormElement {
         "\n";
     
     $output = (($label = $this->getLabel()) !== null) ?
-        "<label class=\"input " . htmlspecialchars($this-getType()) . "\">\n" . 
+        "<label class=\"input " . htmlspecialchars($this->getType()) . "\">\n" . 
+        "\t<span>" . htmlspecialchars($label) . "</span>\n" . 
         $description . 
         "\t" . $inside . "\n" . 
         "</label>\n" :

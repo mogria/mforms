@@ -14,5 +14,10 @@ class Checkbox extends Inputfield {
     $this->checked = $value;
   }
 
+  public function getType()
+  {
+    return "checkbox";
+  }
+
 }
 ?>
