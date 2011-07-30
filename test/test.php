@@ -23,20 +23,18 @@ require_once 'Form.php';
 chdir($fpath);
 
 //Create the form
-$form = new Form();
+$form = new Form('form1');
 
 //Set some properties
 $form->setLabel("TestForm");
 $form->setDescription("Bitte geben sie hier <void> ein ...");
 $form->setMethod("get");
 $form->setAction("#");
-$form->setEnctype('multipart/form-data');
 
 //Create a Hidden Control
-$field = new Hidden();
+$field = new Hidden('woot');
 
 //Set some properties
-$field->setName('w00t!');
 $field->setLabel('w00t!');
 $field->setDescription('Bitte Namen eingeben?');
 $field->setValue('1');
@@ -44,30 +42,27 @@ $field->setValue('1');
 $form->add($field);
 
 //Creata a Textbox Control
-$field = new Textbox();
+$field = new Textbox('name');
 
 //Set some properties
-$field->setName('name');
 $field->setLabel('name');
 $field->setValue('Wayne');
 //Add Control to Form
 $form->add($field);
 
 //Creata a Password Control
-$field = new Password();
+$field = new Password('pw');
 
 //Set some properties
-$field->setName('pw');
 $field->setLabel('password');
 $field->setValue('123');
 //Add Control to Form
 $form->add($field);
 
 //Creata a Password Control
-$field = new Submit();
+$field = new Submit('submid');
 
 //Set some properties
-$field->setName('submid!');
 $field->setLabel('sub, sub');
 $field->setValue('PressS!!!!!');
 //Add Control to Form

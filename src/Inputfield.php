@@ -2,7 +2,18 @@
 
 
 abstract class Inputfield extends FormElement {
+  public function __construct($name, $required = false, $match = "/.*/")
+  {
+    parent::__construct($name);
+    $this->setRequired($required);
+    $this->setMatch($match);
+  }
+
   protected $value;
+
+  protected $required;
+
+  protected $match;
 
   final public function getValue()
   {
@@ -12,6 +23,26 @@ abstract class Inputfield extends FormElement {
   public function setValue($new_value)
   {
     $this->value = $new_value;
+  }
+
+  public function getRequired()
+  {
+    return $this->required;
+  }
+
+  public function setRequired($value)
+  {
+    $this->required = $value;
+  }
+
+  public function setMatch($value)
+  {
+    $this->match = $value;
+  }
+
+  public function getMatch()
+  {
+    return $this->match;
   }
 
   public function display()

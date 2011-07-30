@@ -2,6 +2,11 @@
 
 
 abstract class FormElement {
+  public function __construct($name)
+  {
+    $this->setName($name);
+  }
+
   protected $id;
 
   protected $name;
