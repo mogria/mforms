@@ -95,6 +95,14 @@ class Form extends FormElement {
 
   public function isValid()
   {
+    $valid = true;
+    foreach($this->inputfields as $input) {
+        if(!$input->isValid()) {
+            $valid = false;
+        }
+    }
+    
+    return $valid;
   }
 
 }

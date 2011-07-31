@@ -64,6 +64,12 @@ abstract class Inputfield extends FormElement {
 
   public function isValid()
   {
+    $valid = true;
+    //Only check if required or not required and has an value
+    if($this->getRequired() || (!$this->getRequired() && $this->getValue !== null)) {
+        $valid = (bool)preg_match($this->getMatch, $this->getValue());
+    }
+    return $valid;
   }
 
   public function displayLabel($inside)
