@@ -33,5 +33,14 @@ class Textbox extends Inputfield {
     return "text";
   }
 
+  public function isValid()
+  {
+    $valid = parent::isValid();
+    if($this->getMaxlength() !== null && strlen($this->getValue()) > $this->getMaxlength()) {
+        $valid = false;
+    }
+    return $valid;
+  }
+
 }
 

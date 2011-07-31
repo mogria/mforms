@@ -47,7 +47,11 @@ $field = new Textbox('name');
 
 //Set some properties
 $field->setLabel('name');
-$field->setValue('Wayne');
+$field->setValue('WayneWithAVeryLongName');
+$field->setClass("tbox");
+$field->setSize(40);
+$field->setMaxlength(10);
+
 //Add Control to Form
 $form->add($field);
 
@@ -57,6 +61,7 @@ $field = new Password('pw', false, "/.{6,}/");
 //Set some properties
 $field->setLabel('password');
 $field->setValue('123456');
+$field->setId('pwd');
 //Add Control to Form
 echo "field {$field->getName()} is " . ($field->isValid() ? "" : "not ") . "valid";
 $form->add($field);
