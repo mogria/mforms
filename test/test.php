@@ -13,6 +13,7 @@ chdir($fpath . "../src");
 require_once 'FormElement.php';
 require_once 'Inputfield.php';
 require_once 'Submit.php';
+require_once 'Reset.php';
 require_once 'Textbox.php';
 require_once 'Textarea.php';
 require_once 'Hidden.php';
@@ -89,6 +90,16 @@ $field->setLabel('sub, sub');
 $field->setValue('PressS!!!!!');
 //Add Control to Form
 $form->add($field); 
+
+//Creata a Reset Button Control
+$field = new Reset('reset');
+
+//Set some properties
+$field->setLabel('remove data');
+$field->setValue('Clear');
+//Add Control to Form
+$form->add($field); 
+
 
 //Display the Form
 echo $form->display();
