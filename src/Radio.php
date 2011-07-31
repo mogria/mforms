@@ -8,4 +8,4 @@ class Radio extends Checkbox {
   }
 
 }
-?>
+

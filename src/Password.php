@@ -8,4 +8,4 @@ class Password extends Textbox {
   }
 
 }
-?>
+

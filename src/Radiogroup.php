@@ -6,4 +6,4 @@ class Radiogroup {
   protected $radios;
 
 }
-?>
+

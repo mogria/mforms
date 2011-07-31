@@ -29,6 +29,7 @@ $form = new Form('form1');
 $form->setLabel("TestForm");
 $form->setDescription("Bitte geben sie hier <void> ein ...");
 $form->setMethod("get");
+$form->setClass("a_form");
 $form->setAction("#");
 
 //Create a Hidden Control

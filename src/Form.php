@@ -11,6 +11,8 @@ class Form extends FormElement {
 
   protected $inputfields;
 
+  protected $attributes = Array('name', 'action', 'method', 'enctype', 'id', 'class');
+
   final public function getAction()
   {
     return $this->action;
@@ -70,7 +72,7 @@ class Form extends FormElement {
     }
     $output = $this->displayLabel($output);
     
-    $output = "<form " . parent::getAttributeNodes(array('name', 'action', 'method', 'enctype')) . ">\n" .
+    $output = "<form " . parent::getAttributeNodes($this->attributes) . ">\n" .
               "\t" . $output . "\n" .
               "</form>\n";
     
@@ -106,4 +108,4 @@ class Form extends FormElement {
   }
 
 }
-?>
+

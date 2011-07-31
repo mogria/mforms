@@ -2,11 +2,6 @@
 
 
 abstract class FormElement {
-  public function __construct($name)
-  {
-    $this->setName($name);
-  }
-
   protected $id;
 
   protected $class;
@@ -16,6 +11,11 @@ abstract class FormElement {
   protected $label;
 
   protected $description;
+
+  public function __construct($name)
+  {
+    $this->setName($name);
+  }
 
   final public function getName()
   {
@@ -90,4 +90,4 @@ abstract class FormElement {
   }
 
 }
-?>
+

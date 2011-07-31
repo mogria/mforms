@@ -95,4 +95,4 @@ abstract class Inputfield extends FormElement {
   public abstract function getType()
   ;
 }
-?>
+

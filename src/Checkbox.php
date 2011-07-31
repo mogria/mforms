@@ -22,4 +22,4 @@ class Checkbox extends Inputfield {
   }
 
 }
-?>
+
