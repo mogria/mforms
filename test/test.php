@@ -14,6 +14,7 @@ require_once 'FormElement.php';
 require_once 'Inputfield.php';
 require_once 'Submit.php';
 require_once 'Reset.php';
+require_once 'Image.php';
 require_once 'Textbox.php';
 require_once 'Textarea.php';
 require_once 'Hidden.php';
@@ -97,6 +98,17 @@ $field = new Reset('reset');
 //Set some properties
 $field->setLabel('remove data');
 $field->setValue('Clear');
+//Add Control to Form
+$form->add($field); 
+
+//Creata a Reset Button Control
+$field = new Image('da image');
+
+//Set some properties
+$field->setLabel('Bildknopf');
+$field->setValue('value');
+$field->setSrc("source_which_doesnt_exist");
+$field->setAlt("mööööp!");
 //Add Control to Form
 $form->add($field); 
 
