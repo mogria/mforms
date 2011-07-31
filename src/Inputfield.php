@@ -13,7 +13,8 @@ abstract class Inputfield extends FormElement {
   public function __construct($name, $required = false, $match = "/.*/")
   {
     parent::__construct($name);
-    $this->setValue($name);
+    $this->setRequired($required);
+    $this->setMatch($match);
   }
 
   final public function getValue()
