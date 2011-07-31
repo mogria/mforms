@@ -51,13 +51,13 @@ $field->setValue('Wayne');
 $form->add($field);
 
 //Creata a Password Control
-$field = new Password('pw');
+$field = new Password('pw', false, "/.{6,}/");
 
 //Set some properties
 $field->setLabel('password');
-$field->setValue('123');
-$field->setDisabled(true);
+$field->setValue('12345');
 //Add Control to Form
+echo "field {$field->getName()} is " . ($field->isValid() ? "" : "not ") . "valid";
 $form->add($field);
 
 //Creata a Password Control
@@ -71,3 +71,4 @@ $form->add($field);
 
 //Display the Form
 echo $form->display();
+
