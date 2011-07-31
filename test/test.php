@@ -12,6 +12,7 @@ chdir($fpath . "../src");
 //Include needed Form Controls
 require_once 'FormElement.php';
 require_once 'Inputfield.php';
+require_once 'Filechooser.php';
 require_once 'Submit.php';
 require_once 'Reset.php';
 require_once 'Image.php';
@@ -109,6 +110,14 @@ $field->setLabel('Bildknopf');
 $field->setValue('value');
 $field->setSrc("source_which_doesnt_exist");
 $field->setAlt("mööööp!");
+//Add Control to Form
+$form->add($field); 
+
+//Creata a Reset Button Control
+$field = new Filechooser('fl');
+
+//Set some properties
+$field->setLabel('select File');
 //Add Control to Form
 $form->add($field); 
 
