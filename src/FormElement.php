@@ -9,6 +9,8 @@ abstract class FormElement {
 
   protected $id;
 
+  protected $class;
+
   protected $name;
 
   protected $label;
@@ -33,6 +35,16 @@ abstract class FormElement {
   public function setId($value)
   {
     $this->id = $value;
+  }
+
+  public function getClass()
+  {
+    return $this->class;
+  }
+
+  public function setClass($value)
+  {
+    $this->class = $value;
   }
 
   final public function getLabel()

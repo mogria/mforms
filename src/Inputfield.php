@@ -10,6 +10,8 @@ abstract class Inputfield extends FormElement {
 
   protected $match;
 
+  protected $attributes = Array('type', 'name', 'value', 'id', 'disabled', 'class');
+
   public function __construct($name, $required = false, $match = "/.*/")
   {
     parent::__construct($name);
@@ -59,7 +61,7 @@ abstract class Inputfield extends FormElement {
 
   public function display()
   {
-    return $this->displayLabel("<input" . parent::getAttributeNodes(array('type', 'name', 'value', 'disabled')) . " />\n");
+    return $this->displayLabel("<input" . parent::getAttributeNodes($this->attributes) . " />\n");
   }
 
   public function isValid()

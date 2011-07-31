@@ -2,7 +2,9 @@
 
 
 class Checkbox extends Inputfield {
-  private $checked;
+  protected $checked;
+
+  protected $attributes = Array('type', 'name', 'value', 'id', 'disabled', 'class', 'checked');
 
   final public function getChecked()
   {
