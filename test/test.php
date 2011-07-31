@@ -14,6 +14,7 @@ require_once 'FormElement.php';
 require_once 'Inputfield.php';
 require_once 'Submit.php';
 require_once 'Textbox.php';
+require_once 'Textarea.php';
 require_once 'Hidden.php';
 require_once 'Password.php';
 require_once 'Form.php';
@@ -42,7 +43,7 @@ $field->setValue('1');
 //Add Control to Form
 $form->add($field);
 
-//Creata a Textbox Control
+//Create a Textbox Control
 $field = new Textbox('name');
 
 //Set some properties
@@ -55,7 +56,7 @@ $field->setMaxlength(10);
 //Add Control to Form
 $form->add($field);
 
-//Creata a Password Control
+//Create a Password Control
 $field = new Password('pw', false, "/.{6,}/");
 
 //Set some properties
@@ -66,7 +67,21 @@ $field->setId('pwd');
 echo "field {$field->getName()} is " . ($field->isValid() ? "" : "not ") . "valid";
 $form->add($field);
 
-//Creata a Password Control
+//Create a Textarea Control
+$field = new Textarea('name');
+
+//Set some properties
+$field->setLabel('area');
+$field->setValue('this is the <>& VALUE!');
+$field->setClass("tarea");
+$field->setRows(5);
+$field->setCols(80);
+
+//Add Control to Form
+$form->add($field);
+
+
+//Creata a Submit Button Control
 $field = new Submit('submid');
 
 //Set some properties
