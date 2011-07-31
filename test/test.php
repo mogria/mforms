@@ -56,6 +56,7 @@ $field = new Password('pw');
 //Set some properties
 $field->setLabel('password');
 $field->setValue('123');
+$field->setDisabled(true);
 //Add Control to Form
 $form->add($field);
 

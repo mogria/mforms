@@ -69,7 +69,7 @@ abstract class FormElement {
         if(method_exists($this, $methodname)) {
             $ret = $this->{$methodname}();
             if($ret !== null && $ret !== false) {
-                $output .= " " . htmlspecialchars($attr) . "=\"" . ($ret !== true) ? htmlspecialchars($ret) : htmlspecialchars($attr)) . "\"";
+                $output .= " " . htmlspecialchars($attr) . "=\"" . (($ret !== true) ? htmlspecialchars($ret) : htmlspecialchars($attr)) . "\"";
             }
         }
     }
