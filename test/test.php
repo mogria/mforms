@@ -55,7 +55,7 @@ $field = new Password('pw', false, "/.{6,}/");
 
 //Set some properties
 $field->setLabel('password');
-$field->setValue('12345');
+$field->setValue('123456');
 //Add Control to Form
 echo "field {$field->getName()} is " . ($field->isValid() ? "" : "not ") . "valid";
 $form->add($field);
@@ -72,3 +72,4 @@ $form->add($field);
 //Display the Form
 echo $form->display();
 
+echo "field {$form->getName()} is " . ($form->isValid() ? "" : "not ") . "valid";
