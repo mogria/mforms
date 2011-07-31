@@ -46,6 +46,9 @@ class Form extends FormElement {
   public function add($inputfield)
   {
     $this->inputfields[] = $inputfield;
+    if($inputfield instanceof Filechooser) {
+        $this->setEnctype('multipart/form-data');
+    }
   }
 
   public function remove($inputfield)
