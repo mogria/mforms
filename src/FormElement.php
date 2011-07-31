@@ -68,8 +68,8 @@ abstract class FormElement {
         $methodname = "get" . ucfirst(strtolower($attr));
         if(method_exists($this, $methodname)) {
             $ret = $this->{$methodname}();
-            if($ret !== null) {
-                $output .= " " . htmlspecialchars($attr) . "=\"" . htmlspecialchars($ret) . "\"";
+            if($ret !== null && $ret !== false) {
+                $output .= " " . htmlspecialchars($attr) . "=\"" . ($ret !== true) ? htmlspecialchars($ret) : htmlspecialchars($attr)) . "\"";
             }
         }
     }

@@ -2,18 +2,19 @@
 
 
 abstract class Inputfield extends FormElement {
-  public function __construct($name, $required = false, $match = "/.*/")
-  {
-    parent::__construct($name);
-    $this->setRequired($required);
-    $this->setMatch($match);
-  }
-
   protected $value;
+
+  protected $disabled;
 
   protected $required;
 
   protected $match;
+
+  public function __construct($name, $required = false, $match = "/.*/")
+  {
+    parent::__construct($name);
+    $this->setValue($name);
+  }
 
   final public function getValue()
   {
@@ -23,6 +24,16 @@ abstract class Inputfield extends FormElement {
   public function setValue($new_value)
   {
     $this->value = $new_value;
+  }
+
+  public function getDisabled()
+  {
+    return $this->disabled;
+  }
+
+  public function setDisabled($value)
+  {
+    $this->disabled = $value;
   }
 
   public function getRequired()
@@ -35,19 +46,19 @@ abstract class Inputfield extends FormElement {
     $this->required = $value;
   }
 
-  public function setMatch($value)
-  {
-    $this->match = $value;
-  }
-
   public function getMatch()
   {
     return $this->match;
   }
 
+  public function setMatch($value)
+  {
+    $this->match = $value;
+  }
+
   public function display()
   {
-    return $this->displayLabel("<input" . parent::getAttributeNodes(array('type', 'name', 'value')) . " />\n");
+    return $this->displayLabel("<input" . parent::getAttributeNodes(array('type', 'name', 'value', 'disabled')) . " />\n");
   }
 
   public function isValid()
