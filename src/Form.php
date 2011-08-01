@@ -112,23 +112,26 @@ class Form extends FormElement {
 
   public function catchRequestData()
   {
-    $method = "_" . strtoupper($this-getMethod());
-    foreach($this->inputfields as $input) {
-        //@todo: what if Filechooser? or an image button with x and y coords?
-        $converted = str_replace(".", "_", $input->getName());
+    $method = "_" . strtoupper($this->getMethod());
+    if(isset(${$method})) {
+        $method = ${$method};
+        foreach($this->inputfields as $input) {
+            //@todo: what if Filechooser? or an image button with x and y coords?
+            $converted = str_replace(".", "_", $input->getName());
     
-        if(array_key_exists($converted, ${$method})) {
-            $value = ${$method}[$converted];
+            if(isset($method[$converted])) {
+                $value = $method[$converted];
     
-            //kill magic qoutes if there
-            function _fix_magic_quotes_walk(&$value, $key) {
-                $value = get_magic_quotes_gpc() ? stripslashes($value) : $value;
+                //kill magic qoutes if there
+                function _fix_magic_quotes_walk(&$value, $key) {
+                    $value = get_magic_quotes_gpc() ? stripslashes($value) : $value;
+                }
+                $array = array($value);
+                array_walk_recursive($array, '_fix_magic_qoutes_walk');
+                $value = $array[0];
+    
+                $input->setValue($value);
             }
-            $array = array($value);
-            array_walk_recursive($array, '_fix_magic_qoutes_walk');
-            $value = $array[0];
-    
-            $input->setValue($value);
         }
     }
   }

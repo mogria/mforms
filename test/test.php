@@ -122,6 +122,7 @@ $field->setLabel('select File');
 $form->add($field); 
 
 
+$form->catchRequestData();
 //Display the Form
 echo $form->display();
 
