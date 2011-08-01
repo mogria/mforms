@@ -124,8 +124,9 @@ class Form extends FormElement {
             function _fix_magic_quotes_walk(&$value, $key) {
                 $value = get_magic_quotes_gpc() ? stripslashes($value) : $value;
             }
-            array_walk_recursive(array($value), '_fix_magic_qoutes_walk');
-    
+            $array = array($value);
+            array_walk_recursive($array, '_fix_magic_qoutes_walk');
+            $value = $array[0];
     
             $input->setValue($value);
         }
