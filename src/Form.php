@@ -2,6 +2,10 @@
 
 require_once './Inputfield.php';
 
+function _fix_magic_quotes_walk(&$value, $key) {
+  $value = get_magic_quotes_gpc() ? stripslashes($value) : $value;
+}
+
 class Form extends FormElement {
   protected $action = "#";
 
@@ -126,11 +130,8 @@ class Form extends FormElement {
             $value = $method[$converted];
     
             //kill magic qoutes if there
-            function _fix_magic_quotes_walk(&$value, $key) {
-                $value = get_magic_quotes_gpc() ? stripslashes($value) : $value;
-            }
             $array = array($value);
-            array_walk_recursive($array, '_fix_magic_qoutes_walk');
+            array_walk_recursive($array, '_fix_magic_quotes_walk');
             $value = $array[0];
     
             $input->setValue($value);
