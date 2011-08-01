@@ -112,26 +112,28 @@ class Form extends FormElement {
 
   public function catchRequestData()
   {
-    $method = "_" . strtoupper($this->getMethod());
-    if(isset(${$method})) {
-        $method = ${$method};
-        foreach($this->inputfields as $input) {
-            //@todo: what if Filechooser? or an image button with x and y coords?
-            $converted = str_replace(".", "_", $input->getName());
+    $method = &$_GET;
+    if(strtoupper($this->getMethod()) == "POST") {
+        $method = &$_POST;
+    } 
+    foreach($this->inputfields as $input) {
+        //@todo: what if Filechooser? or an image button with x and y coords?
+        $converted = str_replace(".", "_", $input->getName());
     
-            if(isset($method[$converted])) {
-                $value = $method[$converted];
+        echo $converted . "<br />";
+        if(isset($method[$converted])) {
+            echo "OK <br />";
+            $value = $method[$converted];
     
-                //kill magic qoutes if there
-                function _fix_magic_quotes_walk(&$value, $key) {
-                    $value = get_magic_quotes_gpc() ? stripslashes($value) : $value;
-                }
-                $array = array($value);
-                array_walk_recursive($array, '_fix_magic_qoutes_walk');
-                $value = $array[0];
-    
-                $input->setValue($value);
+            //kill magic qoutes if there
+            function _fix_magic_quotes_walk(&$value, $key) {
+                $value = get_magic_quotes_gpc() ? stripslashes($value) : $value;
             }
+            $array = array($value);
+            array_walk_recursive($array, '_fix_magic_qoutes_walk');
+            $value = $array[0];
+    
+            $input->setValue($value);
         }
     }
   }
