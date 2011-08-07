@@ -4,27 +4,7 @@
 error_reporting(E_ALL|E_STRICT);
 ini_set('display_errors', 1);
 
-$fpath = dirname(__FILE__) . "/";
-
-//Change to the classes directory
-chdir($fpath . "../src");
-
-//Include needed Form Controls
-require_once 'FormElement.php';
-require_once 'Inputfield.php';
-require_once 'Filechooser.php';
-require_once 'Submit.php';
-require_once 'Reset.php';
-require_once 'Image.php';
-require_once 'Textbox.php';
-require_once 'Textarea.php';
-require_once 'Hidden.php';
-require_once 'Password.php';
-require_once 'Form.php';
-
-
-//Change Directory back
-chdir($fpath);
+require_once '../src/loader.php';
 
 //Create the form
 $form = new Form('form1');

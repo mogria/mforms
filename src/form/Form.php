@@ -1,6 +1,5 @@
 <?php
 
-require_once './Inputfield.php';
 
 function _fix_magic_quotes_walk(&$value, $key) {
   $value = get_magic_quotes_gpc() ? stripslashes($value) : $value;
