@@ -65,6 +65,7 @@ class Form extends FormElement {
         if($input === $inputfield) {
             //remove from array
             unset($this->inputfields[$key]);
+            unset($this->names[$key]);
         }
     }
     
@@ -140,8 +141,7 @@ class Form extends FormElement {
     }
   }
 
-  public function getInputByName($name) {
+  public function getInputfieldByName($name) {
     return array_key_exists($name, $this->names) ? $this->inputfields[$this->names[$name]]: null ;
-  } 
+  }
 }
-
