@@ -1,9 +1,10 @@
 <?php
 
-require_once './Radio.php';
-
 class Radiogroup {
   protected $radios;
 
+  public function getType() {
+    return "radiogroup";
+  }
 }
 

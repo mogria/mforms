@@ -13,6 +13,10 @@ class Option extends Inputfield {
   {
     $this->selected = $value;
   }
+  
+  public function getType() {
+    return "option";
+  }
 
 }
 

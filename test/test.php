@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 //Show all errors
 error_reporting(E_ALL|E_STRICT);

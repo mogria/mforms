@@ -14,6 +14,8 @@ class Form extends FormElement {
 
   protected $inputfields;
 
+  protected $names;
+
   protected $attributes = Array('name', 'action', 'method', 'enctype', 'id', 'class');
 
   final public function getAction()
@@ -46,9 +48,11 @@ class Form extends FormElement {
     $this->enctype = $value;
   }
 
-  public function add($inputfield)
+  public function add(Inputfield $inputfield)
   {
     $this->inputfields[] = $inputfield;
+    end($this->inputfields)
+    $this->names[$inputfield->getName()] = key($this->inputfields);
     if($inputfield instanceof Filechooser) {
         $this->setEnctype('multipart/form-data');
     }
@@ -120,23 +124,24 @@ class Form extends FormElement {
         $method = &$_POST;
     } 
     foreach($this->inputfields as $input) {
-        //@todo: what if Filechooser? or an image button with x and y coords?
-        $converted = str_replace(".", "_", $input->getName());
-    
-        echo $converted . "<br />";
-        if(isset($method[$converted])) {
-            echo "OK <br />";
-            $value = $method[$converted];
-    
-            //kill magic qoutes if there
-            $array = array($value);
-            array_walk_recursive($array, '_fix_magic_quotes_walk');
-            $value = $array[0];
-    
-            $input->setValue($value);
-        }
+      //@todo: what if Filechooser? or an image button with x and y coords?
+      $converted = str_replace(".", "_", $input->getName());
+  
+      if(isset($method[$converted])) {
+          $value = $method[$converted];
+  
+          //kill magic qoutes if there
+          $array = array($value);
+          array_walk_recursive($array, '_fix_magic_quotes_walk');
+          $value = $array[0];
+  
+          $input->setValue($value);
+      }
     }
   }
 
+  public function getInputByName($name) {
+    return array_key_exists($name, $this->names) ? $this->inputfields[$this->names[$name]]: null ;
+  } 
 }
 
