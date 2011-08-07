@@ -6,6 +6,8 @@ function _fix_magic_quotes_walk(&$value, $key) {
 }
 
 class Form extends FormElement {
+
+  const SENT_INPUT = "__sent";
   protected $action = "#";
 
   protected $method;
@@ -17,6 +19,13 @@ class Form extends FormElement {
   protected $names;
 
   protected $attributes = Array('name', 'action', 'method', 'enctype', 'id', 'class');
+
+  public function __construct()
+  {
+    $sent = new Hidden(self::SENT_INPUT, true);
+    $send->setValue("1");
+    $this->add($sent);
+  }
 
   final public function getAction()
   {
@@ -141,7 +150,13 @@ class Form extends FormElement {
     }
   }
 
-  public function getInputfieldByName($name) {
+  public function getInputfieldByName($name)
+  {
     return array_key_exists($name, $this->names) ? $this->inputfields[$this->names[$name]]: null ;
+  }
+
+  public function sent()
+  {
+    return !empty($_POST[self::SENT_INPUT]);
   }
 }
