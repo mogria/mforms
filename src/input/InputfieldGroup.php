@@ -4,6 +4,7 @@ abstract class InputfieldGroup extends Inputfield {
   protected $inputs;
   public function add(InputfieldOption $input) {
     $this->inputs[] = $input;
+    $input->setName($this->getName());
   }
 
   public function remove(InputfieldOption $input) {
