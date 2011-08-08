@@ -1,7 +1,16 @@
 <?php
 
 class Radiogroup extends InputfieldGroup {
-  protected $radios;
 
+  public function display() {
+    foreach($this->inputs as $i) {
+      $i->display();
+      echo "\n";
+    }
+  }
+
+  public function getType() {
+    return "radiogroup";
+  }
 }
 
