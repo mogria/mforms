@@ -12,10 +12,15 @@ abstract class FormElement {
 
   protected $description;
 
+  protected $attributes = Array('name', 'id', 'class');
+
   public function __construct($name)
   {
     $this->setName($name);
+    $this->addAttributes();
   }
+
+  abstract protected function addAttributes();
 
   final public function getName()
   {
@@ -89,5 +94,8 @@ abstract class FormElement {
     return $output;
   }
 
+  public function __toString() {
+    return $this->display();
+  }
 }
 

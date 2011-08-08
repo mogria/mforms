@@ -4,7 +4,10 @@
 class Checkbox extends Inputfield {
   protected $checked;
 
-  protected $attributes = Array('type', 'name', 'value', 'id', 'disabled', 'class', 'checked');
+  protected function addAttributes() {
+    parent::addAttributes();
+    $this->attributes[] = 'checked';
+  }
 
   final public function getChecked()
   {

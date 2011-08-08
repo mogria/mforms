@@ -10,13 +10,18 @@ abstract class Inputfield extends FormElement {
 
   protected $match;
 
-  protected $attributes = Array('type', 'name', 'value', 'id', 'disabled', 'class');
-
   public function __construct($name, $required = false, $match = "/.*/")
   {
     parent::__construct($name);
-    $this->setRequired($required);
+    $this->setRequired($required)
     $this->setMatch($match);
+  }
+
+  protected function addAttributes() {
+    parent::addAttributes();
+    $this->attributes[] = 'value';
+    $this->attributes[] = 'type';
+    $this->attributes[] = 'disabled';
   }
 
   final public function getValue()

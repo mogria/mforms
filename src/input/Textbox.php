@@ -6,11 +6,15 @@ class Textbox extends Inputfield {
 
   protected $maxlength;
 
-  protected $attributes = Array('type', 'name', 'value', 'id', 'disabled', 'class', 'size', 'maxlength');
-
   final public function getMaxlength()
   {
     return $this->maxlength;
+  }
+
+  protected function addAttributes() {
+    parent::addAttributes();
+    $this->attributes[] = 'size';
+    $this->attributes[] = 'maxlength';
   }
 
   public function setMaxlength($value)
