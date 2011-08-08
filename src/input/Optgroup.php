@@ -1,6 +1,6 @@
 <?php
 
 
-class Optgroup {
+class Optgroup extends InputfieldGroup {
 }
 

@@ -1,8 +1,6 @@
 <?php
 
-require_once './Radio.php';
-
-class Radiogroup {
+class Radiogroup extends InputfieldGroup {
   protected $radios;
 
 }

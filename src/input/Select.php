@@ -1,6 +1,6 @@
 <?php
 
 
-class Select extends Inputfield {
+class Select extends InputfieldGroup {
 }
 
