@@ -12,6 +12,8 @@ abstract class FormElement {
 
   protected $description;
 
+  protected $attributes = Array('name', 'id', 'class');
+
   public function __construct($name)
   {
     $this->setName($name);

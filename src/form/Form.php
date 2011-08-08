@@ -14,11 +14,19 @@ class Form extends FormElement {
 
   protected $inputfields;
 
-  protected $attributes = Array('name', 'action', 'method', 'enctype', 'id', 'class');
+  public function __construct($name = null, $action = '#', $method = 'post') {
+    parent::__construct($name);
+    $this->setAction($action);
+    $this->setMethod($method);
+    $this->attributes[] = 'action';
+    $this->attributes[] = 'method';
+    $this->attributes[] = 'enctype';
+  }
 
   final public function getAction()
   {
     return $this->action;
+
   }
 
   public function setAction($value)
