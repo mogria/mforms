@@ -1,9 +1,9 @@
 <?php
 
-class InputfieldGroup extends Inputfield {
+abstract class InputfieldGroup extends Inputfield {
   protected $inputs;
   public function add(Inputfield $input) {
-
+    $this->inputs[] = $input;
   }
 
   public function remove(Inputfield $input) {
@@ -17,12 +17,18 @@ class InputfieldGroup extends Inputfield {
   public function setValue($value) {
     $set = false;
     foreach($this->inputs as $key => $i) {
-      if((string)$i->getValue() === (string)$value) {
-        $this->value = $value;
-        $set = true;
-        break;
-      }
+      $this->setSelected((string)$i->getValue() === (string)$value ? $set = true : false);
     }
     return $set;
+  }
+
+  public function getValue() {
+    $val = false;
+    foreach($this->inputs as $key => $i) {
+      if($i->getSelected()) {
+        $val = $i->getValue();
+      }
+    }
+    return $value;
   }
 }
