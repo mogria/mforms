@@ -2,11 +2,11 @@
 
 abstract class InputfieldGroup extends Inputfield {
   protected $inputs;
-  public function add(Inputfield $input) {
+  public function add(InputfieldOption $input) {
     $this->inputs[] = $input;
   }
 
-  public function remove(Inputfield $input) {
+  public function remove(InputfieldOption $input) {
     foreach($this->inputs as $key => $i) {
       if($i === $input) {
         unset($this->inputs[$key]);

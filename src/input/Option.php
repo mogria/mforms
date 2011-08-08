@@ -1,7 +1,7 @@
 <?php
 
 
-class Option extends Inputfield {
+class Option extends InputfieldOption {
   private $selected;
 
   public function getSelected()
