@@ -11,4 +11,9 @@ abstract class InputfieldOption extends Inputfield {
   public function setSelected($value) {
     $this->selected = $value;
   }
+
+  protected function addAttributes() {
+    parent::addAttributes();
+    $this->attributes[] = 'selected';
+  }
 }

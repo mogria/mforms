@@ -18,6 +18,10 @@ class Form extends FormElement {
     parent::__construct($name);
     $this->setAction($action);
     $this->setMethod($method);
+  }
+
+  protected function addAttributes() {
+    parent::addAttributes();
     $this->attributes[] = 'action';
     $this->attributes[] = 'method';
     $this->attributes[] = 'enctype';

@@ -15,6 +15,10 @@ abstract class Inputfield extends FormElement {
     parent::__construct($name);
     $this->setRequired($required)
     $this->setMatch($match);
+  }
+
+  protected function addAttributes() {
+    parent::addAttributes();
     $this->attributes[] = 'value';
     $this->attributes[] = 'type';
     $this->attributes[] = 'disabled';

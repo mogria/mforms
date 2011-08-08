@@ -13,6 +13,12 @@ class Image extends Inputfield {
     return $this->src;
   }
 
+  protected function addAttributes() {
+    parent::addAttributes();
+    $this->attributes[] = 'src';
+    $this->attributes[] = 'alt';
+  }
+
   public function setSrc($value)
   {
     $this->src = $value;

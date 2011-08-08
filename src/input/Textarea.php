@@ -6,11 +6,15 @@ class Textarea extends Inputfield {
 
   protected $cols;
 
-  protected $attributes = Array('name', 'rows', 'cols', 'id', 'disabled', 'class');
-
   public function getRows()
   {
     return $this->rows;
+  }
+
+  protected function addAttributes() {
+    parent::addAttributes();
+    $this->attributes[] = 'rows';
+    $this->attributes[] = 'cols';
   }
 
   public function setRows($value)

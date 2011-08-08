@@ -17,7 +17,10 @@ abstract class FormElement {
   public function __construct($name)
   {
     $this->setName($name);
+    $this->addAttributes();
   }
+
+  abstract protected function addAttributes();
 
   final public function getName()
   {
