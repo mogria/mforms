@@ -89,5 +89,8 @@ abstract class FormElement {
     return $output;
   }
 
+  public function __toString() {
+    return $this->display();
+  }
 }
 
