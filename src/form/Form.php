@@ -21,7 +21,6 @@ class Form extends FormElement {
   }
 
   protected function addAttributes() {
-    parent::addAttributes();
     $this->attributes[] = 'action';
     $this->attributes[] = 'method';
     $this->attributes[] = 'enctype';
