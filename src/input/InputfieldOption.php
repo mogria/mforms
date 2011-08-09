@@ -16,4 +16,11 @@ abstract class InputfieldOption extends Inputfield {
     parent::addAttributes();
     $this->attributes[] = 'selected';
   }
+
+  public function __construct($value, $label = null) {
+    parent::__construct(null);
+    $this->setValue($value);
+    $this->setLabel($label);
+  }
+
 }

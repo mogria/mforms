@@ -103,9 +103,9 @@ $form->add($field);
 
 //Create a 
 $field = new Radiogroup('test');
-$option = new Radio('v1');
+$option = new Radio('v1', 'label1');
 $field->add($option);
-$option = new Radio('v2');
+$option = new Radio('v2', 'label2');
 $field->add($option);
 //Add Control to Form
 $form->add($field); 

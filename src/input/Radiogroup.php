@@ -3,10 +3,12 @@
 class Radiogroup extends InputfieldGroup {
 
   public function display() {
+    $append = "";
     foreach($this->inputs as $i) {
-      echo $i->display();
-      echo "\n";
+      $append .= $i->display();
+      $append .= "\n";
     }
+    return $append;
   }
 
   public function getType() {
