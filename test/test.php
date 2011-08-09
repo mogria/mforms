@@ -63,7 +63,7 @@ $field->setCols(80);
 $form->add($field);
 
 
-//Creata a Submit Button Control
+//Create a Submit Button Control
 $field = new Submit('submid');
 
 //Set some properties
@@ -72,7 +72,7 @@ $field->setValue('PressS!!!!!');
 //Add Control to Form
 $form->add($field); 
 
-//Creata a Reset Button Control
+//Create a Reset Button Control
 $field = new Reset('reset');
 
 //Set some properties
@@ -81,7 +81,7 @@ $field->setValue('Clear');
 //Add Control to Form
 $form->add($field); 
 
-//Creata a Reset Button Control
+//Create a Reset Button Control
 $field = new Image('da image');
 
 //Set some properties
@@ -92,11 +92,21 @@ $field->setAlt("mööööp!");
 //Add Control to Form
 $form->add($field); 
 
-//Creata a Reset Button Control
+//Create a Filechooser Control
 $field = new Filechooser('fl');
 
 //Set some properties
 $field->setLabel('select File');
+//Add Control to Form
+$form->add($field); 
+
+
+//Create a 
+$field = new Radiogroup('test');
+$option = new Radio('v1');
+$field->add($option);
+$option = new Radio('v2');
+$field->add($option);
 //Add Control to Form
 $form->add($field); 
 

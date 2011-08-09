@@ -6,8 +6,6 @@ class Image extends Inputfield {
 
   protected $alt;
 
-  protected $attributes = Array('type', 'name', 'value', 'src', 'alt', 'id', 'disabled', 'class');
-
   public function getSrc()
   {
     return $this->src;

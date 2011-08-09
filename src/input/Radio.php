@@ -6,6 +6,10 @@ class Radio extends InputfieldOption {
   {
     return "radio";
   }
-
+  
+  public function __construct($value) {
+    parent::__construct("void");
+    $this->setValue($value);
+  }
 }
 

@@ -30,6 +30,6 @@ abstract class InputfieldGroup extends Inputfield {
         $val = $i->getValue();
       }
     }
-    return $value;
+    return $val;
   }
 }

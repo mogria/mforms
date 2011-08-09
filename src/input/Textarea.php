@@ -15,6 +15,8 @@ class Textarea extends Inputfield {
     parent::addAttributes();
     $this->attributes[] = 'rows';
     $this->attributes[] = 'cols';
+    unset($this->attributes[array_search('type', $this->attributes)]);
+    unset($this->attributes[array_search('value', $this->attributes)]);
   }
 
   public function setRows($value)
