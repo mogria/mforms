@@ -7,7 +7,7 @@ abstract class InputfieldGroup extends Inputfield {
     $input->setName($this->getName());
   }
 
-  public function remove(InputfieldOption $input) {
+  public function remove(InputGroupMember $input) {
     foreach($this->inputs as $key => $i) {
       if($i === $input) {
         unset($this->inputs[$key]);
@@ -18,7 +18,7 @@ abstract class InputfieldGroup extends Inputfield {
   public function setValue($value) {
     $set = false;
     foreach($this->inputs as $key => $i) {
-      $this->setSelected((string)$i->getValue() === (string)$value ? $set = true : false);
+      $i->setSelected((string)$i->getValue() === (string)$value ? $set = true : $i->getSelected());
     }
     return $set;
   }

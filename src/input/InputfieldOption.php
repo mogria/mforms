@@ -1,6 +1,6 @@
 <?php
 
-abstract class InputfieldOption extends Inputfield {
+abstract class InputfieldOption extends Inputfield implements InputfieldGroupMember{
 
   protected $selected;
 
