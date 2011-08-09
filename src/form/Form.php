@@ -134,9 +134,7 @@ class Form extends FormElement {
         //@todo: what if Filechooser? or an image button with x and y coords?
         $converted = str_replace(".", "_", $input->getName());
     
-        echo $converted . "<br />";
         if(isset($method[$converted])) {
-            echo "OK <br />";
             $value = $method[$converted];
     
             //kill magic qoutes if there
