@@ -2,9 +2,6 @@
 
 
 class Option extends InputfieldOption {
-  public function getType() {
-    return "option";
-  }
 
   public function display() {
     if($label = $this->getLabel()) {

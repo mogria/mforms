@@ -18,22 +18,18 @@ class Form extends FormElement {
 
   protected $names;
 
-  public function __construct($name = null, $action = '#', $method = 'post') {
-    parent::__construct($name);
-    $this->setAction($action);
-    $this->setMethod($method);
-  }
-
   protected function addAttributes() {
     $this->attributes[] = 'action';
     $this->attributes[] = 'method';
     $this->attributes[] = 'enctype';
   }
 
-  public function __construct()
-  {
+  public function __construct($name = null, $action = '#', $method = 'post') {
+    parent::__construct($name);
+    $this->setAction($action);
+    $this->setMethod($method);
     $sent = new Hidden(self::SENT_INPUT, true);
-    $send->setValue("1");
+    $sent->setValue("1");
     $this->add($sent);
   }
 
@@ -71,7 +67,7 @@ class Form extends FormElement {
   public function add(Inputfield $inputfield)
   {
     $this->inputfields[] = $inputfield;
-    end($this->inputfields)
+    end($this->inputfields);
     $this->names[$inputfield->getName()] = key($this->inputfields);
     if($inputfield instanceof Filechooser) {
       $this->setEnctype('multipart/form-data');
