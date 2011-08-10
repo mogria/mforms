@@ -82,13 +82,13 @@ abstract class FormElement {
   {
     $output = "";
     foreach($attributes as $attr) {
-        $methodname = "get" . ucfirst(strtolower($attr));
-        if(method_exists($this, $methodname)) {
-            $ret = $this->{$methodname}();
-            if($ret !== null && $ret !== false) {
-                $output .= " " . htmlspecialchars($attr) . "=\"" . (($ret !== true) ? htmlspecialchars($ret) : htmlspecialchars($attr)) . "\"";
-            }
+      $methodname = "get" . ucfirst(strtolower($attr));
+      if(method_exists($this, $methodname)) {
+        $ret = $this->{$methodname}();
+        if($ret !== null && $ret !== false) {
+          $output .= " " . htmlspecialchars($attr) . "=\"" . (($ret !== true) ? htmlspecialchars($ret) : htmlspecialchars($attr)) . "\"";
         }
+      }
     }
     
     return $output;

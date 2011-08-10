@@ -61,7 +61,7 @@ class Form extends FormElement {
   {
     $this->inputfields[] = $inputfield;
     if($inputfield instanceof Filechooser) {
-        $this->setEnctype('multipart/form-data');
+      $this->setEnctype('multipart/form-data');
     }
   }
 
@@ -69,10 +69,10 @@ class Form extends FormElement {
   {
     //Iterate each and search for eqal objects
     foreach($this->inputfields as $key => $input) {
-        if($input === $inputfield) {
-            //remove from array
-            unset($this->inputfields[$key]);
-        }
+      if($input === $inputfield) {
+        //remove from array
+        unset($this->inputfields[$key]);
+      }
     }
     
     //generate new keys
@@ -83,9 +83,9 @@ class Form extends FormElement {
   {
     $output = "";
     if($this->inputfields != null) {
-        foreach($this->inputfields as $input) {
-            $output .= $input->display() . "\n";
-        }
+      foreach($this->inputfields as $input) {
+        $output .= $input->display() . "\n";
+      }
     }
     $output = $this->displayLabel($output);
     
@@ -99,16 +99,16 @@ class Form extends FormElement {
   public function displayLabel($inside)
   {
     $description = (($description = $this->getDescription()) !== null) ?
-        "\t\t<p>" . htmlspecialchars($description) . "</p>\n" :
-        "\n";
+      "\t\t<p>" . htmlspecialchars($description) . "</p>\n" :
+      "\n";
     
     $output = (($label = $this->getLabel()) !== null) ?
-        "<fieldset class=\"input " . htmlspecialchars($label) . "\">\n" . 
-        "\t<legend>" . htmlspecialchars($label) . "</legend>\n" .
-        $description . 
-        "\t" . $inside . "\n" . 
-        "</fieldset>\n" :
-        $inside . "\n";
+      "<fieldset class=\"input " . htmlspecialchars($label) . "\">\n" . 
+      "\t<legend>" . htmlspecialchars($label) . "</legend>\n" .
+      $description . 
+      "\t" . $inside . "\n" . 
+      "</fieldset>\n" :
+      $inside . "\n";
     return $output;
   }
 
@@ -116,9 +116,9 @@ class Form extends FormElement {
   {
     $valid = true;
     foreach($this->inputfields as $input) {
-        if(!$input->isValid()) {
-            $valid = false;
-        }
+      if(!$input->isValid()) {
+        $valid = false;
+      }
     }
     
     return $valid;
@@ -128,22 +128,22 @@ class Form extends FormElement {
   {
     $method = &$_GET;
     if(strtoupper($this->getMethod()) == "POST") {
-        $method = &$_POST;
+      $method = &$_POST;
     } 
     foreach($this->inputfields as $input) {
-        //@todo: what if Filechooser? or an image button with x and y coords?
-        $converted = str_replace(".", "_", $input->getName());
-    
-        if(isset($method[$converted])) {
-            $value = $method[$converted];
-    
-            //kill magic qoutes if there
-            $array = array($value);
-            array_walk_recursive($array, '_fix_magic_quotes_walk');
-            $value = $array[0];
-    
-            $input->setValue($value);
-        }
+      //@todo: what if Filechooser? or an image button with x and y coords?
+      $converted = str_replace(".", "_", $input->getName());
+  
+      if(isset($method[$converted])) {
+        $value = $method[$converted];
+  
+         //kill magic qoutes if there
+        $array = array($value);
+        array_walk_recursive($array, '_fix_magic_quotes_walk');
+        $value = $array[0];
+  
+        $input->setValue($value);
+      }
     }
   }
 

@@ -72,9 +72,9 @@ abstract class Inputfield extends FormElement {
   {
     $valid = true;
     if($this->getValue() !== null) {
-        $valid = (bool)preg_match($this->getMatch(), $this->getValue());
+      $valid = (bool)preg_match($this->getMatch(), $this->getValue());
     } else {
-        $valid = !$this->getRequired();
+      $valid = !$this->getRequired();
     }
     return $valid;
   }
@@ -83,16 +83,16 @@ abstract class Inputfield extends FormElement {
   {
     
     $description = (($description = $this->getDescription()) !== null) ?
-        "\t<p>" . htmlspecialchars($description) . "</p>\n" :
-        "\n";
+      "\t<p>" . htmlspecialchars($description) . "</p>\n" :
+      "\n";
     
     $output = (($label = $this->getLabel()) !== null) ?
-        "<label class=\"input " . htmlspecialchars($this->getType()) . "\">\n" . 
-        "\t<span>" . htmlspecialchars($label) . "</span>\n" . 
-        $description . 
-        "\t" . $inside . "\n" . 
-        "</label>\n" :
-        $inside . "\n";
+      "<label class=\"input " . htmlspecialchars($this->getType()) . "\">\n" . 
+      "\t<span>" . htmlspecialchars($label) . "</span>\n" . 
+      $description . 
+      "\t" . $inside . "\n" . 
+      "</label>\n" :
+      $inside . "\n";
     return $output;
   }
 
