@@ -22,4 +22,8 @@ class Optgroup extends InputfieldGroup implements InputfieldGroupMember {
     $output = "</optgroup>";
     return $output;
   }
+
+  public function displayLabel($inside) {
+    return $inside;
+  }
 }

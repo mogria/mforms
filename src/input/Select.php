@@ -19,6 +19,7 @@ class Select extends InputfieldGroup {
       $output .= $i->display() . "\n";
     }
     $output .= "</select>\n";
+    $output = $this->displayLabel($output);
     return $output;
   }
 

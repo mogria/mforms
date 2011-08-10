@@ -111,6 +111,7 @@ $field->add($option);
 $form->add($field); 
 
 $field = new Select('SELECTA!!!');
+$field->setLabel('void');
 $field->add(new Option('1', 'Pizza'));
 $field->add(new Option('2', 'Pommes'));
 $opt = new Option('3', 'Frittes');

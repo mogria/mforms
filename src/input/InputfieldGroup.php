@@ -43,8 +43,4 @@ abstract class InputfieldGroup extends Inputfield {
     }
     return $val;
   }
-
-  public function displayLabel($inside) {
-    return $inside;
-  }
 }
