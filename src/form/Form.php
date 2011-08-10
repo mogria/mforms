@@ -6,6 +6,8 @@ function _fix_magic_quotes_walk(&$value, $key) {
 }
 
 class Form extends FormElement {
+
+  const SENT_INPUT = "__sent";
   protected $action = "#";
 
   protected $method;
@@ -13,6 +15,8 @@ class Form extends FormElement {
   protected $enctype;
 
   protected $inputfields;
+
+  protected $names;
 
   public function __construct($name = null, $action = '#', $method = 'post') {
     parent::__construct($name);
@@ -24,6 +28,13 @@ class Form extends FormElement {
     $this->attributes[] = 'action';
     $this->attributes[] = 'method';
     $this->attributes[] = 'enctype';
+  }
+
+  public function __construct()
+  {
+    $sent = new Hidden(self::SENT_INPUT, true);
+    $send->setValue("1");
+    $this->add($sent);
   }
 
   final public function getAction()
@@ -57,9 +68,11 @@ class Form extends FormElement {
     $this->enctype = $value;
   }
 
-  public function add($inputfield)
+  public function add(Inputfield $inputfield)
   {
     $this->inputfields[] = $inputfield;
+    end($this->inputfields)
+    $this->names[$inputfield->getName()] = key($this->inputfields);
     if($inputfield instanceof Filechooser) {
       $this->setEnctype('multipart/form-data');
     }
@@ -147,5 +160,13 @@ class Form extends FormElement {
     }
   }
 
-}
+  public function getInputfieldByName($name)
+  {
+    return array_key_exists($name, $this->names) ? $this->inputfields[$this->names[$name]]: null ;
+  }
 
+  public function sent()
+  {
+    return !empty($_POST[self::SENT_INPUT]);
+  }
+}
