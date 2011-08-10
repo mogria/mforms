@@ -18,5 +18,10 @@ class Option extends InputfieldOption {
   public function displayLabel($inside) {
     return $inside;
   }
+  
+  public function getType() {
+    return "option";
+  }
+
 }
 
