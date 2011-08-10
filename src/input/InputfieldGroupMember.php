@@ -2,5 +2,5 @@
 
 interface InputfieldGroupMember {
   public function getSelected();
-  public function setSelected();
+  public function setSelected($value);
 }

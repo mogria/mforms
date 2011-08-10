@@ -7,6 +7,7 @@ require_once $input . 'Inputfield.php';
 
 
 require_once $input . 'InputfieldGroup.php';
+require_once $input . 'InputfieldGroupMember.php';
 require_once $input . 'Textbox.php';
 require_once $input . 'Checkbox.php';
 require_once $input . 'Filechooser.php';

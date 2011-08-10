@@ -2,6 +2,9 @@
 
 
 class Select extends InputfieldGroup {
+
+  protected $multiple;
+
   public function getType() {
     return "select";
   }
@@ -11,12 +14,20 @@ class Select extends InputfieldGroup {
   }
 
   public function display() {
-    $output = "<select" . $this->getAttributeNodes($this->attributes) . ">";
+    $output = "<select" . $this->getAttributeNodes($this->attributes) . ">\n";
     foreach($this->inputs as $i) {
-      $output .= $i->display();
+      $output .= $i->display() . "\n";
     }
-    $output .= "</select>";
-    return $i;
+    $output .= "</select>\n";
+    return $output;
+  }
+
+  public function setMultiple($multiple) {
+    $this->multiple = $multiple;
+  }
+
+  public function getMultiple() {
+    return $this->multiple;
   }
 }
 

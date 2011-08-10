@@ -14,9 +14,5 @@ class Radiogroup extends InputfieldGroup {
   public function getType() {
     return "radiogroup";
   }
-
-  public function displayLabel($inside) {
-    return $inside;
-  }
 }
 

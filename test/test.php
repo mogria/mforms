@@ -110,6 +110,13 @@ $field->add($option);
 //Add Control to Form
 $form->add($field); 
 
+$field = new Select('SELECTA!!!');
+$field->add(new Option('1', 'Pizza'));
+$field->add(new Option('2', 'Pommes'));
+$opt = new Option('3', 'Frittes');
+$opt->setSelected(true);
+$field->add($opt);
+$form->add($field);
 
 $form->catchRequestData();
 //Display the Form
