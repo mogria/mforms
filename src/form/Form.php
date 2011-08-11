@@ -14,9 +14,11 @@ class Form extends FormElement {
 
   protected $enctype;
 
-  protected $inputfields;
+  protected $inputfields = Array();
 
   protected $names;
+
+  protected $checker = Array();
 
   protected function addAttributes() {
     $this->attributes[] = 'action';
@@ -123,14 +125,20 @@ class Form extends FormElement {
 
   public function isValid()
   {
-    $valid = true;
+    $valid1 = true;
     foreach($this->inputfields as $input) {
       if(!$input->isValid()) {
-        $valid = false;
+        $valid1 = false;
       }
     }
     
-    return $valid;
+    $valid2 = true;
+    foreach($this->checker as $checker) {
+      if(!$checker->check($this)) {
+        $valid2 = false;
+      }
+    }
+    return $valid1 && $valid2;
   }
 
   public function catchRequestData()
@@ -164,5 +172,17 @@ class Form extends FormElement {
   public function sent()
   {
     return !empty($_POST[self::SENT_INPUT]);
+  }
+
+  public function addChecker(Checker $c) {
+    $this->checker[] = $c;
+    return true;
+  }
+
+  public function removeChecker(Checker $c) {
+    if($key = array_search($c, $this->checker, true)) {
+      unset($this->checker[$key]);
+    }
+    return (bool)$key;
   }
 }
