@@ -13,13 +13,10 @@ class EqualChecker implements Checker{
     for($i = 0; $i < $anz && $valid; $i++) {
       $val1 = $form->getInputfieldByName($this->fields[$i])->getValue();
       $val2 = $form->getInputfieldByName($this->fields[$i + 1])->getValue();
-      echo "VERGLEICH:\n";
-      echo "$val1 !== $val2 \n";
       if($val1 !== $val2 ) {
         $valid = false;
       }
     }
-    echo "RETURNING: " . (($valid) ? "true" : "false") . "\n";
     return $valid;
   }
 }
