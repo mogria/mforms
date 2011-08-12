@@ -11,6 +11,6 @@ class InListChecker implements Checker {
   }
 
   public function check(Form $form) {
-    return in_array($form->getInputfieldByName($this->field)->getValue, $this->list);
+    return in_array($form->getInputfieldByName($this->field)->getValue(), $this->list);
   }
 }
