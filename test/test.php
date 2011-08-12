@@ -122,6 +122,7 @@ $form->add($field);
 $form->catchRequestData();
 $form->addChecker(new EqualChecker(array('pw', 'name')));
 $form->addChecker(new InListChecker('name', array('voidvoid', 'rayray')));
+$form->addChecker(new NotInListChecker('name', array('voidvoidi')));
 //Display the Form
 echo $form->display();
 

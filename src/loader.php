@@ -26,4 +26,5 @@ $checker = $prefix . 'checker/';
 require_once $checker . 'Checker.php';
 require_once $checker . 'EqualChecker.php';
 require_once $checker . 'InListChecker.php';
+require_once $checker . 'NotInListChecker.php';
 require_once $prefix . 'form/Form.php';
