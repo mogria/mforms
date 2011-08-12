@@ -33,7 +33,7 @@ $field->setLabel('name');
 $field->setValue('WayneWithAVeryLongName');
 $field->setClass("tbox");
 $field->setSize(40);
-$field->setMaxlength(10);
+$field->setMaxlength(40);
 
 //Add Control to Form
 $form->add($field);
@@ -120,6 +120,7 @@ $field->add($opt);
 $form->add($field);
 
 $form->catchRequestData();
+$form->addChecker(new EqualChecker(array('pw', 'name')));
 //Display the Form
 echo $form->display();
 

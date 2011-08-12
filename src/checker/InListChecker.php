@@ -10,7 +10,7 @@ class InListChecker implements Checker {
     $this->list = $list;
   }
 
-  public function check($form) {
+  public function check(Form $form) {
     return in_array($form->getInputfieldByName($this->field)->getValue, $this->list);
   }
 }

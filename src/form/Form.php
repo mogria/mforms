@@ -138,6 +138,8 @@ class Form extends FormElement {
         $valid2 = false;
       }
     }
+    echo "VALID1: " . ($valid1 ? "true" : "false") . "\n";
+    echo "VALID2: " . ($valid2 ? "true" : "false") . "\n";
     return $valid1 && $valid2;
   }
 

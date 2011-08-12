@@ -22,4 +22,8 @@ require_once $input . 'Reset.php';
 require_once $input . 'Select.php';
 require_once $input . 'Submit.php';
 require_once $input . 'Textarea.php';
+$checker = $prefix . 'checker/';
+require_once $checker . 'Checker.php';
+require_once $checker . 'EqualChecker.php';
+require_once $checker . 'InListChecker.php';
 require_once $prefix . 'form/Form.php';
