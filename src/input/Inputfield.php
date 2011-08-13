@@ -10,6 +10,10 @@ abstract class Inputfield extends FormElement {
 
   protected $match;
 
+  protected $errormsg;
+
+  protected $valid = true;
+
   public function __construct($name, $required = false, $match = "/.*/")
   {
     parent::__construct($name);
@@ -76,6 +80,7 @@ abstract class Inputfield extends FormElement {
     } else {
       $valid = !$this->getRequired();
     }
+    $this->valid = $valid;
     return $valid;
   }
 
@@ -91,6 +96,7 @@ abstract class Inputfield extends FormElement {
       "\t<span>" . htmlspecialchars($label) . "</span>\n" . 
       $description . 
       "\t" . $inside . "\n" . 
+      (!$this->valid ? '<p class="errormsg">' . $this->getErrorMsg() . '</p>' : "") .
       "</label>\n" :
       $inside . "\n";
     return $output;
@@ -98,5 +104,13 @@ abstract class Inputfield extends FormElement {
 
   public abstract function getType()
   ;
+
+  public function getErrorMsg() {
+    return $this->errormsg;
+  }
+
+  public function setErrorMsg($msg) {
+    $this->errormsg = $msg;
+  }
 }
 
