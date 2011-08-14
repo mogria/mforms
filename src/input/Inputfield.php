@@ -75,7 +75,7 @@ abstract class Inputfield extends FormElement {
   public function isValid()
   {
     $valid = true;
-    if($this->getValue() !== null) {
+    if($this->getValue() !== null && $this->getValue() !== "") {
       $valid = (bool)preg_match($this->getMatch(), $this->getValue());
     } else {
       $valid = !$this->getRequired();
