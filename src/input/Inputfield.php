@@ -10,7 +10,7 @@ abstract class Inputfield extends FormElement {
 
   protected $match;
 
-  protected $errormsg;
+  protected $errormsgs = Array();
 
   protected $valid = true;
 
@@ -75,7 +75,7 @@ abstract class Inputfield extends FormElement {
   public function isValid()
   {
     $valid = true;
-    if($this->getValue() !== null) {
+    if($this->getValue() !== null && $this->getValue() !== "") {
       $valid = (bool)preg_match($this->getMatch(), $this->getValue());
     } else {
       $valid = !$this->getRequired();
@@ -96,7 +96,7 @@ abstract class Inputfield extends FormElement {
       "\t<span>" . htmlspecialchars($label) . "</span>\n" . 
       $description . 
       "\t" . $inside . "\n" . 
-      (!$this->valid ? '<p class="errormsg">' . $this->getErrorMsg() . '</p>' : "") .
+      (!$this->valid ? '<p class="errormsg">' . implode('</p>' . "\n" . '<p class="errormsg">', $this->getErrorMsgs()) . '</p>' : "") . "\n" .
       "</label>\n" :
       $inside . "\n";
     return $output;
@@ -105,12 +105,12 @@ abstract class Inputfield extends FormElement {
   public abstract function getType()
   ;
 
-  public function getErrorMsg() {
-    return $this->errormsg;
+  public function getErrorMsgs() {
+    return $this->errormsgs;
   }
 
-  public function setErrorMsg($msg) {
-    $this->errormsg = $msg;
+  public function addErrorMsg($msg) {
+    $this->errormsgs[] = $msg;
   }
 }
 
