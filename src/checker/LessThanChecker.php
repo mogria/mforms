@@ -1,8 +1,7 @@
 <?php
 
-class LessThanChecker extends MoreThanChecker {
-  public function __construct($field, $field2) {
-    $this->field = $field2;
-    $this->field2 = $field;
+class LessThanChecker extends CompareChecker {
+  public function compare($field1, $field2) {
+    return (int)$field1 < (int)$field;
   }
 }
