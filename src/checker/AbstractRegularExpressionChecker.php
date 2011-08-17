@@ -10,6 +10,6 @@ abstract class AbstractRegularExpressionChecker implements Checker {
 
   public function check(Form $form) {
     $this->field = getInputfieldByName($form);
-    return (bool)preg_match($this->regular_expression, $this->field->getValue())
+    return (bool)preg_match($this->regular_expression, $this->field->getValue());
   }
 }

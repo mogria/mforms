@@ -1,6 +1,6 @@
 <?php
 
-class NotChecker extends Checker {
+class NotChecker implements Checker {
   protected $checker;
   public function __construct(Checker $checker) {
     $this->checker = $checker;

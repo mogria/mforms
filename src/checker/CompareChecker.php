@@ -13,7 +13,7 @@ abstract class CompareChecker implements Checker {
     for($i = 0; $i < $anz && $valid; $i++) {
       $val1 = self::getValueOfString($this->fields[$i], $form);
       $val2 = self::getValueOfString($this->fields[$i + 1], $form);
-      if(!$this->compare($val1, $val2) {
+      if(!$this->compare($val1, $val2)) {
         $valid = false;
       }
     }
