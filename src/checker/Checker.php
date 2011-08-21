@@ -5,6 +5,16 @@ abstract class Checker {
   protected $errmsg = null;
   protected $fields = Array();
 
+  protected $form;
+
+  public function getForm() {
+    return $this->form;
+  }
+
+  public function setForm($form) {
+    $this->form = $form;
+  }
+
   public function getErrmsg() {
     return $this->errmsg;
   }
@@ -13,8 +23,12 @@ abstract class Checker {
     $this->errmsg = $value;
   }
 
+  protected functino getInput( $form, $field) {
+    return $this->getForm()->getInputfieldByName($file);
+  }
+
   protected function getValueOf(Form $form, $field) {
-    return $form->getInputfieldByName($file)->getValue();
+    return $this->getInput($form, $field)->getValue();
   }
 
   public function check(Form $form) {
@@ -22,19 +36,23 @@ abstract class Checker {
     foreach($this->fields as $field) {
       //If it is an Inputfield, get the value of it
       if($field instanceof Inputfield) {
-        $value = $this->getValueOf($form Form);
+        $value = $this->getValueOf($this->getForm Form);
       } else {
         $value = $field;
       }
       //check the value
       if(($ret = $this->checkValue($value))) {
         //Set Errmsg on failure
-        if(($msg = $this->getErrmsg()) != null) {
-          $this->addErrmsg($msg);
-        }
+        $this->triggerErrorMsg($this->getInput($field));
       }
     }
     return $ret;
+  }
+
+  public function triggerErrorMsg(Inputfield $input) {
+    if(($msg = $this->getErrmsg()) != null) {
+      $input->addErrmsg($msg);
+    }
   }
 
   abstract public function checkValue($value);

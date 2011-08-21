@@ -134,7 +134,8 @@ class Form extends FormElement {
     
     $valid2 = true;
     foreach($this->checker as $checker) {
-      if(!$checker->check($this)) {
+      $checker->setForm($this);
+      if(!$checker->check()) {
         $valid2 = false;
       }
     }

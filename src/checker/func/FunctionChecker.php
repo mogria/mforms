@@ -1,23 +1,17 @@
 <?php
 
-class FunctionChecker implements Checker {
-  protected $fields;
+class FunctionChecker extends Checker {
   protected $callback;
+  protected $params;
   public function __construct(Array $fields, $callback, Array $params = Array(), $field_param_num = 1) {
-    $this->fields = $fields;
+    parent::__construct($fields);
     $this->callback = $callback;
+    $this->params = $params;
     $this->field_param_num = $field_param_num;
   }
 
-  public function check(Form $form) {
-    $value = $form->getInputfieldByName($this->field);
+  public function checkValue($value) {
     $params[$this->field_param_num - 1] = $value;
-    $valid = true;
-    foreach($fields as $field) {
-      if(!user_func_call_array($callback, $params)) {
-        $valid = false;
-      }
-    }
-    return $valid;
+    return user_func_call_array($callback, $params);
   }
 }

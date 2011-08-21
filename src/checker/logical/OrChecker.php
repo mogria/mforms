@@ -1,7 +1,7 @@
 <?php
 
-class OrChecker extends AndChecker {
-  public function check(Form $form) {
+class OrChecker extends LogicalChecker {
+  public function check() {
     $valid = false;
     foreach($this->checkers as $checker) {
       if($checker->check()) {

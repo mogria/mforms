@@ -1,16 +1,15 @@
 <?php
 
-class InListChecker implements Checker {
+class InListChecker extends Checker {
 
   protected $list;
-  protected $field;
 
   public function __construct($field, Array $list) {
-    $this->field = $field;
+    parent::__construct($field);
     $this->list = $list;
   }
 
-  public function check(Form $form) {
-    return in_array($form->getInputfieldByName($this->field)->getValue(), $this->list);
+  public function checkValue($value) {
+    return in_array($value, $this->list);
   }
 }
