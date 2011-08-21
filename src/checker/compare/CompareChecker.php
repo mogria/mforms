@@ -1,31 +1,22 @@
 <?php
 
-abstract class CompareChecker implements Checker {
+abstract class CompareChecker extends Checker {
   protected $fields;
 
-  public function __construct(Array $fields) {
-    $this->fields = array_values($fields);
-  }
-
-  public function check(Form $form) {
+  public function check() {
     $anz = count($this->fields) - 1;
     $valid = true;
     for($i = 0; $i < $anz && $valid; $i++) {
-      $val1 = self::getValueOfString($this->fields[$i], $form);
-      $val2 = self::getValueOfString($this->fields[$i + 1], $form);
-      if(!$this->compare($val1, $val2)) {
+      $val1 = $this->getValueOf($form, $this->fields[$i]);
+      $val2 = $this->getValueOf($form, $this->fields[$i] );
+      if(!$this->checkValue($val1, $val2)) {
         $valid = false;
+        $this->triggerErrorMsg($this->fields[$i])
+        $this->triggerErrorMsg($this->fields[$i + 1])
       }
     }
     return $valid;
   }
 
-  protected static function getValueOfString($field, Form $form) {
-    if(is_string($field)) {
-      $field = $form->getInputfieldByName($field);
-    }
-    return $field;
-  }
-
-  abstract public function compare($field1, $field2);
+  abstract public function checkValue($val1, $val2);
 }

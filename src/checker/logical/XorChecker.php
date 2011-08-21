@@ -2,7 +2,7 @@
 
 class XorChecker extends AndChecker {
 
-  public function check(Form $form) {
+  public function check() {
     $valid = false;
     foreach($this->checkers  as $checker) {
       $valid = $this->checker->check() != $valid;

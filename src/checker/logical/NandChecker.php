@@ -1,12 +1,7 @@
 <?php
 
-class NandChecker implements AndChecker {
-  protected $checker;
-  public function __construct() {
-    $this->checker = new NotChecker(new AndChecker(is_array(func_get_arg(0)) ? func_get_args(0) : func_get_args()));
-  }
-
-  public function check(Form $form) {
-    $this->checker->check();
+class NandChecker extends LogicalChecker {
+  public function checkValue($checker1, $checker2) {
+    return !($checker1->check($this->getForm()) && $checker2->check($this->getForm());
   }
 }
