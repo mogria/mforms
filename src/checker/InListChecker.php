@@ -2,11 +2,8 @@
 
 class InListChecker implements Checker {
 
-  protected $list;
-  protected $field;
-
   public function __construct($field, Array $list) {
-    $this->field = $field;
+    partent::__construct($field);
     $this->list = $list;
   }
 

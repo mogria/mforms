@@ -186,4 +186,8 @@ class Form extends FormElement {
     }
     return (bool)$key;
   }
+
+  public function __get($key) {
+    return $this->getInputfieldByName($key);
+  }
 }

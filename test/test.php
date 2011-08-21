@@ -50,7 +50,7 @@ echo "field {$field->getName()} is " . ($field->isValid() ? "" : "not ") . "vali
 $form->add($field);
 
 //Create a Textarea Control
-$field = new Textarea('name');
+$field = new Textarea('tname');
 
 //Set some properties
 $field->setLabel('area');
@@ -120,7 +120,7 @@ $field->add($opt);
 $form->add($field);
 
 $form->catchRequestData();
-//$form->addChecker(new InListChecker('name', array('voidvoid', 'rayray')));
+$form->addChecker(new InListChecker($form->name, array('voidvoid', 'rayray')));
 //Display the Form
 echo $form->display();
 

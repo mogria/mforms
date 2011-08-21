@@ -10,6 +10,9 @@ class InListChecker extends Checker {
   }
 
   public function checkValue($value) {
+    echo __METHOD__ . " : ";
+    var_dump($value);
+    //print_r(debug_backtrace());
     return in_array($value, $this->list);
   }
 }

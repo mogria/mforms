@@ -1,22 +1,8 @@
 <?php
 
-class EqualChecker implements Checker{
+class EqualChecker implements CompareChecker{
   
-  protected $fields;
-  public function __construct(Array $fields) {
-    $this->fields = array_values($fields);
-  }
-
-  public function check(Form $form) {
-    $anz = count($this->fields) - 1;
-    $valid = true;
-    for($i = 0; $i < $anz && $valid; $i++) {
-      $val1 = $form->getInputfieldByName($this->fields[$i])->getValue();
-      $val2 = $form->getInputfieldByName($this->fields[$i + 1])->getValue();
-      if($val1 !== $val2 ) {
-        $valid = false;
-      }
-    }
-    return $valid;
+  public function checkValue($val1, $val2) {
+    return $val1 == $val2;
   }
 }
