@@ -263,7 +263,7 @@ function SearchBox(name, resultsPath, inFrame, label)
         }
         else
         {
-          node.innerHTML='&nbsp;';
+          node.innerHTML='&#160;';
         }
         j++;
       }
