@@ -23,7 +23,7 @@ abstract class Checker {
     $this->errmsg = $value;
   }
 
-  protected functino getInput( $form, $field) {
+  protected function getInput($form, $field) {
     return $this->getForm()->getInputfieldByName($file);
   }
 
@@ -31,12 +31,12 @@ abstract class Checker {
     return $this->getInput($form, $field)->getValue();
   }
 
-  public function check(Form $form) {
+  public function check() {
     //go through each
     foreach($this->fields as $field) {
       //If it is an Inputfield, get the value of it
       if($field instanceof Inputfield) {
-        $value = $this->getValueOf($this->getForm Form);
+        $value = $this->getValueOf($this->getForm());
       } else {
         $value = $field;
       }
