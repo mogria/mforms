@@ -1,7 +1,7 @@
 <?php
 
 class NotInListChecker extends InListChecker{
-  public function checkValue($value) {
-    return !parent::checkValue($value);
+  public function check(Form $form) {
+    return !parent::check($form);
   }
 }
