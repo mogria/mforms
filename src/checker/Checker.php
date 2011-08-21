@@ -26,16 +26,18 @@ abstract class Checker {
   public function check() {
     //go through each
     foreach($this->fields as $field) {
-      //If it is an Inputfield, get the value of it
-      if($field instanceof Inputfield) {
-        $value = $field->getValue();
-      } else {
-        $value = $field;
-      }
       //check the value
-      if(($ret = $this->checkValue($value))) {
+
+      $value = ($f = $field instanceof Inputfield) ?
+      $field->getValue() : 
+      $field;
+      if (
+            ($ret = $this->checkValue($value))
+          && 
+            $f
+          ) {
         //Set Errmsg on failure
-        $this->triggerErrorMsg($this->getInput($field));
+        $this->triggerErrorMsg($field);
       }
     }
     return $ret;
