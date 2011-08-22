@@ -120,7 +120,7 @@ $field->add($opt);
 $form->add($field);
 
 $form->catchRequestData();
-$form->addChecker(new InListChecker($form->name, array('voidvoid', 'rayray')));
+$form->addChecker(new NotInListChecker($form->name, array('voidvoid', 'rayray')));
 //Display the Form
 echo $form->display();
 
