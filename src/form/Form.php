@@ -175,12 +175,16 @@ class Form extends FormElement {
     return !empty($_POST[self::SENT_INPUT]);
   }
 
-  public function addChecker(Checker $c) {
-    $this->checker[] = $c;
-    return true;
+  public function addChecker($c) {
+    if($c instanceof Checker || $c instanceof ChainChecker) {
+      $this->checker[] = $c;
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  public function removeChecker(Checker $c) {
+  public function removeChecker($c) {
     if($key = array_search($c, $this->checker, true)) {
       unset($this->checker[$key]);
     }
