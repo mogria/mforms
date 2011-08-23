@@ -8,6 +8,6 @@ class InListChecker extends Checker {
   }
 
   public function checkValue($value) {
-    return in_array($field, $this->list);
+    return in_array($value, $this->list);
   }
 }
