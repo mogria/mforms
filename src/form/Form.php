@@ -7,7 +7,7 @@ function _fix_magic_quotes_walk(&$value, $key) {
 
 class Form extends FormElement {
 
-  const SENT_INPUT = "__sent";
+  const SENT_INPUT = "__mforms_sent";
   protected $action = "#";
 
   protected $method;
@@ -20,12 +20,25 @@ class Form extends FormElement {
 
   protected $checker = Array();
 
+  /**
+   * Adds some Attributes to the base attributes defined in the FormElement class
+   *
+   * @access protected
+   */
   protected function addAttributes() {
     $this->attributes[] = 'action';
     $this->attributes[] = 'method';
     $this->attributes[] = 'enctype';
   }
 
+  /**
+   * constructor
+   *
+   * @access public
+   * @param name - the name of the form (default NULL)
+   * @param action - the action of the form (default "#")
+   * @param method - the method of the form ("get" or "post" default "post")
+   */
   public function __construct($name = null, $action = '#', $method = 'post') {
     parent::__construct($name);
     $this->setAction($action);
@@ -35,39 +48,73 @@ class Form extends FormElement {
     $this->add($sent);
   }
 
-  final public function getAction()
-  {
+  /**
+   * Getter for property action
+   *
+   * @access public
+   * @return string - the current action of the form
+   */
+  public function getAction() {
     return $this->action;
 
   }
 
-  public function setAction($value)
-  {
+  /**
+   * Setter for property action
+   *
+   * @access public
+   * @param value - the action of the form
+   */
+  public function setAction($value) {
     $this->action = $value;
   }
 
-  final public function getMethod()
-  {
+  /**
+   * Getter for property action
+   *
+   * @access public
+   * @return the action of the form
+   */
+  public function getMethod() {
     return $this->method;
   }
 
-  public function setMethod($value)
-  {
+  /**
+   * Setter for property method
+   *
+   * @access public
+   * @param value - the action of the form
+   */
+  public function setMethod($value) {
     $this->method = $value;
   }
 
-  public function getEnctype()
-  {
+  /**
+   * Getter for property enctype
+   *
+   * @access public
+   * @return the action of the form
+   */
+  public function getEnctype() {
     return $this->enctype;
   }
-
-  public function setEnctype($value)
-  {
+ 
+  /**
+   * Setter for property enctype
+   *
+   * @access public
+   * @param value - the new enctype of the form
+   */
+  public function setEnctype($value) {
     $this->enctype = $value;
   }
 
-  public function add(Inputfield $inputfield)
-  {
+  /**
+   * Add an Inputfield to the form
+   *
+   * @param Inputfield - an Inputfield
+   */
+  public function add(Inputfield $inputfield) {
     $this->inputfields[] = $inputfield;
     end($this->inputfields);
     $this->names[$inputfield->getName()] = key($this->inputfields);
@@ -76,8 +123,12 @@ class Form extends FormElement {
     }
   }
 
-  public function remove($inputfield)
-  {
+  /**
+   * Remove an Inputfield from the form
+   *
+   * @param Inputfield - an Inputfield
+   */
+  public function remove($inputfield) {
     //Iterate each and search for eqal objects
     foreach($this->inputfields as $key => $input) {
       if($input === $inputfield) {
@@ -90,8 +141,12 @@ class Form extends FormElement {
     $this->inputfields = array_values($this->inputfields);
   }
 
-  public function display()
-  {
+  /**
+   * display's the form and all the Inputfield's added
+   *
+   * @return HTML of the form
+   */
+  public function display() {
     $output = "";
     if($this->inputfields != null) {
       foreach($this->inputfields as $input) {
@@ -107,8 +162,13 @@ class Form extends FormElement {
     return $output;
   }
 
-  public function displayLabel($inside)
-  {
+  /**
+   * display's the label of the form and the given content
+   *
+   * @param inside - what should be displayed inside the label
+   * @return HTML of the label of the form
+   */
+  public function displayLabel($inside) {
     $description = (($description = $this->getDescription()) !== null) ?
       "\t\t<p>" . htmlspecialchars($description) . "</p>\n" :
       "\n";
@@ -123,8 +183,12 @@ class Form extends FormElement {
     return $output;
   }
 
-  public function isValid()
-  {
+  /**
+   * Checks if the entered Values in the Form are valid
+   *
+   * @return boolean sigifiing if form is filled with valid data
+   */
+  public function isValid() {
     $valid1 = true;
     foreach($this->inputfields as $input) {
       if(!$input->isValid()) {
@@ -142,8 +206,11 @@ class Form extends FormElement {
     return $valid1 && $valid2;
   }
 
-  public function catchRequestData()
-  {
+  /**
+   * Get's all the data in $_GET or $_POST and fills the data into the corresponding Inpufield added to the form
+   *
+   */
+  public function catchRequestData() {
     $method = &$_GET;
     if(strtoupper($this->getMethod()) == "POST") {
       $method = &$_POST;
@@ -165,16 +232,30 @@ class Form extends FormElement {
     }
   }
 
-  public function getInputfieldByName($name)
-  {
+  /**
+   * Returns the Inputfield which has given Name
+   *
+   * @param name - name of the Inputfield you want
+   * @return Inputfield with the given name
+   */
+  public function getInputfieldByName($name) {
     return array_key_exists($name, $this->names) ? $this->inputfields[$this->names[$name]]: null ;
   }
-
-  public function sent()
-  {
+  
+  /**
+   * Check's if the user sent the form
+   *
+   * @return boolean signifiing if the Form has been sent
+   */
+  public function sent() {
     return !empty($_POST[self::SENT_INPUT]);
   }
 
+  /**
+   * Adds a Checker to the Form
+   *
+   * @param c - Checker
+   */
   public function addChecker($c) {
     if($c instanceof Checker || $c instanceof ChainChecker) {
       $this->checker[] = $c;
@@ -184,6 +265,11 @@ class Form extends FormElement {
     }
   }
 
+  /**
+   * Removes a Checker from the Form
+   *
+   * @param c - Checker
+   */
   public function removeChecker($c) {
     if($key = array_search($c, $this->checker, true)) {
       unset($this->checker[$key]);
