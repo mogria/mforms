@@ -64,6 +64,8 @@ This is the complete list of members for <a class="el" href="classTextbox.html">
   <tr bgcolor="#f0f0f0"><td><b>$name</b> (defined in <a class="el" href="classFormElement.html">FormElement</a>)</td><td><a class="el" href="classFormElement.html">FormElement</a></td><td><code> [protected]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>$required</b> (defined in <a class="el" href="classInputfield.html">Inputfield</a>)</td><td><a class="el" href="classInputfield.html">Inputfield</a></td><td><code> [protected]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>$size</b> (defined in <a class="el" href="classTextbox.html">Textbox</a>)</td><td><a class="el" href="classTextbox.html">Textbox</a></td><td><code> [protected]</code></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>$template</b> (defined in <a class="el" href="classFormElement.html">FormElement</a>)</td><td><a class="el" href="classFormElement.html">FormElement</a></td><td><code> [protected]</code></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>$template_loader</b> (defined in <a class="el" href="classFormElement.html">FormElement</a>)</td><td><a class="el" href="classFormElement.html">FormElement</a></td><td><code> [protected, static]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>$valid</b> (defined in <a class="el" href="classInputfield.html">Inputfield</a>)</td><td><a class="el" href="classInputfield.html">Inputfield</a></td><td><code> [protected]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>$value</b> (defined in <a class="el" href="classInputfield.html">Inputfield</a>)</td><td><a class="el" href="classInputfield.html">Inputfield</a></td><td><code> [protected]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>__construct</b>($name, $required=false, $match=&quot;/.*/&quot;) (defined in <a class="el" href="classInputfield.html">Inputfield</a>)</td><td><a class="el" href="classInputfield.html">Inputfield</a></td><td></td></tr>
@@ -85,6 +87,8 @@ This is the complete list of members for <a class="el" href="classTextbox.html">
   <tr bgcolor="#f0f0f0"><td><b>getName</b>() (defined in <a class="el" href="classFormElement.html">FormElement</a>)</td><td><a class="el" href="classFormElement.html">FormElement</a></td><td></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>getRequired</b>() (defined in <a class="el" href="classInputfield.html">Inputfield</a>)</td><td><a class="el" href="classInputfield.html">Inputfield</a></td><td></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>getSize</b>() (defined in <a class="el" href="classTextbox.html">Textbox</a>)</td><td><a class="el" href="classTextbox.html">Textbox</a></td><td></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>getTemplate</b>() (defined in <a class="el" href="classFormElement.html">FormElement</a>)</td><td><a class="el" href="classFormElement.html">FormElement</a></td><td></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>getTemplateLoader</b>() (defined in <a class="el" href="classFormElement.html">FormElement</a>)</td><td><a class="el" href="classFormElement.html">FormElement</a></td><td><code> [static]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>getType</b>() (defined in <a class="el" href="classTextbox.html">Textbox</a>)</td><td><a class="el" href="classTextbox.html">Textbox</a></td><td></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>getValue</b>() (defined in <a class="el" href="classInputfield.html">Inputfield</a>)</td><td><a class="el" href="classInputfield.html">Inputfield</a></td><td></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>isValid</b>() (defined in <a class="el" href="classTextbox.html">Textbox</a>)</td><td><a class="el" href="classTextbox.html">Textbox</a></td><td></td></tr>
@@ -98,6 +102,8 @@ This is the complete list of members for <a class="el" href="classTextbox.html">
   <tr bgcolor="#f0f0f0"><td><b>setName</b>($value) (defined in <a class="el" href="classFormElement.html">FormElement</a>)</td><td><a class="el" href="classFormElement.html">FormElement</a></td><td></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>setRequired</b>($value) (defined in <a class="el" href="classInputfield.html">Inputfield</a>)</td><td><a class="el" href="classInputfield.html">Inputfield</a></td><td></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>setSize</b>($value) (defined in <a class="el" href="classTextbox.html">Textbox</a>)</td><td><a class="el" href="classTextbox.html">Textbox</a></td><td></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>setTemplate</b>($value) (defined in <a class="el" href="classFormElement.html">FormElement</a>)</td><td><a class="el" href="classFormElement.html">FormElement</a></td><td></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>setTemplateLoader</b>(TemplateLoaderInterface $value) (defined in <a class="el" href="classFormElement.html">FormElement</a>)</td><td><a class="el" href="classFormElement.html">FormElement</a></td><td><code> [static]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>setValue</b>($new_value) (defined in <a class="el" href="classInputfield.html">Inputfield</a>)</td><td><a class="el" href="classInputfield.html">Inputfield</a></td><td></td></tr>
 </table></div>
 <!--- window showing the filter options -->
@@ -114,7 +120,7 @@ This is the complete list of members for <a class="el" href="classTextbox.html">
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Aug 24 2011 16:50:39 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Aug 25 2011 18:00:31 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

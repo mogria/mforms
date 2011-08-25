@@ -49,8 +49,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a>  </div>
   <div class="headertitle">
 <h1>FormElement Class Reference</h1>  </div>
 </div>
@@ -82,6 +84,10 @@ Inheritance diagram for FormElement:</div>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a846820911f65933e11db51184d20c2e6"></a><!-- doxytag: member="FormElement::__construct" ref="a846820911f65933e11db51184d20c2e6" args="($name)" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>__construct</b> ($name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a348045e84f7c762c7606c31e8ffce964"></a><!-- doxytag: member="FormElement::getTemplate" ref="a348045e84f7c762c7606c31e8ffce964" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>getTemplate</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35cd1e0119eba212774517afd27695ed"></a><!-- doxytag: member="FormElement::setTemplate" ref="a35cd1e0119eba212774517afd27695ed" args="($value)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>setTemplate</b> ($value)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f1908746ab287fd6937fb6b3b4016a8"></a><!-- doxytag: member="FormElement::getName" ref="a0f1908746ab287fd6937fb6b3b4016a8" args="()" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>getName</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d5cda7a2f2c213cf6052d208414e247"></a><!-- doxytag: member="FormElement::setName" ref="a7d5cda7a2f2c213cf6052d208414e247" args="($value)" -->
@@ -112,6 +118,12 @@ Public Member Functions</h2></td></tr>
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>getAttributeNodes</b> ($attributes)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afab08affd200fa68706d824eac749e40"></a><!-- doxytag: member="FormElement::__toString" ref="afab08affd200fa68706d824eac749e40" args="()" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>__toString</b> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e3dc2375e1a88dfc8e78709e375f03d"></a><!-- doxytag: member="FormElement::getTemplateLoader" ref="a5e3dc2375e1a88dfc8e78709e375f03d" args="()" -->
+static&nbsp;</td><td class="memItemRight" valign="bottom"><b>getTemplateLoader</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90bc5290ce6f72e887889d418276b851"></a><!-- doxytag: member="FormElement::setTemplateLoader" ref="a90bc5290ce6f72e887889d418276b851" args="(TemplateLoaderInterface $value)" -->
+static&nbsp;</td><td class="memItemRight" valign="bottom"><b>setTemplateLoader</b> (<a class="el" href="interfaceTemplateLoaderInterface.html">TemplateLoaderInterface</a> $value)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a717105e8737f0b3d4c1a3758e47dcce2"></a><!-- doxytag: member="FormElement::addAttributes" ref="a717105e8737f0b3d4c1a3758e47dcce2" args="()" -->
@@ -130,6 +142,12 @@ Protected Attributes</h2></td></tr>
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>$description</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7b080b5c3381854a97d0462ee807121"></a><!-- doxytag: member="FormElement::$attributes" ref="ac7b080b5c3381854a97d0462ee807121" args="" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>$attributes</b> = Array('name', 'id', 'class')</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cc525bfa9c58b395eff0e4e74764786"></a><!-- doxytag: member="FormElement::$template" ref="a6cc525bfa9c58b395eff0e4e74764786" args="" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>$template</b> = null</td></tr>
+<tr><td colspan="2"><h2><a name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a199ac97d01dc8056232f4f4341bf5aba"></a><!-- doxytag: member="FormElement::$template_loader" ref="a199ac97d01dc8056232f4f4341bf5aba" args="" -->
+static&nbsp;</td><td class="memItemRight" valign="bottom"><b>$template_loader</b></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
@@ -152,7 +170,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Aug 24 2011 16:50:37 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Aug 25 2011 18:00:30 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

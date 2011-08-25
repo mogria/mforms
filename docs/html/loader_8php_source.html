@@ -87,7 +87,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039 mformsAutoloader::init();
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041 spl_autoload_register(Array(<span class="stringliteral">&#39;mformsAutoloader&#39;</span>, <span class="stringliteral">&#39;load&#39;</span>));
+<a name="l00041"></a>00041 FormElement::setTemplateLoader(<span class="keyword">new</span> <a class="code" href="classTemplateLoader.html">TemplateLoader</a>(<span class="stringliteral">&quot;default&quot;</span>));
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 spl_autoload_register(Array(<span class="stringliteral">&#39;mformsAutoloader&#39;</span>, <span class="stringliteral">&#39;load&#39;</span>));
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -104,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Aug 24 2011 16:50:36 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Aug 25 2011 18:00:58 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
