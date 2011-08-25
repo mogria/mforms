@@ -38,4 +38,6 @@ class mformsAutoloader {
 
 mformsAutoloader::init();
 
+FormElement::setTemplateLoader(new TemplateLoader("default"));
+
 spl_autoload_register(Array('mformsAutoloader', 'load'));

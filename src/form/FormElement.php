@@ -2,6 +2,17 @@
 
 
 abstract class FormElement {
+  
+  protected static $template_loader;
+
+  public static function getTemplateLoader() {
+    return $this->template_loader;
+  }
+
+  public static function setTemplateLoader(TemplateLoaderInterface $value) {
+    $this->template_loader = $value;
+  }
+
   protected $id;
 
   protected $class;
@@ -14,10 +25,20 @@ abstract class FormElement {
 
   protected $attributes = Array('name', 'id', 'class');
 
+  protected $template = null;
+
   public function __construct($name)
   {
     $this->setName($name);
     $this->addAttributes();
+  }
+
+  public function getTemplate() {
+    return ($this->template === null) ? self::DEFAULT_TEMPLATE : $this->template;
+  }
+
+  public function setTemplate($value) {
+    $this->template = $value;
   }
 
   abstract protected function addAttributes();
@@ -74,8 +95,10 @@ abstract class FormElement {
 
   public abstract function isValid()
   ;
+
   public abstract function display()
   ;
+
   public abstract function displayLabel($inside)
   ;
   public function getAttributeNodes($attributes)
