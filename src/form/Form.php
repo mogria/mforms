@@ -5,7 +5,7 @@ function _fix_magic_quotes_walk(&$value, $key) {
   $value = get_magic_quotes_gpc() ? stripslashes($value) : $value;
 }
 
-class Form extends FormElement {
+class Form extends FormElement implements Iterator {
 
   const SENT_INPUT = "__mforms_sent";
   protected $action = "#";
@@ -19,6 +19,32 @@ class Form extends FormElement {
   protected $names;
 
   protected $checker = Array();
+
+  protected $pos;
+
+  public function next() {
+    $this->pos++;
+  }
+
+  public function prev() {
+    $this->pos--;
+  }
+
+  public function rewind() {
+    $this->pos = 0;
+  }
+
+  public function valid() {
+    return $this->pos < count($this->names);
+  }
+
+  public function current() {
+    return $this->{$this->inputfields[$this->names[$this->pos]}
+  }
+
+  public function key() {
+    return $this->pos;
+  }
 
   /**
    * Adds some Attributes to the base attributes defined in the FormElement class
@@ -134,6 +160,7 @@ class Form extends FormElement {
       if($input === $inputfield) {
         //remove from array
         unset($this->inputfields[$key]);
+        unset($this->names[$inputfield->getName()]);
       }
     }
     
