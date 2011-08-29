@@ -92,7 +92,11 @@ class Form extends FormElement implements Iterator {
    * @param value - the action of the form
    */
   public function setAction($value) {
-    $this->action = $value;
+    if(is_string($value)) {
+      $this->action = $value;
+    } else {
+      throw new InvalidArgumentException("Param 1 of " . __METHOD__ " has to be a string");
+    }
   }
 
   /**
@@ -112,7 +116,12 @@ class Form extends FormElement implements Iterator {
    * @param value - the action of the form
    */
   public function setMethod($value) {
-    $this->method = $value;
+    $value = strtolower($value);
+    if($value === "get" || $value === "post") {
+      $this->method = $value;
+    } else {
+      throw new InvalidArgumentException("Param 1 of " . __METHOD__ , " has to be 'get' or 'post'");
+    }
   }
 
   /**
@@ -132,7 +141,11 @@ class Form extends FormElement implements Iterator {
    * @param value - the new enctype of the form
    */
   public function setEnctype($value) {
-    $this->enctype = $value;
+    if(is_string($value) && preg_match('@[a-z\+\-]+/[a-z\+\-]+@i', $value)) {
+      $this->enctype = $value;
+    } else {
+      throw new InvalidArgumentException("Param 1 of " . __METHOD__ . " has to be a MIME-Type");
+    }
   }
 
   /**
@@ -144,6 +157,7 @@ class Form extends FormElement implements Iterator {
     $this->inputfields[] = $inputfield;
     end($this->inputfields);
     $this->names[$inputfield->getName()] = key($this->inputfields);
+    rewind($this->inputfields);
     if($inputfield instanceof Filechooser) {
       $this->setEnctype('multipart/form-data');
     }
@@ -238,10 +252,7 @@ class Form extends FormElement implements Iterator {
    *
    */
   public function catchRequestData() {
-    $method = &$_GET;
-    if(strtoupper($this->getMethod()) == "POST") {
-      $method = &$_POST;
-    } 
+    $method = $this->getRequestVariableByMethod();
     foreach($this->inputfields as $input) {
       //@todo: what if Filechooser? or an image button with x and y coords?
       $converted = str_replace(".", "_", $input->getName());
@@ -267,6 +278,7 @@ class Form extends FormElement implements Iterator {
    */
   public function getInputfieldByName($name) {
     return array_key_exists($name, $this->names) ? $this->inputfields[$this->names[$name]]: null ;
+    //@todo: throw Exception instead of returning null if there is no inputfield with the corresponding name?
   }
   
   /**
@@ -275,7 +287,8 @@ class Form extends FormElement implements Iterator {
    * @return boolean signifiing if the Form has been sent
    */
   public function sent() {
-    return !empty($_POST[self::SENT_INPUT]);
+    $method = $this->getRequestVariableByMethod();
+    return !empty($method[self::SENT_INPUT]);
   }
 
   /**
@@ -284,11 +297,10 @@ class Form extends FormElement implements Iterator {
    * @param c - Checker
    */
   public function addChecker($c) {
-    if($c instanceof Checker || $c instanceof ChainChecker) {
+    if($c instanceof Checker || $c instanceof ChainChecker) { //@todo: create a new class instead of this 
       $this->checker[] = $c;
-      return true;
     } else {
-      return false;
+      throw new InvalidArgumentException("param 1 of " . __METHOD__ . " has to be an instance of ChainChecker or Checker");
     }
   }
 
@@ -306,5 +318,21 @@ class Form extends FormElement implements Iterator {
 
   public function __get($key) {
     return $this->getInputfieldByName($key);
+  }
+
+  /**
+   * Returns a reference to $_GET or $_POST correspondig to the method set.
+   *
+   * @return reference to $_GET or $_POST
+   */
+  public function &getRequestVariableByMethod() {
+
+    if($this->getMethod() === "post") {
+      return $_POST;
+    } else if($this->getMethod() === "get") {
+      return $_GET;
+    } else {
+      throw new BadMethodCallException("first set a method before calling " . __METHOD __);
+    }
   }
 }
