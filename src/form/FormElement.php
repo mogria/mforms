@@ -1,14 +1,23 @@
 <?php
 
-
 abstract class FormElement {
   
   protected static $template_loader;
 
+  /**
+   * Returns the TemplateLoader
+   *
+   * @return TemplateLoader
+   */
   public static function getTemplateLoader() {
     return $this->template_loader;
   }
 
+  /**
+   * Set's the TemplateLoader
+   *
+   * @param value - TemplateLoader
+   */
   public static function setTemplateLoader(TemplateLoaderInterface $value) {
     $this->template_loader = $value;
   }
@@ -27,83 +36,85 @@ abstract class FormElement {
 
   protected $template = null;
 
-  public function __construct($name)
-  {
+  /**
+   * Konstruktor
+   *
+   * @param name - The Name of the FormElement
+   */
+  public function __construct($name) {
     $this->setName($name);
     $this->addAttributes();
   }
 
+  /**
+   * get the name of the template currently using
+   *
+   * @return string - name of the template
+   */
   public function getTemplate() {
     return ($this->template === null) ? self::DEFAULT_TEMPLATE : $this->template;
   }
 
+  /**
+   * set the name of the template
+   *
+   * @param value - template name
+   */
   public function setTemplate($value) {
     $this->template = $value;
   }
 
   abstract protected function addAttributes();
 
-  final public function getName()
-  {
+  final public function getName() {
     return $this->name;
   }
 
-  public function setName($value)
-  {
+  public function setName($value) {
     $this->name = $value;
   }
 
-  final public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
-  public function setId($value)
-  {
+  public function setId($value) {
     $this->id = $value;
   }
 
-  public function getClass()
-  {
+  public function getClass() {
     return $this->class;
   }
 
-  public function setClass($value)
-  {
+  public function setClass($value) {
     $this->class = $value;
   }
 
-  final public function getLabel()
-  {
+  public function getLabel() {
     return $this->label;
   }
 
-  public function setLabel($value)
-  {
+  public function setLabel($value) {
     $this->label = $value;
   }
 
-  final public function getDescription()
-  {
+  public function getDescription() {
     return $this->description;
   }
 
-  public function setDescription($value)
-  {
+  public function setDescription($value) {
     $this->description = $value;
   }
 
-  public abstract function isValid()
-  ;
+  public abstract function isValid();
 
   public abstract function display() {
     return self::$template_loader->load(called_class());
   }
 
-  public abstract function displayLabel($inside)
-  ;
-  public function getAttributeNodes($attributes)
-  {
+  public abstract function displayLabel($inside);
+
+  public function getAttributeNodes($attributes) {
     $output = "";
     foreach($attributes as $attr) {
       $methodname = "get" . ucfirst(strtolower($attr));
