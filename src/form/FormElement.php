@@ -96,8 +96,9 @@ abstract class FormElement {
   public abstract function isValid()
   ;
 
-  public abstract function display()
-  ;
+  public abstract function display() {
+    return self::$template_loader->load(called_class());
+  }
 
   public abstract function displayLabel($inside)
   ;
