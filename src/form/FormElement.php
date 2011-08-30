@@ -66,54 +66,115 @@ abstract class FormElement {
 
   abstract protected function addAttributes();
 
-  final public function getName() {
+  /**
+   * get the name of the FormElement
+   *
+   * @return string - the name of the FormElement
+   */
+  public function getName() {
     return $this->name;
   }
 
+  /**
+   * set the name of the FormElement
+   *
+   * @param value - the new name of the FormElement
+   */
   public function setName($value) {
     $this->name = $value;
   }
 
+  /**
+   * get the id of the FormElement
+   *
+   * @return string - id of the FormElement
+   */
   public function getId() {
     return $this->id;
   }
 
+  /**
+   * set the id of the FormElement
+   *
+   * @param string - the new id of the FormElement
+   */
   public function setId($value) {
     $this->id = $value;
   }
 
+  /**
+   * get the class of the FormElement
+   *
+   * @return string - class of the FormElement
+   */
   public function getClass() {
     return $this->class;
   }
 
+  /**
+   * set the class of the FormElement
+   *
+   * @param string - the new class of the FormElement
+   */
   public function setClass($value) {
     $this->class = $value;
   }
 
+  /**
+   * get the label of the FormElement
+   *
+   * @return string - label of the FormElement
+   */
   public function getLabel() {
     return $this->label;
   }
 
+  /**
+   * set the label of the FormElement
+   *
+   * @param string - the new label of the FormElement
+   */
   public function setLabel($value) {
     $this->label = $value;
   }
 
+  /**
+   * get the description of the FormElement
+   *
+   * @return string -  description of the FormElement
+   */
   public function getDescription() {
     return $this->description;
   }
 
+  /**
+   * set the description of the FormElement
+   *
+   * @param string - the new description of the FormElement
+   */
   public function setDescription($value) {
     $this->description = $value;
   }
 
   public abstract function isValid();
 
-  public abstract function display() {
+  /**
+   * Displays the FormElement
+   *
+   * @return string - the HTML
+   */
+  public function display() {
     return self::$template_loader->load(called_class());
   }
 
   public abstract function displayLabel($inside);
 
+  /**
+   * Returns a string with the attribute nodes for an HTML element
+   *
+   * @param attributes - Array containing attribute names
+   * @return string - generated attributes
+   */
   public function getAttributeNodes($attributes) {
     $output = "";
     foreach($attributes as $attr) {
