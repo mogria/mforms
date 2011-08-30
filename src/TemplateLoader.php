@@ -1,10 +1,16 @@
 <?php
 
 class TemplateLoader implements TemplateLoaderInterface {
-  const TEMPLATE_DIR_NAME = "template";
+  const DEFAULT_TEMPLATE_DIR = "template";
+
+  protected $template_dir;
 
   public function getTemplateDir() {
-    return dirname(__FILE__) . "/" . TEMPLATE_DIR_NAME;
+    return $this->template_dir;
+  }
+
+  public function setTemplateDir($dir) {
+    $this->template_dir = $dir;
   }
 
   protected $theme;
@@ -44,7 +50,8 @@ class TemplateLoader implements TemplateLoaderInterface {
     }
   }
 
-  public function __construct($theme = "default") {
+  public function __construct($theme = "default", $template_dir = null) {
+    $this->setTemplateDir(($template_dir === null) ? dirname(__FILE__) . "/" . self::DEFAULT_TEMPLATE_DIR : "template");
     $this->indexThemes();
     $this->default_theme_loader = new TemplateLoader();
     $this->default_theme_loader->setTheme("default");
