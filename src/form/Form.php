@@ -39,7 +39,7 @@ class Form extends FormElement implements Iterator {
   }
 
   public function current() {
-    return $this->{$this->inputfields[$this->names[$this->pos]}
+    return $this->{$this->inputfields[$this->names[$this->pos]]};
   }
 
   public function key() {
@@ -95,7 +95,7 @@ class Form extends FormElement implements Iterator {
     if(is_string($value)) {
       $this->action = $value;
     } else {
-      throw new InvalidArgumentException("Param 1 of " . __METHOD__ " has to be a string");
+      throw new InvalidArgumentException("Param 1 of " . __METHOD__ . " has to be a string");
     }
   }
 
@@ -157,7 +157,6 @@ class Form extends FormElement implements Iterator {
     $this->inputfields[] = $inputfield;
     end($this->inputfields);
     $this->names[$inputfield->getName()] = key($this->inputfields);
-    rewind($this->inputfields);
     if($inputfield instanceof Filechooser) {
       $this->setEnctype('multipart/form-data');
     }
@@ -332,7 +331,7 @@ class Form extends FormElement implements Iterator {
     } else if($this->getMethod() === "get") {
       return $_GET;
     } else {
-      throw new BadMethodCallException("first set a method before calling " . __METHOD __);
+      throw new BadMethodCallException("first set a method before calling " . __METHOD__);
     }
   }
 }

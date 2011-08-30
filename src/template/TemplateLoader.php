@@ -1,7 +1,6 @@
 <?php
 
 class TemplateLoader implements TemplateLoaderInterface {
-  const DEFAULT_TEMPLATE_DIR = "template";
 
   protected $template_dir;
 
@@ -10,7 +9,7 @@ class TemplateLoader implements TemplateLoaderInterface {
   }
 
   public function setTemplateDir($dir) {
-    $this->template_dir = $dir;
+    $this->template_dir = rtrim($dir, "/");
   }
 
   protected $theme;
@@ -51,10 +50,12 @@ class TemplateLoader implements TemplateLoaderInterface {
   }
 
   public function __construct($theme = "default", $template_dir = null) {
-    $this->setTemplateDir(($template_dir === null) ? dirname(__FILE__) . "/" . self::DEFAULT_TEMPLATE_DIR : "template");
+    $this->setTemplateDir(($template_dir === null) ? dirname(__FILE__) : $template_dir);
     $this->indexThemes();
-    $this->default_theme_loader = new TemplateLoader();
-    $this->default_theme_loader->setTheme("default");
+    if($theme !== "default") {
+      $this->default_theme_loader = new TemplateLoader();
+      $this->default_theme_loader->setTheme("default");
+    }
     $this->setTheme($theme);
   }
 }

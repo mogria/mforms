@@ -10,7 +10,7 @@ abstract class FormElement {
    * @return TemplateLoader
    */
   public static function getTemplateLoader() {
-    return $this->template_loader;
+    return self::$template_loader;
   }
 
   /**
@@ -19,7 +19,7 @@ abstract class FormElement {
    * @param value - TemplateLoader
    */
   public static function setTemplateLoader(TemplateLoaderInterface $value) {
-    $this->template_loader = $value;
+    self::$template_loader = $value;
   }
 
   protected $id;
