@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>mforms: src/TemplateLoader.php Source File</title>
+<title>mforms: src/template/TemplateLoader.php Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javaScript" src="search/search.js"></script>
@@ -44,62 +44,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 <div class="header">
   <div class="headertitle">
-<h1>src/TemplateLoader.php</h1>  </div>
+<h1>src/template/TemplateLoader.php</h1>  </div>
 </div>
 <div class="contents">
 <div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
 <a name="l00002"></a>00002 
 <a name="l00003"></a><a class="code" href="classTemplateLoader.html">00003</a> <span class="keyword">class </span><a class="code" href="classTemplateLoader.html">TemplateLoader</a> <span class="keyword">implements</span> <a class="code" href="interfaceTemplateLoaderInterface.html">TemplateLoaderInterface</a> {
-<a name="l00004"></a>00004   <span class="keyword">const</span> TEMPLATE_DIR_NAME = <span class="stringliteral">&quot;template&quot;</span>;
-<a name="l00005"></a>00005 
-<a name="l00006"></a>00006   <span class="keyword">public</span> function getTemplateDir() {
-<a name="l00007"></a>00007     <span class="keywordflow">return</span> dirname(__FILE__) . <span class="stringliteral">&quot;/&quot;</span> . TEMPLATE_DIR_NAME;
-<a name="l00008"></a>00008   }
-<a name="l00009"></a>00009 
-<a name="l00010"></a>00010   <span class="keyword">protected</span> $theme;
-<a name="l00011"></a>00011 
-<a name="l00012"></a>00012   <span class="keyword">protected</span> $theme_index = Array();
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014   <span class="keyword">protected</span> $default_theme_loader;
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016   <span class="keyword">public</span> function getTheme() {
-<a name="l00017"></a>00017     <span class="keywordflow">return</span> $this-&gt;theme;
-<a name="l00018"></a>00018   }
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020   <span class="keyword">public</span> function setTheme($value) {
-<a name="l00021"></a>00021     $this-&gt;theme = $value;
-<a name="l00022"></a>00022   }
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024   <span class="keyword">public</span> function getThemeDir() {
-<a name="l00025"></a>00025     <span class="keywordflow">return</span> $this-&gt;theme_index[$this-&gt;theme];
-<a name="l00026"></a>00026   }
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028   <span class="keyword">public</span> function indexThemes() {
-<a name="l00029"></a>00029     $path = $this-&gt;getTemplateDir();
-<a name="l00030"></a>00030     $files = scandir($path);
-<a name="l00031"></a>00031     <span class="keywordflow">foreach</span>($files as $file) {
-<a name="l00032"></a>00032       $fpath = $path . <span class="stringliteral">&quot;/&quot;</span> . $file;
-<a name="l00033"></a>00033       <span class="keywordflow">if</span>(is_dir($fpath)) {
-<a name="l00034"></a>00034         $this-&gt;theme_index[$file] = $fpath;
-<a name="l00035"></a>00035       }
-<a name="l00036"></a>00036     }
-<a name="l00037"></a>00037   }
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039   <span class="keyword">public</span> function getPathTo($classname) {
-<a name="l00040"></a>00040     <span class="keywordflow">if</span>(isset($this-&gt;theme_index[$classname])) {
-<a name="l00041"></a>00041       <span class="keywordflow">return</span> $this-&gt;theme_index[$classname];
-<a name="l00042"></a>00042     } <span class="keywordflow">else</span> {
-<a name="l00043"></a>00043       <span class="keywordflow">return</span> $this-&gt;default_theme_loader-&gt;getPathTo($classname);
-<a name="l00044"></a>00044     }
-<a name="l00045"></a>00045   }
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047   <span class="keyword">public</span> function __construct($theme = <span class="stringliteral">&quot;default&quot;</span>) {
-<a name="l00048"></a>00048     $this-&gt;indexThemes();
-<a name="l00049"></a>00049     $this-&gt;default_theme_loader = <span class="keyword">new</span> <a class="code" href="classTemplateLoader.html">TemplateLoader</a>();
-<a name="l00050"></a>00050     $this-&gt;default_theme_loader-&gt;setTheme(<span class="stringliteral">&quot;default&quot;</span>);
-<a name="l00051"></a>00051     $this-&gt;setTheme($theme);
-<a name="l00052"></a>00052   }
-<a name="l00053"></a>00053 }
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005   <span class="keyword">protected</span> $template_dir;
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007   <span class="keyword">public</span> function getTemplateDir() {
+<a name="l00008"></a>00008     <span class="keywordflow">return</span> $this-&gt;template_dir;
+<a name="l00009"></a>00009   }
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011   <span class="keyword">public</span> function setTemplateDir($dir) {
+<a name="l00012"></a>00012     $this-&gt;template_dir = rtrim($dir, <span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00013"></a>00013   }
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015   <span class="keyword">protected</span> $theme;
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017   <span class="keyword">protected</span> $theme_index = Array();
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019   <span class="keyword">protected</span> $default_theme_loader;
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021   <span class="keyword">public</span> function getTheme() {
+<a name="l00022"></a>00022     <span class="keywordflow">return</span> $this-&gt;theme;
+<a name="l00023"></a>00023   }
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025   <span class="keyword">public</span> function setTheme($value) {
+<a name="l00026"></a>00026     $this-&gt;theme = $value;
+<a name="l00027"></a>00027   }
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029   <span class="keyword">public</span> function getThemeDir() {
+<a name="l00030"></a>00030     <span class="keywordflow">return</span> $this-&gt;theme_index[$this-&gt;theme];
+<a name="l00031"></a>00031   }
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033   <span class="keyword">public</span> function indexThemes() {
+<a name="l00034"></a>00034     $path = $this-&gt;getTemplateDir();
+<a name="l00035"></a>00035     $files = scandir($path);
+<a name="l00036"></a>00036     <span class="keywordflow">foreach</span>($files as $file) {
+<a name="l00037"></a>00037       $fpath = $path . <span class="stringliteral">&quot;/&quot;</span> . $file;
+<a name="l00038"></a>00038       <span class="keywordflow">if</span>(is_dir($fpath)) {
+<a name="l00039"></a>00039         $this-&gt;theme_index[$file] = $fpath;
+<a name="l00040"></a>00040       }
+<a name="l00041"></a>00041     }
+<a name="l00042"></a>00042   }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044   <span class="keyword">public</span> function getPathTo($classname) {
+<a name="l00045"></a>00045     <span class="keywordflow">if</span>(isset($this-&gt;theme_index[$classname])) {
+<a name="l00046"></a>00046       <span class="keywordflow">return</span> $this-&gt;theme_index[$classname];
+<a name="l00047"></a>00047     } <span class="keywordflow">else</span> {
+<a name="l00048"></a>00048       <span class="keywordflow">return</span> $this-&gt;default_theme_loader-&gt;getPathTo($classname);
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050   }
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052   <span class="keyword">public</span> function __construct($theme = <span class="stringliteral">&quot;default&quot;</span>, $template_dir = null) {
+<a name="l00053"></a>00053     $this-&gt;setTemplateDir(($template_dir === null) ? dirname(__FILE__) : $template_dir);
+<a name="l00054"></a>00054     $this-&gt;indexThemes();
+<a name="l00055"></a>00055     <span class="keywordflow">if</span>($theme !== <span class="stringliteral">&quot;default&quot;</span>) {
+<a name="l00056"></a>00056       $this-&gt;default_theme_loader = <span class="keyword">new</span> <a class="code" href="classTemplateLoader.html">TemplateLoader</a>();
+<a name="l00057"></a>00057       $this-&gt;default_theme_loader-&gt;setTheme(<span class="stringliteral">&quot;default&quot;</span>);
+<a name="l00058"></a>00058     }
+<a name="l00059"></a>00059     $this-&gt;setTheme($theme);
+<a name="l00060"></a>00060   }
+<a name="l00061"></a>00061 }
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -116,7 +124,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Aug 25 2011 18:00:58 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Aug 30 2011 17:24:18 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

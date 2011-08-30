@@ -49,7 +49,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
 <h1>TemplateLoader Class Reference</h1>  </div>
@@ -71,6 +70,8 @@ Inheritance diagram for TemplateLoader:</div>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad82e16a29db87c9f5b85e857155621bf"></a><!-- doxytag: member="TemplateLoader::getTemplateDir" ref="ad82e16a29db87c9f5b85e857155621bf" args="()" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>getTemplateDir</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a432ba38c8c6243e2b260e9a973bfd6"></a><!-- doxytag: member="TemplateLoader::setTemplateDir" ref="a7a432ba38c8c6243e2b260e9a973bfd6" args="($dir)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>setTemplateDir</b> ($dir)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50a3d31d22f45bf4825a527bbff7b612"></a><!-- doxytag: member="TemplateLoader::getTheme" ref="a50a3d31d22f45bf4825a527bbff7b612" args="()" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>getTheme</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad933f503ae5b3ec0da985df3270af824"></a><!-- doxytag: member="TemplateLoader::setTheme" ref="ad933f503ae5b3ec0da985df3270af824" args="($value)" -->
@@ -81,14 +82,12 @@ Public Member Functions</h2></td></tr>
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>indexThemes</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01fc15189a8621afbac371049d37e15a"></a><!-- doxytag: member="TemplateLoader::getPathTo" ref="a01fc15189a8621afbac371049d37e15a" args="($classname)" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>getPathTo</b> ($classname)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a193b795e45d064301514d569b183984f"></a><!-- doxytag: member="TemplateLoader::__construct" ref="a193b795e45d064301514d569b183984f" args="($theme=&quot;default&quot;)" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><b>__construct</b> ($theme=&quot;default&quot;)</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a906f545d33358aaa4ac2258eebdef348"></a><!-- doxytag: member="TemplateLoader::TEMPLATE_DIR_NAME" ref="a906f545d33358aaa4ac2258eebdef348" args="" -->
-const&nbsp;</td><td class="memItemRight" valign="bottom"><b>TEMPLATE_DIR_NAME</b> = &quot;template&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a740d6f0fd998b26b0964b618815f8001"></a><!-- doxytag: member="TemplateLoader::__construct" ref="a740d6f0fd998b26b0964b618815f8001" args="($theme=&quot;default&quot;, $template_dir=null)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>__construct</b> ($theme=&quot;default&quot;, $template_dir=null)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c7fdbda98a8c636e562bf280ccb533b"></a><!-- doxytag: member="TemplateLoader::$template_dir" ref="a9c7fdbda98a8c636e562bf280ccb533b" args="" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>$template_dir</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a302b46be537421c080cb5b1220161c79"></a><!-- doxytag: member="TemplateLoader::$theme" ref="a302b46be537421c080cb5b1220161c79" args="" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>$theme</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89f879b76e31542f403b7033895456de"></a><!-- doxytag: member="TemplateLoader::$theme_index" ref="a89f879b76e31542f403b7033895456de" args="" -->
@@ -100,7 +99,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="TemplateLoader_8php_source.html#l00003">3</a> of file <a class="el" href="TemplateLoader_8php_source.html">TemplateLoader.php</a>.</p>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/<a class="el" href="TemplateLoader_8php_source.html">TemplateLoader.php</a></li>
+<li>src/template/<a class="el" href="TemplateLoader_8php_source.html">TemplateLoader.php</a></li>
 </ul>
 </div>
 <!--- window showing the filter options -->
@@ -117,7 +116,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Aug 25 2011 18:00:31 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Aug 30 2011 17:24:22 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

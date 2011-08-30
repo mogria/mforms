@@ -70,6 +70,18 @@ Inheritance diagram for Form:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad80ebd59450b8ae5ad07a0b6073baf77"></a><!-- doxytag: member="Form::next" ref="ad80ebd59450b8ae5ad07a0b6073baf77" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>next</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa39cf530f4259e4b797ff7e2ca0e0488"></a><!-- doxytag: member="Form::prev" ref="aa39cf530f4259e4b797ff7e2ca0e0488" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>prev</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6970a4e18a8d5abccd9eaa4452e9dc1"></a><!-- doxytag: member="Form::rewind" ref="ab6970a4e18a8d5abccd9eaa4452e9dc1" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>rewind</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99ca751bf9fce2bf17176a07f735f52c"></a><!-- doxytag: member="Form::valid" ref="a99ca751bf9fce2bf17176a07f735f52c" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>valid</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a144b6ce51e2c090ca5bb26f65d1f4bc9"></a><!-- doxytag: member="Form::current" ref="a144b6ce51e2c090ca5bb26f65d1f4bc9" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>current</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ac05c92f146755346c54e7cd6869e34"></a><!-- doxytag: member="Form::key" ref="a0ac05c92f146755346c54e7cd6869e34" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>key</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#a6245182a31664ec874c6e242d626af3b">__construct</a> ($name=null, $action= '#', $method= 'post')</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#ade97121e20262215c3381adec69a23f9">getAction</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#a2aac74f869ef183b0c71b41e8fbe85fd">setAction</a> ($value)</td></tr>
@@ -89,6 +101,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#ad07f899ac43a891063a9c22ed8ba500a">removeChecker</a> ($c)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace9be8b97807ea37083b246b691f5bf9"></a><!-- doxytag: member="Form::__get" ref="ace9be8b97807ea37083b246b691f5bf9" args="($key)" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>__get</b> ($key)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#ac589ae7753bac8f4a39c6908819c3ecd">getRequestVariableByMethod</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a908272c6d41790b3a16dab4bfa5f7ca8"></a><!-- doxytag: member="Form::SENT_INPUT" ref="a908272c6d41790b3a16dab4bfa5f7ca8" args="" -->
@@ -110,6 +123,8 @@ Protected Attributes</h2></td></tr>
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>$names</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c726ccb277989569a061703b4406a40"></a><!-- doxytag: member="Form::$checker" ref="a9c726ccb277989569a061703b4406a40" args="" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>$checker</b> = Array()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e1b40f26daabc3d99048744d5e1776a"></a><!-- doxytag: member="Form::$pos" ref="a3e1b40f26daabc3d99048744d5e1776a" args="" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>$pos</b></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
@@ -156,7 +171,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00042">42</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00068">68</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -184,7 +199,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00117">117</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00156">156</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -207,7 +222,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classFormElement.html">FormElement</a>.</p>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00028">28</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00054">54</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -234,7 +249,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00259">259</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00298">298</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -254,7 +269,7 @@ Protected Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Get's all the data in $_GET or $_POST and fills the data into the corresponding Inpufield added to the form </p>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00213">213</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00253">253</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -275,9 +290,9 @@ Protected Attributes</h2></td></tr>
 <p>display's the form and all the Inputfield's added</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>HTML of the form </dd></dl>
 
-<p>Reimplemented from <a class="el" href="classFormElement.html">FormElement</a>.</p>
+<p>Reimplemented from <a class="el" href="classFormElement.html#a760394ef105d5591dde6be46df3b4017">FormElement</a>.</p>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00149">149</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00189">189</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -307,7 +322,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classFormElement.html">FormElement</a>.</p>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00171">171</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00211">211</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -329,7 +344,7 @@ Protected Attributes</h2></td></tr>
 <p>public </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>string - the current action of the form </dd></dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00057">57</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00083">83</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -351,7 +366,7 @@ Protected Attributes</h2></td></tr>
 <p>public </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>the action of the form </dd></dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00098">98</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00133">133</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -379,7 +394,7 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classInputfield.html">Inputfield</a> with the given name </dd></dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00241">241</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00278">278</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -401,7 +416,28 @@ Protected Attributes</h2></td></tr>
 <p>public </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>the action of the form </dd></dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00078">78</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00108">108</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac589ae7753bac8f4a39c6908819c3ecd"></a><!-- doxytag: member="Form::getRequestVariableByMethod" ref="ac589ae7753bac8f4a39c6908819c3ecd" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">&amp; Form::getRequestVariableByMethod </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Returns a reference to $_GET or $_POST correspondig to the method set.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>reference to $_GET or $_POST </dd></dl>
+
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00327">327</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -424,7 +460,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classFormElement.html">FormElement</a>.</p>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00191">191</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00231">231</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -451,7 +487,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00131">131</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00170">170</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -478,7 +514,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00273">273</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00311">311</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -499,7 +535,7 @@ Protected Attributes</h2></td></tr>
 <p>Check's if the user sent the form</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>boolean signifiing if the <a class="el" href="classForm.html">Form</a> has been sent </dd></dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00250">250</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00288">288</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -527,7 +563,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00068">68</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00094">94</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -555,7 +591,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00108">108</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00143">143</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -583,7 +619,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Form_8php_source.html#l00088">88</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="Form_8php_source.html#l00118">118</a> of file <a class="el" href="Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -605,7 +641,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Aug 25 2011 18:00:30 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Aug 30 2011 17:24:19 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

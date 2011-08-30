@@ -50,8 +50,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 Here is a list of all documented files with brief descriptions:<table>
   <tr><td class="indexkey">src/<b>loader.php</b> <a href="loader_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey">src/<b>TemplateLoader.php</b> <a href="TemplateLoader_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey">src/<b>TemplateLoaderInterface.php</b> <a href="TemplateLoaderInterface_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/<b>Checker.php</b> <a href="Checker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/<b>CheckerChain.php</b> <a href="CheckerChain_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/compare/<b>CompareChecker.php</b> <a href="CompareChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
@@ -61,6 +59,8 @@ Here is a list of all documented files with brief descriptions:<table>
   <tr><td class="indexkey">src/checker/compare/<b>MoreEqualThanChecker.php</b> <a href="MoreEqualThanChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/compare/<b>MoreThanChecker.php</b> <a href="MoreThanChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/compare/<b>NotEqualChecker.php</b> <a href="NotEqualChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/checker/func/<b>ContainsChecker.php</b> <a href="ContainsChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/checker/func/<b>DecimalChecker.php</b> <a href="DecimalChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/func/<b>FunctionChecker.php</b> <a href="FunctionChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/func/<b>NumericChecker.php</b> <a href="NumericChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/list/<b>InListChecker.php</b> <a href="InListChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
@@ -75,8 +75,11 @@ Here is a list of all documented files with brief descriptions:<table>
   <tr><td class="indexkey">src/checker/regex/<b>AbstractRegularExpressionChecker.php</b> <a href="AbstractRegularExpressionChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/regex/<b>MailChecker.php</b> <a href="MailChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/regex/<b>RegularExpressionChecker.php</b> <a href="RegularExpressionChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/exceptions/<b>MformsException.php</b> <a href="MformsException_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/form/<b>Form.php</b> <a href="Form_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/form/<b>FormElement.php</b> <a href="FormElement_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/form/decorators/<b>FormDecorator.php</b> <a href="FormDecorator_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/form/decorators/<b>SQLDecorator.php</b> <a href="SQLDecorator_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Checkbox.php</b> <a href="Checkbox_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Filechooser.php</b> <a href="Filechooser_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Hidden.php</b> <a href="Hidden_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
@@ -95,6 +98,8 @@ Here is a list of all documented files with brief descriptions:<table>
   <tr><td class="indexkey">src/input/<b>Submit.php</b> <a href="Submit_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Textarea.php</b> <a href="Textarea_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Textbox.php</b> <a href="Textbox_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/<b>TemplateLoader.php</b> <a href="TemplateLoader_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/<b>TemplateLoaderInterface.php</b> <a href="TemplateLoaderInterface_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
 </table>
 </div>
 <!--- window showing the filter options -->
@@ -111,7 +116,7 @@ Here is a list of all documented files with brief descriptions:<table>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Aug 25 2011 18:00:31 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Aug 30 2011 17:24:22 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
