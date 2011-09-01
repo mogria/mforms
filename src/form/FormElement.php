@@ -169,6 +169,16 @@ abstract class FormElement {
 
   public abstract function displayLabel($inside);
 
+  public static function tabindent($string, $indentby = 1) {
+    $string = self::crlf2lf($string);
+    $tabs = str_repeat("\t", $indentby);
+    return $tabs . str_replace("\n", "\n" . $tabs, $string);
+  }
+
+  public static function crlf2lf($string) {
+    return str_replace(Array("\r\n", "\r"), "\n", $string);
+  }
+
   /**
    * Returns a string with the attribute nodes for an HTML element
    *

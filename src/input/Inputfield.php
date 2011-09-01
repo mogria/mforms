@@ -93,10 +93,10 @@ abstract class Inputfield extends FormElement {
     
     $output = (($label = $this->getLabel()) !== null) ?
       "<label class=\"input " . htmlspecialchars($this->getType()) . "\">\n" . 
-      "\t<span>" . htmlspecialchars($label) . "</span>\n" . 
+      self::tabindent("<span>" . htmlspecialchars($label) . "</span>\n" . 
       $description . 
-      "\t" . $inside . "\n" . 
-      (!$this->valid ? '<p class="errormsg">' . implode('</p>' . "\n" . '<p class="errormsg">', $this->getErrorMsgs()) . '</p>' : "") . "\n" .
+      $inside. "\n" . 
+      (!$this->valid ? '<p class="errormsg">' . implode('</p>' . "\n" . '<p class="errormsg">', $this->getErrorMsgs()) . '</p>' : "")) . "\n" .
       "</label>\n" :
       $inside . "\n";
     return $output;

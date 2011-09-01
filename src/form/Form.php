@@ -195,9 +195,9 @@ class Form extends FormElement implements Iterator {
     }
     $output = $this->displayLabel($output);
     
-    $output = "<form " . parent::getAttributeNodes($this->attributes) . ">\n" .
-              "\t" . $output . "\n" .
-              "</form>\n";
+    $output = "<form" . parent::getAttributeNodes($this->attributes) . ">\n" .
+              self::tabindent($output) . "\n" .
+              "</form>";
     
     return $output;
   }
@@ -210,14 +210,14 @@ class Form extends FormElement implements Iterator {
    */
   public function displayLabel($inside) {
     $description = (($description = $this->getDescription()) !== null) ?
-      "\t\t<p>" . htmlspecialchars($description) . "</p>\n" :
+      "<p>" . htmlspecialchars($description) . "</p>\n" :
       "\n";
     
     $output = (($label = $this->getLabel()) !== null) ?
       "<fieldset class=\"input " . htmlspecialchars($label) . "\">\n" . 
-      "\t<legend>" . htmlspecialchars($label) . "</legend>\n" .
+      self::tabindent("<legend>" . htmlspecialchars($label) . "</legend>\n" .
       $description . 
-      "\t" . $inside . "\n" . 
+      $inside) . "\n" . 
       "</fieldset>\n" :
       $inside . "\n";
     return $output;
