@@ -36,6 +36,8 @@ abstract class FormElement {
 
   protected $template = null;
 
+  protected $displayed_field;
+
   /**
    * Konstruktor
    *
@@ -164,10 +166,17 @@ abstract class FormElement {
    * @return string - the HTML
    */
   public function display() {
-    return self::$template_loader->load(called_class());
+    ob_start();
+    self::$template_loader->load(called_class());
+    $content = ob_get_contents();
+    ob_end_clean();
+    $this->displayed_field = $content;
+    return $content;
   }
 
-  public abstract function displayLabel($inside);
+  public function displayLabel() {
+
+  }
 
   public static function tabindent($string, $indentby = 1) {
     $string = self::crlf2lf($string);
@@ -202,6 +211,11 @@ abstract class FormElement {
 
   public function __toString() {
     return $this->display();
+  }
+
+
+  public function getDisplayedField() {
+    return $this->displayed_field;
   }
 }
 

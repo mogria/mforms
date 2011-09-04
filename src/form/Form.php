@@ -182,48 +182,6 @@ class Form extends FormElement implements Iterator {
   }
 
   /**
-   * display's the form and all the Inputfield's added
-   *
-   * @return HTML of the form
-   */
-  public function display() {
-    $output = "";
-    if($this->inputfields != null) {
-      foreach($this->inputfields as $input) {
-        $output .= $input->display() . "\n";
-      }
-    }
-    $output = $this->displayLabel($output);
-    
-    $output = "<form" . parent::getAttributeNodes($this->attributes) . ">\n" .
-              self::tabindent($output) . "\n" .
-              "</form>";
-    
-    return $output;
-  }
-
-  /**
-   * display's the label of the form and the given content
-   *
-   * @param inside - what should be displayed inside the label
-   * @return HTML of the label of the form
-   */
-  public function displayLabel($inside) {
-    $description = (($description = $this->getDescription()) !== null) ?
-      "<p>" . htmlspecialchars($description) . "</p>\n" :
-      "\n";
-    
-    $output = (($label = $this->getLabel()) !== null) ?
-      "<fieldset class=\"input " . htmlspecialchars($label) . "\">\n" . 
-      self::tabindent("<legend>" . htmlspecialchars($label) . "</legend>\n" .
-      $description . 
-      $inside) . "\n" . 
-      "</fieldset>\n" :
-      $inside . "\n";
-    return $output;
-  }
-
-  /**
    * Checks if the entered Values in the Form are valid
    *
    * @return boolean sigifiing if form is filled with valid data
