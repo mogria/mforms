@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname(__FILE__) . '/mforms.conf.php'
+
 class mformsAutoloader {
   public static $classlist = Array();
   public static function init() {
@@ -43,4 +45,4 @@ mformsAutoloader::init();
 
 spl_autoload_register(Array('mformsAutoloader', 'load'));
 
-FormElement::setTemplateLoader(new TemplateLoader("default"));
+FormElement::setTemplateLoader(new TemplateLoader($conf->theme));
