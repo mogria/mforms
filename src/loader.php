@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/mforms.conf.php'
+require_once dirname(__FILE__) . '/mforms.conf.php';
 
 class mformsAutoloader {
   public static $classlist = Array();

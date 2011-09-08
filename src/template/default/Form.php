@@ -1,14 +1,15 @@
 <?php
 $output = "";
 if($this->inputfields != null) {
-  foreach($this as $input) {
-    $output .= $input->display() . "\n";
+  foreach($this as $key => $input) {
+    $output .= "$key : " . $input->display() . "\n";
   }
 }
-$output = $this->displayLabel($output);
+//$this->displayed_field = $output;
+$output = $this->displayLabel();
 
-$output = "<form" . parent::getAttributeNodes($this->attributes) . ">\n" .
+$output = "<form" . self::getAttributeNodes($this->attributes) . ">\n" .
           self::tabindent($output) . "\n" .
           "</form>";
 
-echo $output;
+$content = $output;

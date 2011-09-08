@@ -36,7 +36,7 @@ abstract class FormElement {
 
   protected $template = null;
 
-  protected $displayed_field;
+  protected $displayed_field = "";
 
   /**
    * Konstruktor
@@ -166,16 +166,45 @@ abstract class FormElement {
    * @return string - the HTML
    */
   public function display() {
-    ob_start();
-    self::$template_loader->load(called_class());
-    $content = ob_get_contents();
-    ob_end_clean();
+    $class = get_called_class();
+    if(($file = self::getFirstTemplateFile($class)) === null) {
+      throw new BadMethodCallException("no template found for " . get_called_class());
+    }
+    require $file;
+    if(!isset($content)) {
+      $content = "";
+    }
     $this->displayed_field = $content;
+    $content = $this->displayLabel();
     return $content;
   }
 
-  public function displayLabel() {
+  public static function getFirstTemplateFile($class, $file_suffix = "") {
+    $file = self::$template_loader->getPathTo($class . $file_suffix);
+    while(empty($file)) {
+      $class = class_parents($class); 
+      if(!is_array($class) || $class == null) {
+        return null;
+      } else {
+        $class = current($class);
+        $file = self::$template_loader->getPathTo($class . $file_suffix);
+      }
+    }
+    return $file;
+  }
 
+  public function displayLabel() {
+    $class = get_called_class();
+    if(($file = self::getFirstTemplateFile($class, ".label")) === null) {
+      $content = $this->getDisplayedField();
+      return $content;
+    } else {
+      require $file;
+      if(!isset($content)) {
+        $content = "";
+      }
+    }
+    return $content;
   }
 
   public static function tabindent($string, $indentby = 1) {
@@ -208,11 +237,6 @@ abstract class FormElement {
     
     return $output;
   }
-
-  public function __toString() {
-    return $this->display();
-  }
-
 
   public function getDisplayedField() {
     return $this->displayed_field;

@@ -15,4 +15,4 @@ $output = (($label = $this->getLabel()) !== null) ?
   $inside . "\n";
 
 
-echo $output;
+$content = $output;

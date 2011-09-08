@@ -12,10 +12,6 @@ class Option extends InputfieldOption {
     return "<option" . $value . "" . $this->getAttributeNodes(Array('selected')) . ">" . htmlspecialchars($label) . "</option>";
   }
   
-  public function displayLabel($inside) {
-    return $inside;
-  }
-  
   public function getType() {
     return "option";
   }

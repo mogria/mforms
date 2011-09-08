@@ -39,7 +39,7 @@ class Form extends FormElement implements Iterator {
   }
 
   public function current() {
-    return $this->{$this->inputfields[$this->names[$this->pos]]};
+    return $this->inputfields[$this->pos];
   }
 
   public function key() {

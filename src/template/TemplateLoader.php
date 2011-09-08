@@ -9,12 +9,14 @@ class TemplateLoader implements TemplateLoaderInterface {
   }
 
   public function setTemplateDir($dir) {
-    $this->template_dir = rtrim($dir, "/");
+    $this->template_dir = realpath(rtrim($dir, "/"));
   }
 
   protected $theme;
 
   protected $theme_index = Array();
+
+  protected $template_index = Array();
 
   protected $default_theme_loader;
 
@@ -41,9 +43,20 @@ class TemplateLoader implements TemplateLoaderInterface {
     }
   }
 
+  public function indexTemplates() {
+    $path = $this->getThemeDir();
+    $files = scandir($path);
+    foreach($files as $file) {
+      $fpath = $path . "/" . $file;
+      if(is_file($fpath)) {
+        $this->template_index[substr($file, 0, strrpos($file, "."))] = $fpath;
+      }
+    }
+  }
+
   public function getPathTo($classname) {
-    if(isset($this->theme_index[$classname])) {
-      return $this->theme_index[$classname];
+    if(isset($this->template_index[$classname])) {
+      return $this->template_index[$classname];
     } else {
       return $this->default_theme_loader->getPathTo($classname);
     }
@@ -55,7 +68,10 @@ class TemplateLoader implements TemplateLoaderInterface {
     if($theme !== "default") {
       $this->default_theme_loader = new TemplateLoader();
       $this->default_theme_loader->setTheme("default");
+    } else {
+      $this->default_theme_loader = new VoidTemplateLoader();
     }
     $this->setTheme($theme);
+    $this->indexTemplates();
   }
 }

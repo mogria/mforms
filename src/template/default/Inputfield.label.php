@@ -1,5 +1,6 @@
 <?php
 $inside = $this->getDisplayedField();
+
 $description = (($description = $this->getDescription()) !== null) ?
   "\t<p>" . htmlspecialchars($description) . "</p>\n" :
   "\n";
@@ -13,4 +14,4 @@ $output = (($label = $this->getLabel()) !== null) ?
   "</label>\n" :
   $inside . "\n";
 
-echo $output;
+$content = $output;

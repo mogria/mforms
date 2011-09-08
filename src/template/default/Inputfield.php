@@ -1,2 +1,2 @@
 <?php
-echo $this->displayLabel("<input" . parent::getAttributeNodes($this->attributes) . " />\n");
+$content = "<input" . self::getAttributeNodes($this->attributes) . " />\n";
