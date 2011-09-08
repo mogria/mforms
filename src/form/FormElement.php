@@ -1,26 +1,6 @@
 <?php
 
 abstract class FormElement {
-  
-  protected static $template_loader;
-
-  /**
-   * Returns the TemplateLoader
-   *
-   * @return TemplateLoader
-   */
-  public static function getTemplateLoader() {
-    return self::$template_loader;
-  }
-
-  /**
-   * Set's the TemplateLoader
-   *
-   * @param value - TemplateLoader
-   */
-  public static function setTemplateLoader(TemplateLoaderInterface $value) {
-    self::$template_loader = $value;
-  }
 
   protected $id;
 
@@ -36,7 +16,25 @@ abstract class FormElement {
 
   protected $template = null;
 
-  protected $displayed_field = "";
+  protected $template_loader;
+
+  /**
+   * Returns the TemplateLoader
+   *
+   * @return TemplateLoader
+   */
+  public function getTemplateLoader() {
+    return $this->template_loader;
+  }
+
+  /**
+   * Set's the TemplateLoader
+   *
+   * @param value - TemplateLoader
+   */
+  public function setTemplateLoader(TemplateLoaderInterface $value) {
+    $this->template_loader = $value;
+  }
 
   /**
    * Konstruktor
@@ -46,6 +44,7 @@ abstract class FormElement {
   public function __construct($name) {
     $this->setName($name);
     $this->addAttributes();
+    $this->setTemplateLoader(new TemplateLoader("default"));
   }
 
   /**
@@ -167,44 +166,28 @@ abstract class FormElement {
    */
   public function display() {
     $class = get_called_class();
-    if(($file = self::getFirstTemplateFile($class)) === null) {
+    if(($file = $this->getFirstTemplateFile($class)) === null) {
       throw new BadMethodCallException("no template found for " . get_called_class());
     }
     require $file;
     if(!isset($content)) {
       $content = "";
     }
-    $this->displayed_field = $content;
-    $content = $this->displayLabel();
     return $content;
   }
 
-  public static function getFirstTemplateFile($class, $file_suffix = "") {
-    $file = self::$template_loader->getPathTo($class . $file_suffix);
+  public function getFirstTemplateFile($class, $file_suffix = "") {
+    $file = $this->template_loader->getPathTo($class . $file_suffix);
     while(empty($file)) {
       $class = class_parents($class); 
       if(!is_array($class) || $class == null) {
         return null;
       } else {
         $class = current($class);
-        $file = self::$template_loader->getPathTo($class . $file_suffix);
+        $file = $this->template_loader->getPathTo($class . $file_suffix);
       }
     }
     return $file;
-  }
-
-  public function displayLabel() {
-    $class = get_called_class();
-    if(($file = self::getFirstTemplateFile($class, ".label")) === null) {
-      $content = $this->getDisplayedField();
-      return $content;
-    } else {
-      require $file;
-      if(!isset($content)) {
-        $content = "";
-      }
-    }
-    return $content;
   }
 
   public static function tabindent($string, $indentby = 1) {
@@ -236,10 +219,6 @@ abstract class FormElement {
     }
     
     return $output;
-  }
-
-  public function getDisplayedField() {
-    return $this->displayed_field;
   }
 }
 

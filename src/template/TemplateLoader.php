@@ -20,6 +20,8 @@ class TemplateLoader implements TemplateLoaderInterface {
 
   protected $default_theme_loader;
 
+  protected $template_extension;
+
   public function getTheme() {
     return $this->theme;
   }
@@ -60,6 +62,14 @@ class TemplateLoader implements TemplateLoaderInterface {
     } else {
       return $this->default_theme_loader->getPathTo($classname);
     }
+  }
+
+  public function setTemplateExtension($extension) {
+    $this->template_extension = $extension;
+  }
+
+  public function getTemplateExtension() {
+    return $this->template_extension;
   }
 
   public function __construct($theme = "default", $template_dir = null) {

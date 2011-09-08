@@ -34,10 +34,10 @@ class Textarea extends Inputfield {
     $this->cols = $value;
   }
 
-  public function display()
+  /*public function display()
   {
     return $this->displayLabel("<textarea" . parent::getAttributeNodes($this->attributes) . ">" . htmlspecialchars($this->getValue()) . "</textarea>\n");
-  }
+  }*/
 
   public function getType()
   {

@@ -44,5 +44,3 @@ class mformsAutoloader {
 mformsAutoloader::init();
 
 spl_autoload_register(Array('mformsAutoloader', 'load'));
-
-FormElement::setTemplateLoader(new TemplateLoader($conf->theme));
