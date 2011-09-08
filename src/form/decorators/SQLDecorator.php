@@ -1,6 +1,6 @@
 <?php
 
-class SQLDecorator extends FormDecorator {
+class SQLDecorator extends Decorator {
   public function getInsertQuery($table) {
     $values = "";
     
