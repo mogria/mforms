@@ -121,42 +121,6 @@ abstract class FormElement {
     $this->class = $value;
   }
 
-  /**
-   * get the label of the FormElement
-   *
-   * @return string - label of the FormElement
-   */
-  public function getLabel() {
-    return $this->label;
-  }
-
-  /**
-   * set the label of the FormElement
-   *
-   * @param string - the new label of the FormElement
-   */
-  public function setLabel($value) {
-    $this->label = $value;
-  }
-
-  /**
-   * get the description of the FormElement
-   *
-   * @return string -  description of the FormElement
-   */
-  public function getDescription() {
-    return $this->description;
-  }
-
-  /**
-   * set the description of the FormElement
-   *
-   * @param string - the new description of the FormElement
-   */
-  public function setDescription($value) {
-    $this->description = $value;
-  }
-
   public abstract function isValid();
 
   /**
@@ -166,6 +130,7 @@ abstract class FormElement {
    */
   public function display() {
     $class = get_called_class();
+    echo "CLASS: " . $class . "\n";
     if(($file = $this->getFirstTemplateFile($class)) === null) {
       throw new BadMethodCallException("no template found for " . get_called_class());
     }

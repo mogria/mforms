@@ -1,20 +1,23 @@
 <?php
 
 require_once dirname(__FILE__) . '/mforms.conf.php';
+require_once dirname(__FILE__) . '/debug/func.php';
 
 class mformsAutoloader {
   public static $classlist = Array();
   public static function init() {
-    $indexed_dirs = Array('form', 'input', 'checker', 'template');
-    $depth = Array(-1, -1, -1, 1);
-    foreach($indexed_dirs as $key => $dir) {
+    $indexed_dirs = Array('form', 'input', 'checker', 'template', 'decorators');
+    $depth = Array(-1, -1, -1, 1, -1);
+   foreach($indexed_dirs as $key => $dir) {
       $dir = dirname(__FILE__) . "/" . $dir;
       self::$classlist = array_merge(self::$classlist, self::create_index_of($dir, $depth[$key]));
     }
   }
 
   public static function load($classname) {
-    //print_r(self::$classlist);
+    if($classname == "Loader") {
+      print_r(self::$classlist);
+    }
     if(isset(self::$classlist[$classname])) {
       require_once self::$classlist[$classname];
     }

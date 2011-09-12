@@ -1,7 +1,6 @@
 <?php
 
-
-abstract class Inputfield extends FormElement {
+abstract class Inputfield extends FormElement implements InputfieldInterface {
   protected $value;
 
   protected $disabled;
@@ -30,8 +29,8 @@ abstract class Inputfield extends FormElement {
     return $this->value;
   }
 
-  public function setValue($new_value) {
-    $this->value = $new_value;
+  public function setValue($value) {
+    $this->value = $value;
   }
 
   public function getDisabled() {
@@ -68,8 +67,6 @@ abstract class Inputfield extends FormElement {
     $this->valid = $valid;
     return $valid;
   }
-
-  public abstract function getType();
 
   public function getErrorMsgs() {
     return $this->errormsgs;

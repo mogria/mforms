@@ -57,6 +57,7 @@ class TemplateLoader implements TemplateLoaderInterface {
   }
 
   public function getPathTo($classname) {
+    $classname = $classname . $this->getTemplateExtension();
     if(isset($this->template_index[$classname])) {
       return $this->template_index[$classname];
     } else {

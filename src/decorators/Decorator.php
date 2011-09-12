@@ -2,8 +2,15 @@
 
 abstract class Decorator {
   protected $object;
+  protected $class;
+
   public function __construct($object) {
     $this->object= $object;
+    if($object instanceof Decorator) {
+      $this->class = $object->getClass();
+    } else {
+      $this->class = get_class($object);
+    }
   }
 
   //@todo: contains the second parameter the params?
@@ -15,4 +22,24 @@ abstract class Decorator {
       //throw exception?
     }
   }
+
+  public function getClass() {
+    return $this->class;
+  }
+
+  /** public function __get($key) {
+    return $this->object->{$key};
+  }
+
+  public function __set($key, $value) {
+    return $this->object->{$key} = $value;
+  }
+
+  public function __isset($key) {
+    return isset($this->object->{$key});
+  }
+
+  public function __unset($key) {
+    unset($this->object->{$key});
+  } */
 }

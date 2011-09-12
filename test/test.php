@@ -9,8 +9,7 @@ require_once '../src/loader.php';
 $form = new Form('form1');
 
 //Set some properties
-$form->setLabel("TestForm");
-$form->setDescription("Bitte geben sie hier <void> ein ...");
+$form = new Label($form, "void", "ohne scheiss");
 $form->setMethod("get");
 $form->setClass("a_form");
 $form->setAction("#");
@@ -19,18 +18,15 @@ $form->setAction("#");
 $field = new Hidden('woot');
 
 //Set some properties
-$field->setLabel('w00t!');
-$field->setDescription('Bitte Namen eingeben?');
+$field = new Label($field, "hidden !", "description");
 $field->setValue('1');
 //Add Control to Form
 $form->add($field);
 
 //Create a Textbox Control
-$field = new Textbox('name');
+$field = new Label(new Textbox('name'), "Nachricht");
 
 //Set some properties
-$field->setLabel('name');
-$field->setValue('WayneWithAVeryLongName');
 $field->setClass("tbox");
 $field->setSize(40);
 $field->setMaxlength(40);
@@ -39,10 +35,9 @@ $field->setMaxlength(40);
 $form->add($field);
 
 //Create a Password Control
-$field = new Password('pw', false, "/.{6,}/");
+$field = new Label(new Password('pw', false, "/.{6,}/"), "Password");
 
 //Set some properties
-$field->setLabel('password');
 $field->setValue('123456');
 $field->setId('pwd');
 //Add Control to Form
@@ -50,10 +45,9 @@ echo "field {$field->getName()} is " . ($field->isValid() ? "" : "not ") . "vali
 $form->add($field);
 
 //Create a Textarea Control
-$field = new Textarea('tname');
+$field = new Label(new Textarea('tname'), "Message");
 
 //Set some properties
-$field->setLabel('area');
 $field->setValue('this is the <>& VALUE!');
 $field->setClass("tarea");
 $field->setRows(5);
@@ -64,16 +58,15 @@ $form->add($field);
 
 
 //Create a Submit Button Control
-$field = new Submit('submid');
+$field = new Label(new Submit('submid'), "Absenden");
 
 //Set some properties
-$field->setLabel('sub, sub');
 $field->setValue('PressS!!!!!');
 //Add Control to Form
 $form->add($field); 
 
 //Create a Reset Button Control
-$field = new Reset('reset');
+$field = new Label(new Reset('reset'), "Zur&uuml;ck setzen");
 
 //Set some properties
 $field->setLabel('remove data');
@@ -81,11 +74,10 @@ $field->setValue('Clear');
 //Add Control to Form
 $form->add($field); 
 
-//Create a Reset Button Control
-$field = new Image('da image');
+//Create a Image Control
+$field = new Label(new Image('da image'), "Bild hochladen");
 
 //Set some properties
-$field->setLabel('Bildknopf');
 $field->setValue('value');
 $field->setSrc("source_which_doesnt_exist");
 $field->setAlt("mööööp!");
@@ -93,15 +85,14 @@ $field->setAlt("mööööp!");
 $form->add($field); 
 
 //Create a Filechooser Control
-$field = new Filechooser('fl');
+$field = new Label(new Filechooser('fl'), "select a file from your harddrive");
 
 //Set some properties
-$field->setLabel('select File');
 //Add Control to Form
 $form->add($field); 
 
 
-//Create a 
+//Create a Radiogroup
 $field = new Radiogroup('test');
 $option = new Radio('v1', 'label1');
 $field->add($option);
@@ -110,8 +101,7 @@ $field->add($option);
 //Add Control to Form
 $form->add($field); 
 
-$field = new Select('SELECTA!!!');
-$field->setLabel('void');
+$field = new Label(new Select('SELECTA!!!'), "essen");
 $field->add(new Option('1', 'Pizza'));
 $field->add(new Option('2', 'Pommes'));
 $opt = new Option('3', 'Frittes');
@@ -120,7 +110,7 @@ $field->add($opt);
 $form->add($field);
 
 $form->catchRequestData();
-$form->addChecker(new NotInListChecker($form->name, array('voidvoid', 'rayray')));
+$form->addChecker(new NotInListChecker($form->get('name'), array('voidvoid', 'rayray')));
 //Display the Form
 echo $form->display();
 

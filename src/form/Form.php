@@ -153,7 +153,7 @@ class Form extends FormElement implements Iterator {
    *
    * @param Inputfield - an Inputfield
    */
-  public function add(Inputfield $inputfield) {
+  public function add(InputfieldInterface $inputfield) {
     $this->inputfields[] = $inputfield;
     end($this->inputfields);
     $this->names[$inputfield->getName()] = key($this->inputfields);
@@ -273,7 +273,7 @@ class Form extends FormElement implements Iterator {
     return (bool)$key;
   }
 
-  public function __get($key) {
+  public function get($key) {
     return $this->getInputfieldByName($key);
   }
 

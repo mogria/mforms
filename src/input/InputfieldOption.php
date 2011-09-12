@@ -17,10 +17,9 @@ abstract class InputfieldOption extends Inputfield implements InputfieldGroupMem
     $this->attributes[] = 'selected';
   }
 
-  public function __construct($value, $label = null) {
+  public function __construct($value) {
     parent::__construct(null);
     $this->setValue($value);
-    $this->setLabel($label);
   }
 
 }

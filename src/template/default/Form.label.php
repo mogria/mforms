@@ -1,6 +1,7 @@
 <?php
 
-$inside = $this->getDisplayedField();
+$inside = $this->object->display();
+
 
 $description = (($description = $this->getDescription()) !== null) ?
   "<p>" . htmlspecialchars($description) . "</p>\n" :
