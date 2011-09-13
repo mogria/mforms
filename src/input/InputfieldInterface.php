@@ -8,6 +8,4 @@ interface InputfieldInterface {
   public function getRequired();
   public function setRequired($value);
   public function getType();
-  public function getErrorMsgs();
-  public function addErrorMsg($errmsg);
 }

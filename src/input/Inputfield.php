@@ -9,8 +9,6 @@ abstract class Inputfield extends FormElement implements InputfieldInterface {
 
   protected $match;
 
-  protected $errormsgs = Array();
-
   protected $valid = true;
 
   public function __construct($name, $required = false, $match = "/.*/") {
@@ -66,14 +64,6 @@ abstract class Inputfield extends FormElement implements InputfieldInterface {
     }
     $this->valid = $valid;
     return $valid;
-  }
-
-  public function getErrorMsgs() {
-    return $this->errormsgs;
-  }
-
-  public function addErrorMsg($msg) {
-    $this->errormsgs[] = $msg;
   }
 }
 
