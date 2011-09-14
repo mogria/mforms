@@ -49,50 +49,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
 <a name="l00002"></a>00002 
-<a name="l00003"></a><a class="code" href="classmformsAutoloader.html">00003</a> <span class="keyword">class </span><a class="code" href="classmformsAutoloader.html">mformsAutoloader</a> {
-<a name="l00004"></a>00004   <span class="keyword">public</span> <span class="keyword">static</span> $classlist = Array();
-<a name="l00005"></a>00005   <span class="keyword">public</span> <span class="keyword">static</span> function init() {
-<a name="l00006"></a>00006     $indexed_dirs = Array(<span class="stringliteral">&#39;form&#39;</span>, <span class="stringliteral">&#39;input&#39;</span>, <span class="stringliteral">&#39;checker&#39;</span>, <span class="stringliteral">&#39;template&#39;</span>);
-<a name="l00007"></a>00007     $depth = Array(-1, -1, -1, 1);
-<a name="l00008"></a>00008     <span class="keywordflow">foreach</span>($indexed_dirs as $key =&gt; $dir) {
-<a name="l00009"></a>00009       $dir = dirname(__FILE__) . <span class="stringliteral">&quot;/&quot;</span> . $dir;
-<a name="l00010"></a>00010       self::$classlist = array_merge(self::$classlist, self::create_index_of($dir, $depth[$key]));
-<a name="l00011"></a>00011     }
-<a name="l00012"></a>00012   }
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014   <span class="keyword">public</span> <span class="keyword">static</span> function load($classname) {
-<a name="l00015"></a>00015     <span class="comment">//print_r(self::$classlist);</span>
-<a name="l00016"></a>00016     <span class="keywordflow">if</span>(isset(self::$classlist[$classname])) {
-<a name="l00017"></a>00017       require_once self::$classlist[$classname];
-<a name="l00018"></a>00018     }
-<a name="l00019"></a>00019   }
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021   <span class="keyword">private</span> <span class="keyword">static</span> function create_index_of($dir, $depth = -1) {
-<a name="l00022"></a>00022     $list = Array();
-<a name="l00023"></a>00023     <span class="keywordflow">if</span>($depth != 0) {
-<a name="l00024"></a>00024       $dir = rtrim($dir, <span class="stringliteral">&quot;/&quot;</span>);
-<a name="l00025"></a>00025       $entries = scandir($dir);
-<a name="l00026"></a>00026       $entries = array_slice($entries, 2);
-<a name="l00027"></a>00027       <span class="keywordflow">foreach</span>($entries as $entry) {
-<a name="l00028"></a>00028         $entry = $dir . <span class="stringliteral">&quot;/&quot;</span> . $entry;
-<a name="l00029"></a>00029         <span class="keywordflow">if</span>(is_dir($entry)) {
-<a name="l00030"></a>00030           $list = array_merge($list, self::create_index_of($entry, $depth - 1));
-<a name="l00031"></a>00031         } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(is_file($entry) &amp;&amp; substr($entry, strrpos($entry, <span class="stringliteral">&quot;.&quot;</span>) + 1) === <span class="stringliteral">&quot;php&quot;</span>) {
-<a name="l00032"></a>00032           $classname = substr($entry, 0, strrpos($entry, <span class="stringliteral">&quot;.&quot;</span>));
-<a name="l00033"></a>00033           $classname = substr($classname, strrpos($classname, <span class="stringliteral">&quot;/&quot;</span>) + 1);
-<a name="l00034"></a>00034           $list[$classname] = $entry;
-<a name="l00035"></a>00035         }
-<a name="l00036"></a>00036       }
-<a name="l00037"></a>00037     }
-<a name="l00038"></a>00038     <span class="keywordflow">return</span> $list;
-<a name="l00039"></a>00039   }
-<a name="l00040"></a>00040 }
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 mformsAutoloader::init();
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 spl_autoload_register(Array(<span class="stringliteral">&#39;mformsAutoloader&#39;</span>, <span class="stringliteral">&#39;load&#39;</span>));
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <a class="code" href="classFormElement.html#a90bc5290ce6f72e887889d418276b851">FormElement::setTemplateLoader</a>(<span class="keyword">new</span> <a class="code" href="classTemplateLoader.html">TemplateLoader</a>(<span class="stringliteral">&quot;default&quot;</span>));
+<a name="l00003"></a>00003 require_once dirname(__FILE__) . <span class="stringliteral">&#39;/mforms.conf.php&#39;</span>;
+<a name="l00004"></a>00004 require_once dirname(__FILE__) . <span class="stringliteral">&#39;/debug/func.php&#39;</span>;
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="classmformsAutoloader.html">00006</a> <span class="keyword">class </span><a class="code" href="classmformsAutoloader.html">mformsAutoloader</a> {
+<a name="l00007"></a>00007   <span class="keyword">public</span> <span class="keyword">static</span> $classlist = Array();
+<a name="l00008"></a>00008   <span class="keyword">public</span> <span class="keyword">static</span> function init() {
+<a name="l00009"></a>00009     $indexed_dirs = Array(<span class="stringliteral">&#39;form&#39;</span>, <span class="stringliteral">&#39;input&#39;</span>, <span class="stringliteral">&#39;checker&#39;</span>, <span class="stringliteral">&#39;template&#39;</span>, <span class="stringliteral">&#39;decorators&#39;</span>);
+<a name="l00010"></a>00010     $depth = Array(-1, -1, -1, 1, -1);
+<a name="l00011"></a>00011    <span class="keywordflow">foreach</span>($indexed_dirs as $key =&gt; $dir) {
+<a name="l00012"></a>00012       $dir = dirname(__FILE__) . <span class="stringliteral">&quot;/&quot;</span> . $dir;
+<a name="l00013"></a>00013       self::$classlist = array_merge(self::$classlist, self::create_index_of($dir, $depth[$key]));
+<a name="l00014"></a>00014     }
+<a name="l00015"></a>00015   }
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017   <span class="keyword">public</span> <span class="keyword">static</span> function load($classname) {
+<a name="l00018"></a>00018     <span class="keywordflow">if</span>($classname == <span class="stringliteral">&quot;Loader&quot;</span>) {
+<a name="l00019"></a>00019       print_r(self::$classlist);
+<a name="l00020"></a>00020     }
+<a name="l00021"></a>00021     <span class="keywordflow">if</span>(isset(self::$classlist[$classname])) {
+<a name="l00022"></a>00022       require_once self::$classlist[$classname];
+<a name="l00023"></a>00023     }
+<a name="l00024"></a>00024   }
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026   <span class="keyword">private</span> <span class="keyword">static</span> function create_index_of($dir, $depth = -1) {
+<a name="l00027"></a>00027     $list = Array();
+<a name="l00028"></a>00028     <span class="keywordflow">if</span>($depth != 0) {
+<a name="l00029"></a>00029       $dir = rtrim($dir, <span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00030"></a>00030       $entries = scandir($dir);
+<a name="l00031"></a>00031       $entries = array_slice($entries, 2);
+<a name="l00032"></a>00032       <span class="keywordflow">foreach</span>($entries as $entry) {
+<a name="l00033"></a>00033         $entry = $dir . <span class="stringliteral">&quot;/&quot;</span> . $entry;
+<a name="l00034"></a>00034         <span class="keywordflow">if</span>(is_dir($entry)) {
+<a name="l00035"></a>00035           $list = array_merge($list, self::create_index_of($entry, $depth - 1));
+<a name="l00036"></a>00036         } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(is_file($entry) &amp;&amp; substr($entry, strrpos($entry, <span class="stringliteral">&quot;.&quot;</span>) + 1) === <span class="stringliteral">&quot;php&quot;</span>) {
+<a name="l00037"></a>00037           $classname = substr($entry, 0, strrpos($entry, <span class="stringliteral">&quot;.&quot;</span>));
+<a name="l00038"></a>00038           $classname = substr($classname, strrpos($classname, <span class="stringliteral">&quot;/&quot;</span>) + 1);
+<a name="l00039"></a>00039           $list[$classname] = $entry;
+<a name="l00040"></a>00040         }
+<a name="l00041"></a>00041       }
+<a name="l00042"></a>00042     }
+<a name="l00043"></a>00043     <span class="keywordflow">return</span> $list;
+<a name="l00044"></a>00044   }
+<a name="l00045"></a>00045 }
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 mformsAutoloader::init();
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 spl_autoload_register(Array(<span class="stringliteral">&#39;mformsAutoloader&#39;</span>, <span class="stringliteral">&#39;load&#39;</span>));
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -109,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Aug 30 2011 17:24:18 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 14 2011 07:15:45 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

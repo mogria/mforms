@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 Here is a list of all documented files with brief descriptions:<table>
   <tr><td class="indexkey">src/<b>loader.php</b> <a href="loader_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/<b>mforms.conf.php</b> <a href="mforms_8conf_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/<b>Checker.php</b> <a href="Checker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/<b>CheckerChain.php</b> <a href="CheckerChain_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/compare/<b>CompareChecker.php</b> <a href="CompareChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
@@ -75,18 +76,24 @@ Here is a list of all documented files with brief descriptions:<table>
   <tr><td class="indexkey">src/checker/regex/<b>AbstractRegularExpressionChecker.php</b> <a href="AbstractRegularExpressionChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/regex/<b>MailChecker.php</b> <a href="MailChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/checker/regex/<b>RegularExpressionChecker.php</b> <a href="RegularExpressionChecker_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/debug/<b>func.php</b> <a href="func_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/decorators/<b>Decorator.php</b> <a href="Decorator_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/decorators/<b>ErrorMessage.php</b> <a href="ErrorMessage_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/decorators/<b>InputfieldDecorator.php</b> <a href="InputfieldDecorator_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/decorators/<b>Label.php</b> <a href="Label_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/exceptions/<b>MformsException.php</b> <a href="MformsException_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey">src/form/<b>Form.php</b> <a href="Form_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/form/<b>Form.php</b> <a href="form_2Form_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/form/<b>FormElement.php</b> <a href="FormElement_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey">src/form/decorators/<b>FormDecorator.php</b> <a href="FormDecorator_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/form/<b>FormElementInterface.php</b> <a href="FormElementInterface_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/form/decorators/<b>SQLDecorator.php</b> <a href="SQLDecorator_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Checkbox.php</b> <a href="Checkbox_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Filechooser.php</b> <a href="Filechooser_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Hidden.php</b> <a href="Hidden_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Image.php</b> <a href="Image_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey">src/input/<b>Inputfield.php</b> <a href="Inputfield_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/input/<b>Inputfield.php</b> <a href="input_2Inputfield_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>InputfieldGroup.php</b> <a href="InputfieldGroup_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>InputfieldGroupMember.php</b> <a href="InputfieldGroupMember_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/input/<b>InputfieldInterface.php</b> <a href="InputfieldInterface_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>InputfieldOption.php</b> <a href="InputfieldOption_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Optgroup.php</b> <a href="Optgroup_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/input/<b>Option.php</b> <a href="Option_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
@@ -100,6 +107,17 @@ Here is a list of all documented files with brief descriptions:<table>
   <tr><td class="indexkey">src/input/<b>Textbox.php</b> <a href="Textbox_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/template/<b>TemplateLoader.php</b> <a href="TemplateLoader_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey">src/template/<b>TemplateLoaderInterface.php</b> <a href="TemplateLoaderInterface_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/<b>VoidTemplateLoader.php</b> <a href="VoidTemplateLoader_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/default/<b>Form.label.php</b> <a href="default_2Form_8label_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/default/<b>Form.php</b> <a href="template_2default_2Form_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/default/<b>FormElement.errmsg.php</b> <a href="default_2FormElement_8errmsg_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/default/<b>Inputfield.label.php</b> <a href="default_2Inputfield_8label_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/default/<b>Inputfield.php</b> <a href="template_2default_2Inputfield_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/light/<b>Form.label.php</b> <a href="light_2Form_8label_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/light/<b>Form.php</b> <a href="template_2light_2Form_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/light/<b>FormElement.errmsg.php</b> <a href="light_2FormElement_8errmsg_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/light/<b>Inputfield.label.php</b> <a href="light_2Inputfield_8label_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">src/template/light/<b>Inputfield.php</b> <a href="template_2light_2Inputfield_8php_source.html">[code]</a></td><td class="indexvalue"></td></tr>
 </table>
 </div>
 <!--- window showing the filter options -->
@@ -116,7 +134,7 @@ Here is a list of all documented files with brief descriptions:<table>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Aug 30 2011 17:24:22 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 14 2011 07:15:51 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

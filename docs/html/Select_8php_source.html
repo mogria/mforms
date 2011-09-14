@@ -62,15 +62,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00013"></a>00013     $this-&gt;attributes[] = <span class="stringliteral">&#39;multiple&#39;</span>;
 <a name="l00014"></a>00014   }
 <a name="l00015"></a>00015 
-<a name="l00016"></a><a class="code" href="classSelect.html#a06a9b359fd69f829ac912b754c290d42">00016</a>   <span class="keyword">public</span> function <a class="code" href="classSelect.html#a06a9b359fd69f829ac912b754c290d42">display</a>() {
-<a name="l00017"></a>00017     $output = <span class="stringliteral">&quot;&lt;select&quot;</span> . $this-&gt;<a class="code" href="classFormElement.html#a23919fcc89bb8c900489eb9e1bb8663e">getAttributeNodes</a>($this-&gt;attributes) . <span class="stringliteral">&quot;&gt;\n&quot;</span>;
-<a name="l00018"></a>00018     <span class="keywordflow">foreach</span>($this-&gt;inputs as $i) {
-<a name="l00019"></a>00019       $output .= $i-&gt;display() . <span class="stringliteral">&quot;\n&quot;</span>;
-<a name="l00020"></a>00020     }
-<a name="l00021"></a>00021     $output .= <span class="stringliteral">&quot;&lt;/select&gt;\n&quot;</span>;
-<a name="l00022"></a>00022     $output = $this-&gt;displayLabel($output);
-<a name="l00023"></a>00023     <span class="keywordflow">return</span> $output;
-<a name="l00024"></a>00024   }
+<a name="l00016"></a>00016   <span class="comment">/*public function display() {</span>
+<a name="l00017"></a>00017 <span class="comment">    $output = &quot;&lt;select&quot; . $this-&gt;getAttributeNodes($this-&gt;attributes) . &quot;&gt;\n&quot;;</span>
+<a name="l00018"></a>00018 <span class="comment">    foreach($this-&gt;inputs as $i) {</span>
+<a name="l00019"></a>00019 <span class="comment">      $output .= $i-&gt;display() . &quot;\n&quot;;</span>
+<a name="l00020"></a>00020 <span class="comment">    }</span>
+<a name="l00021"></a>00021 <span class="comment">    $output .= &quot;&lt;/select&gt;\n&quot;;</span>
+<a name="l00022"></a>00022 <span class="comment">    $output = $this-&gt;displayLabel($output);</span>
+<a name="l00023"></a>00023 <span class="comment">    return $output;</span>
+<a name="l00024"></a>00024 <span class="comment">  }*/</span>
 <a name="l00025"></a>00025 
 <a name="l00026"></a>00026   <span class="keyword">public</span> function setMultiple($multiple) {
 <a name="l00027"></a>00027     $this-&gt;multiple = $multiple;
@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Aug 30 2011 17:24:18 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 14 2011 07:15:45 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
