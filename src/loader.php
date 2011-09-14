@@ -1,6 +1,5 @@
 <?php
 
-require_once dirname(__FILE__) . '/mforms.conf.php';
 require_once dirname(__FILE__) . '/debug/func.php';
 
 class mformsAutoloader {
