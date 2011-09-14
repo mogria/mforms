@@ -24,12 +24,13 @@ $field->setValue('1');
 $form->add($field);
 
 //Create a Textbox Control
-$field = new Label(new Textbox('name'), "Nachricht");
+$field = new Label(new ErrorMessage(new Textbox('name'), "FEHLER!"), "Benutzername");
 
 //Set some properties
 $field->setClass("tbox");
 $field->setSize(40);
-$field->setMaxlength(40);
+$field->setMaxlength(10);
+$field->setValue("void void void void");
 
 //Add Control to Form
 $form->add($field);

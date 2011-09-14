@@ -14,7 +14,7 @@ class ErrorMessage extends InputfieldDecorator {
   }
 
   public function addErrorMsg($errormsg) {
-    if($errormsgs != null) {
+    if($errormsg != null) {
       if(!is_array($errormsg)) {
         $errormsg = Array($errormsg);
       }
@@ -25,8 +25,8 @@ class ErrorMessage extends InputfieldDecorator {
     }
   }
 
-  public function __construct(FormElement $object, $errormsgs= null) {
+  public function __construct(FormElementInterface $object, $errormsgs= null) {
     parent::__construct($object);
-    $this->addErrorMsg($errormsg);
+    $this->addErrorMsg($errormsgs);
   }
 }

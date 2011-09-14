@@ -1,6 +1,6 @@
 <?php
 
-abstract class InputfieldDecorator extends Decorator implements InputfieldInterface {
+abstract class InputfieldDecorator extends Decorator implements FormElementInterface, InputfieldInterface {
   
   abstract function getTemplateExtension();
   
@@ -38,7 +38,7 @@ abstract class InputfieldDecorator extends Decorator implements InputfieldInterf
     $template_loader->setTemplateExtension($this->getTemplateExtension());
     $class = $this->getClass();
     if(($file = $this->getFirstTemplateFile($class)) === null) {
-      throw new BadMethodCallException("no template found for " . get_called_class());
+      throw new BadMethodCallException("no template found for " . $class);
     }
     $template_loader->setTemplateExtension($ext);
     require $file;
@@ -47,6 +47,5 @@ abstract class InputfieldDecorator extends Decorator implements InputfieldInterf
     }
     return $content;
   }
-
 
 }

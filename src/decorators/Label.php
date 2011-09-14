@@ -24,7 +24,7 @@ class Label extends InputfieldDecorator {
     $this->description = $value;
   }
 
-  public function __construct(FormElement $object, $label, $description = null) {
+  public function __construct(FormElementInterface $object, $label, $description = null) {
     parent::__construct($object);
     $this->setLabel($label);
     $description !== null && $this->setDescription($description);

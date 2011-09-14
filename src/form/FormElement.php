@@ -1,6 +1,6 @@
 <?php
 
-abstract class FormElement {
+abstract class FormElement implements FormElementInterface {
 
   protected $id;
 
@@ -130,7 +130,6 @@ abstract class FormElement {
    */
   public function display() {
     $class = get_called_class();
-    echo "CLASS: " . $class . "\n";
     if(($file = $this->getFirstTemplateFile($class)) === null) {
       throw new BadMethodCallException("no template found for " . get_called_class());
     }

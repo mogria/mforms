@@ -4,8 +4,12 @@ abstract class Decorator {
   protected $object;
   protected $class;
 
+  public function getClass() {
+    return $this->class;
+  }
+
   public function __construct($object) {
-    $this->object= $object;
+    $this->object = $object;
     if($object instanceof Decorator) {
       $this->class = $object->getClass();
     } else {
@@ -15,18 +19,8 @@ abstract class Decorator {
 
   //@todo: contains the second parameter the params?
   public function __call($method, $params) {
-    //if this class does not contain a function try to call it in the object
-    if(method_exists($this->object, $method)) {
-      return call_user_func_array(array($this->object, $method), $params);
-    } else {
-      //throw exception?
-    }
+    return call_user_func_array(array($this->object, $method), $params);
   }
-
-  public function getClass() {
-    return $this->class;
-  }
-
   /** public function __get($key) {
     return $this->object->{$key};
   }
