@@ -4,7 +4,7 @@ $inside = $this->object->display();
 
 
 $description = (($description = $this->getDescription()) !== null) ?
-  "<p>" . htmlspecialchars($description) . "</p>\n" :
+  "<p class=\"description\">" . htmlspecialchars($description) . "</p>\n" :
   "\n";
 
 $label = $this->getLabel();

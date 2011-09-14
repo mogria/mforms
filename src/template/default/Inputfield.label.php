@@ -1,7 +1,7 @@
 <?php
 
 $description = (($description = $this->getDescription()) !== null) ?
-  "\t<p>" . htmlspecialchars($description) . "</p>\n" :
+  "\t<p class=\"description\">" . htmlspecialchars($description) . "</p>\n" :
   "\n";
 
 $content = "<label class=\"input " . htmlspecialchars($this->getType()) . "\">\n" . 

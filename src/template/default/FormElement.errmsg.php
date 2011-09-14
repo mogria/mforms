@@ -1,5 +1,9 @@
 <?php
 
+$errormessages = "";
+foreach($this->getErrorMsgs() as $errmsg) {
+  $errormessages .= "<p class=\"errormsg\">" . htmlspecialchars($errmsg) . "</p>\n";
+}
 
-$content = $this->object->display() . "\n" . '<p class="errormsg">' . implode('</p><p class="errormsg">', $this->getErrorMsgs()) . "</p>\n";
+$content = $this->object->display() . "\n" . $errormessages;
 
