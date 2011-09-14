@@ -65,13 +65,14 @@ class Form extends FormElement implements Iterator {
    * @param action - the action of the form (default "#")
    * @param method - the method of the form ("get" or "post" default "post")
    */
-  public function __construct($name = null, $action = '#', $method = 'post') {
+  public function __construct($name = null, $action = '#', $method = 'post', $template = null) {
     parent::__construct($name);
     $this->setAction($action);
     $this->setMethod($method);
     $sent = new Hidden(self::SENT_INPUT, true);
     $sent->setValue("1");
     $this->add($sent);
+    $this->setTemplateLoader(new TemplateLoader(($template === null ? "default" : $template)));
   }
 
   /**
@@ -160,6 +161,7 @@ class Form extends FormElement implements Iterator {
     if($inputfield instanceof Filechooser) {
       $this->setEnctype('multipart/form-data');
     }
+    $inputfield->setTemplateLoader($this->getTemplateLoader());
   }
 
   /**

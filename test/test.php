@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 require_once '../src/loader.php';
 
 //Create the form
-$form = new Form('form1');
+$form = new Form('form1', "#", "post", "light");
 
 //Set some properties
 $form = new Label($form, "void", "ohne scheiss");
