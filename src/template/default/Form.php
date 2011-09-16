@@ -3,7 +3,8 @@ $output = "";
 
 if($this != null) {
   foreach($this as $key => $input) {
-    $output .= $input->display() . "\n";
+    $output .= ($void = $input->display()) . "\n";
+    //print_r($void);
   }
 }
 
