@@ -1,7 +1,34 @@
 <?php
 
-abstract class InputfieldGroup extends Inputfield {
+abstract class InputfieldGroup extends Inputfield implements Iterator {
   protected $inputs;
+
+  protected $pos;
+
+  public function next() {
+    $this->pos++;
+  }
+
+  public function prev() {
+    $this->pos--;
+  }
+
+  public function rewind() {
+    $this->pos = 0;
+  }
+
+  public function valid() {
+    return $this->pos < count($this->inputs);
+  }
+
+  public function current() {
+    return $this->inputs[$this->pos];
+  }
+
+  public function key() {
+    return $this->pos;
+  }
+
   public function add(InputfieldGroupMember $input) {
     $this->inputs[] = $input;
     $input->setName($this->getName());
