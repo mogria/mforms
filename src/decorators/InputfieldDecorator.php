@@ -55,17 +55,18 @@ abstract class InputfieldDecorator extends Decorator implements FormElementInter
     } else {
       $this->cache = array_merge($this->cache, array('main' => $this->object->display()));
     }
+    //var_dump($this->cache);
     self::$displaycount--;
     if(self::$displaycount === 0) {
       foreach($this->cache as $key => &$element) {
         foreach($this->cache as $key2 => $element2) {
-          $element = str_replace('{<' . $key2 . '>}', $element2, $element);
+          $element = str_replace('{<"' . $key2 . '">}', $element2, $element);
         }
       }
       
       $first = true;
       foreach($this->cache as $key => &$value) {
-        $value = preg_replace("/{<\"[0-9a-z]*\">}/Ui", "", $value);
+        $value = preg_replace("/\{[^\{]*\}/i", "", $value);
         if($first) {
           $max = strlen($value);
           $max_idx = $key;
@@ -77,6 +78,8 @@ abstract class InputfieldDecorator extends Decorator implements FormElementInter
           }
         }
       }
+      echo "INDEX: '$max_idx'\n";
+      var_dump($this->cache);
       return $this->cache[$max_idx];
     } else {
       return $this->cache;

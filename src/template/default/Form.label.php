@@ -9,6 +9,7 @@ $label = $this->getLabel();
 $content = "<fieldset class=\"input " . htmlspecialchars($label) . "\">\n" . 
   self::tabindent("<legend>" . htmlspecialchars($label) . "</legend>\n" .
   $description . 
-  "{}") . "\n";
+  '{<"errmsg">}' .
+  '{<"main">}') . "\n";
 
 
