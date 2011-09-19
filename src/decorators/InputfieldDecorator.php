@@ -48,25 +48,33 @@ abstract class InputfieldDecorator extends Decorator implements FormElementInter
     if(!isset($content)) {
       $content = "";
     }
-    $this->cache[$this->getTemplateExtension()] = $content;
+    $this->cache[($this->getTemplateExtension() === '') ? 'main' : ltrim($this->getTemplateExtension(), ".")] = $content;
     self::$displaycount++;
     if($this->object instanceof InputfieldDecorator) {
       $this->cache = array_merge($this->cache, $this->object->display());
     } else {
       $this->cache = array_merge($this->cache, array('main' => $this->object->display()));
     }
-    //var_dump($this->cache);
+
     self::$displaycount--;
     if(self::$displaycount === 0) {
-      foreach($this->cache as $key => &$element) {
-        foreach($this->cache as $key2 => $element2) {
-          $element = str_replace('{<"' . $key2 . '">}', $element2, $element);
+      $num = 0;
+      $n = 0;
+      while($num != 0) {
+        $num = 0;
+        foreach($this->cache as $key => &$element) {
+          foreach($this->cache as $key2 => $element2) {
+            echo 'str_replace(\'{"\' . ' . $key2 . ' . \'"}\', \'' . $element2 . '\', \'' . $element . '\')' . "\n";
+            $element = str_replace('{"' . $key2 . '"}', $element2, $element, $n);
+            echo "RES: '" . $element . "'\n";
+            $num += $n;
+          }
         }
       }
       
       $first = true;
       foreach($this->cache as $key => &$value) {
-        $value = preg_replace("/\{[^\{]*\}/i", "", $value);
+        $value = preg_replace('/\{"[^\{]*"\}/i', "", $value);
         if($first) {
           $max = strlen($value);
           $max_idx = $key;
@@ -78,8 +86,8 @@ abstract class InputfieldDecorator extends Decorator implements FormElementInter
           }
         }
       }
-      echo "INDEX: '$max_idx'\n";
-      var_dump($this->cache);
+      //echo "INDEX: '$max_idx'\n";
+      //var_dump($this->cache);
       return $this->cache[$max_idx];
     } else {
       return $this->cache;

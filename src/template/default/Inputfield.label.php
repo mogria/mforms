@@ -7,7 +7,7 @@ $description = (($description = $this->getDescription()) !== null) ?
 $content = "<label class=\"input " . htmlspecialchars($this->getType()) . "\">\n" . 
 self::tabindent("<span>" . htmlspecialchars($this->getLabel()) . "</span>\n" . 
 $description . 
-'{<"main">}' . 
-'{<"errmsg">}') . 
+'{"main"}' . 
+'{"errmsg"}') . 
 "</label>\n";
 
