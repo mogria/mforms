@@ -12,6 +12,6 @@ $label = $this->getLabel();
 $content = "<fieldset>\n" . 
   self::tabindent("<legend>" . htmlspecialchars($label) . "</legend>\n" .
   $description . 
-  $inside) . "\n";
+  $inside) . "</fieldset>\n";
 
 

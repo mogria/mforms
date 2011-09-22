@@ -10,6 +10,7 @@ $content = "<fieldset class=\"input " . htmlspecialchars($label) . "\">\n" .
   self::tabindent("<legend>" . htmlspecialchars($label) . "</legend>\n" .
   $description . 
   '{"errmsg"}' .
-  '{"main"}') . "\n";
+  '{"main"}') . 
+  "</fieldset>\n";
 
 

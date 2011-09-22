@@ -4,7 +4,9 @@ abstract class InputfieldDecorator extends Decorator implements FormElementInter
   
   abstract function getTemplateExtension();
 
-  private static $displaycount = 0;
+  private static $displaycount = Array();
+
+  private static $displaycountidx = -1;
   protected $cache = Array();
   
   public function getValue() {
@@ -36,6 +38,10 @@ abstract class InputfieldDecorator extends Decorator implements FormElementInter
   }
 
   public function display() {
+    if($this->getSurroundedBy() === null) {
+      self::$displaycountidx++;
+      self::$displaycount[self::$displaycountidx] = 0;
+    }
     $template_loader = $this->object->getTemplateLoader();
     $ext = $template_loader->getTemplateExtension();
     $template_loader->setTemplateExtension($this->getTemplateExtension());
@@ -49,24 +55,26 @@ abstract class InputfieldDecorator extends Decorator implements FormElementInter
       $content = "";
     }
     $this->cache[($this->getTemplateExtension() === '') ? 'main' : ltrim($this->getTemplateExtension(), ".")] = $content;
-    self::$displaycount++;
+    self::$displaycount[self::$displaycountidx]++;
     if($this->object instanceof InputfieldDecorator) {
       $this->cache = array_merge($this->cache, $this->object->display());
     } else {
       $this->cache = array_merge($this->cache, array('main' => $this->object->display()));
+      self::$displaycountidx--;
     }
 
-    self::$displaycount--;
-    if(self::$displaycount === 0) {
-      $num = 0;
+    //var_dump($this->cache);
+    self::$displaycount[self::$displaycountidx + 1]--;
+    if(self::$displaycount[self::$displaycountidx + 1] === 0) {
+      $num = 15;
       $n = 0;
       while($num != 0) {
         $num = 0;
         foreach($this->cache as $key => &$element) {
           foreach($this->cache as $key2 => $element2) {
-            echo 'str_replace(\'{"\' . ' . $key2 . ' . \'"}\', \'' . $element2 . '\', \'' . $element . '\')' . "\n";
+            //echo 'str_replace(\'{"\' . ' . $key2 . ' . \'"}\', \'' . $element2 . '\', \'' . $element . '\')' . "\n";
             $element = str_replace('{"' . $key2 . '"}', $element2, $element, $n);
-            echo "RES: '" . $element . "'\n";
+            //echo "RES: '" . $element . "'\n";
             $num += $n;
           }
         }
@@ -90,6 +98,7 @@ abstract class InputfieldDecorator extends Decorator implements FormElementInter
       //var_dump($this->cache);
       return $this->cache[$max_idx];
     } else {
+      //var_dump($this->cache);
       return $this->cache;
     }
   }

@@ -3,6 +3,15 @@
 abstract class Decorator {
   protected $object;
   protected $class;
+  protected $surroundedby = null;
+
+  public function setSurroundedBy(Decorator $surroundedby) {
+    $this->surroundedby = $surroundedby;
+  }
+  
+  public function getSurroundedBy() {
+    return $this->surroundedby;
+  }
 
   public function getClass() {
     return $this->class;
@@ -12,6 +21,7 @@ abstract class Decorator {
     $this->object = $object;
     if($object instanceof Decorator) {
       $this->class = $object->getClass();
+      $this->object->setSurroundedBy($this);
     } else {
       $this->class = get_class($object);
     }

@@ -10,9 +10,6 @@ $form = new Form('form1', "#", "post", "default");
 
 //Set some properties
 $form = new Label($form, "void", "ohne scheiss");
-$form->setMethod("get");
-$form->setClass("a_form");
-$form->setAction("#");
 
 //Create a Hidden Control
 $field = new Hidden('woot');
@@ -70,7 +67,6 @@ $form->add($field);
 $field = new Label(new Reset('reset'), "Zur&uuml;ck setzen");
 
 //Set some properties
-$field->setLabel('remove data');
 $field->setValue('Clear');
 //Add Control to Form
 $form->add($field); 

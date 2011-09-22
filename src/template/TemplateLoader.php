@@ -78,7 +78,6 @@ class TemplateLoader implements TemplateLoaderInterface {
     $this->indexThemes();
     if($theme !== "default") {
       $this->default_theme_loader = new TemplateLoader();
-      $this->default_theme_loader->setTheme("default");
     } else {
       $this->default_theme_loader = new VoidTemplateLoader();
     }
