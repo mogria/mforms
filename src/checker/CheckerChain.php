@@ -28,7 +28,7 @@ abstract class CheckerChain {
     }
   }
 
-  public function setLogicalOperation(LogicalOperation $l) {
+  public function setLogicalOperation(LogicalOperator $l) {
     $this->loperation = $l;
   }
 
@@ -36,9 +36,12 @@ abstract class CheckerChain {
     return $this->loperation;
   }
 
-  public function __construct(Array $chain), $operation {
+  public function __construct(Array $chain, $operation = null) {
     foreach($chain as $member) {
       $this->add($member);
+    }
+    if($operation === null) {
+      $operation = new AndOperator();
     }
     $this->setOperation($operation);
   }
@@ -48,7 +51,11 @@ abstract class CheckerChain {
     
     $last = $this->member[0]->check();
     for($i = 1; $i < $anz; $i++) {
+      $before = $this->member[$i]->getAutotrigger();
+      $this->member[$i]->setAutotrigger(false);
       $last = $this->loperation->check($last, $this->member[$i]->check());
+      $this->member[$i]->setAutotrigger($before);
     }
+    return $last;
   }
 }

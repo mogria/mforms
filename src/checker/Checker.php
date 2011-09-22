@@ -5,6 +5,16 @@ abstract class Checker {
   protected $errmsg = null;
   protected $fields = Array();
 
+  protected $autotrigger = true;
+
+  public function getAutotrigger() {
+    return $this->autotrigger;
+  }
+
+  public function setAutotrigger($value) {
+    $this->autotrigger = $value;
+  }
+
   protected $form;
 
   public function getForm() {
@@ -31,21 +41,17 @@ abstract class Checker {
       $value = ($f = $field instanceof Inputfield) ?
       $field->getValue() : 
       $field;
-      if (
-            ($ret = $this->checkValue($value))
-          && 
-            $f
-          ) {
-        //Set Errmsg on failure
-        $this->triggerErrorMsg($field);
+      if (($ret = $this->checkValue($value)) && $f) {
+        //Set Errmsg on failure and autotrigger is turned on
+        $this->getAutotrigger() && $this->triggerErrorMsg($field);
       }
     }
     return $ret;
   }
 
-  public function triggerErrorMsg(Inputfield $input) {
+  public function triggerErrorMsg(Inputfield &$input) {
     if(($msg = $this->getErrmsg()) != null) {
-      $input->addErrmsg($msg);
+      $input = new ErrorMessage($input, $msg);
     }
   }
 
