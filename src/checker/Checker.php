@@ -17,6 +17,20 @@ abstract class Checker {
 
   protected $form;
 
+  public function remove($c) {
+    foreach($this->fields as $key => $member) {
+      if($this->fields === $member) {
+        unset($this->fields[$key]);
+      }
+    }
+  }
+
+  public function add($c) {
+     if($c instanceof InputfieldInterface) {
+      $this->fields[] = $c;
+    }
+  }
+
   public function getForm() {
     return $this->form;
   }
@@ -38,18 +52,18 @@ abstract class Checker {
     foreach($this->fields as $field) {
       //check the value
 
-      $value = ($f = $field instanceof Inputfield) ?
-      $field->getValue() : 
-      $field;
-      if (($ret = $this->checkValue($value)) && $f) {
+      $value = ($f = $field instanceof InputfieldInterface ) ?
+        $field->getValue() :
+        $field;
+      if (($ret = $this->checkValue($value)) && $this->getAutotrigger()) {
         //Set Errmsg on failure and autotrigger is turned on
-        $this->getAutotrigger() && $this->triggerErrorMsg($field);
+        $this->triggerErrorMsg($field);
       }
     }
     return $ret;
   }
 
-  public function triggerErrorMsg(Inputfield &$input) {
+  public function triggerErrorMsg(InputfieldInterface &$input) {
     if(($msg = $this->getErrmsg()) != null) {
       $input = new ErrorMessage($input, $msg);
     }
@@ -60,9 +74,11 @@ abstract class Checker {
   public function __construct($fields) {
     //make $fields to an array and save it in the property $fields
     if(is_array($fields)) {
-      $this->fields = $fields;
+      foreach($fields as $f) {
+        $this->add($f); 
+      }
     } else {
-      $this->fields = array($fields);
+      $this->add($fields);
     }
   }
 }

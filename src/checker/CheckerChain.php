@@ -1,30 +1,12 @@
 <?php
 
-abstract class CheckerChain {
+abstract class CheckerChain extends Checker {
 
-  protected $errormsg;
-  protected $member = Array();
   protected $loperation;
 
-  public function getErrormsg() {
-    return $this->errormsg;
-  }
-
-  public function setErrormsg($value) {
-    $this->errormsg = $value;
-  }
-
-  public function remove($c) {
-    foreach($this->member as $key => $member) {
-      if($this->member === $member) {
-        unset($this->member[$key]);
-      }
-    }
-  }
-
   public function add($c) {
-    if($c instanceof CheckerChain || $c instanceof Checker) {
-      $this->member[] = $c;
+    if($c instanceof Checker) {
+      $this->fields[] = $c;
     }
   }
 
@@ -36,10 +18,8 @@ abstract class CheckerChain {
     return $this->loperation;
   }
 
-  public function __construct(Array $chain, $operation = null) {
-    foreach($chain as $member) {
-      $this->add($member);
-    }
+  public function __construct($checkers, $operation = null) {
+    parent::__construct($checkers);
     if($operation === null) {
       $operation = new AndOperator();
     }
@@ -47,15 +27,16 @@ abstract class CheckerChain {
   }
 
   public function check() {
-    $anz = count($this->member = array_keys($this->member));
+    $anz = count($this->fields = array_keys($this->fields));
     
-    $last = $this->member[0]->check();
+    $last = $this->fields[0]->check();
     for($i = 1; $i < $anz; $i++) {
-      $before = $this->member[$i]->getAutotrigger();
-      $this->member[$i]->setAutotrigger(false);
-      $last = $this->loperation->check($last, $this->member[$i]->check());
-      $this->member[$i]->setAutotrigger($before);
+      $before = $this->fields[$i]->getAutotrigger();
+      $this->fields[$i]->setAutotrigger(false);
+      $last = $this->loperation->check($last, $this->fields[$i]->check());
+      $this->fields[$i]->setAutotrigger($before);
     }
     return $last;
   }
 }
+
