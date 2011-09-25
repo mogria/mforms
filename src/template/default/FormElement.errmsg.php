@@ -5,5 +5,5 @@ foreach($this->getErrorMsgs() as $errmsg) {
   $errormessages .= "<p class=\"errormsg\">" . htmlspecialchars($errmsg) . "</p>\n";
 }
 
-$content = "{\"main\"}" . $errormessages;
+$content = $errormessages;
 

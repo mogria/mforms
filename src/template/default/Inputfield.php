@@ -1,2 +1,2 @@
 <?php
-$content = "<input" . self::getAttributeNodes($this->attributes) . " />\n";
+$content = "{\"errmsg\"}\n<input" . self::getAttributeNodes($this->attributes) . " />\n";
