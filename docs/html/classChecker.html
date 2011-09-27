@@ -61,6 +61,7 @@ Inheritance diagram for Checker:</div>
   <img src="classChecker.png" usemap="#Checker_map" alt=""/>
   <map id="Checker_map" name="Checker_map">
 <area href="classAbstractRegularExpressionChecker.html" alt="AbstractRegularExpressionChecker" shape="rect" coords="0,56,213,80"/>
+<area href="classCheckerChain.html" alt="CheckerChain" shape="rect" coords="223,56,436,80"/>
 <area href="classCompareChecker.html" alt="CompareChecker" shape="rect" coords="446,56,659,80"/>
 <area href="classFunctionChecker.html" alt="FunctionChecker" shape="rect" coords="892,56,1105,80"/>
 <area href="classInListChecker.html" alt="InListChecker" shape="rect" coords="1338,56,1551,80"/>
@@ -80,6 +81,14 @@ Inheritance diagram for Checker:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab44c00d8ca13229a6397a8120537c616"></a><!-- doxytag: member="Checker::getAutotrigger" ref="ab44c00d8ca13229a6397a8120537c616" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>getAutotrigger</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff38c3cd477cc88860d823f3b1afb0d6"></a><!-- doxytag: member="Checker::setAutotrigger" ref="aff38c3cd477cc88860d823f3b1afb0d6" args="($value)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>setAutotrigger</b> ($value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c98639bfc19118ffcc3a535c298ac33"></a><!-- doxytag: member="Checker::remove" ref="a2c98639bfc19118ffcc3a535c298ac33" args="($c)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>remove</b> ($c)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03e02bc658e0eb6934d94e74c04de2cb"></a><!-- doxytag: member="Checker::add" ref="a03e02bc658e0eb6934d94e74c04de2cb" args="($c)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>add</b> ($c)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1593c9fd49f25b5c4822abe112ee3019"></a><!-- doxytag: member="Checker::getForm" ref="a1593c9fd49f25b5c4822abe112ee3019" args="()" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>getForm</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab51ba460edef9cee8fc0e1c2c8013f5c"></a><!-- doxytag: member="Checker::setForm" ref="ab51ba460edef9cee8fc0e1c2c8013f5c" args="($form)" -->
@@ -90,8 +99,8 @@ Public Member Functions</h2></td></tr>
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>setErrmsg</b> ($value)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a519898e42449ab8c305edb6c3a946df9"></a><!-- doxytag: member="Checker::check" ref="a519898e42449ab8c305edb6c3a946df9" args="()" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>check</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63533d5d962caa753e8d00a882e00e3c"></a><!-- doxytag: member="Checker::triggerErrorMsg" ref="a63533d5d962caa753e8d00a882e00e3c" args="(Inputfield $input)" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><b>triggerErrorMsg</b> (<a class="el" href="classInputfield.html">Inputfield</a> $input)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93ece67f9f070d59c61fd3001b8f526d"></a><!-- doxytag: member="Checker::triggerErrorMsg" ref="a93ece67f9f070d59c61fd3001b8f526d" args="(InputfieldInterface &amp;$input)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>triggerErrorMsg</b> (<a class="el" href="interfaceInputfieldInterface.html">InputfieldInterface</a> &amp;$input)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab348ea92a940d3082eefb076f60cf602"></a><!-- doxytag: member="Checker::checkValue" ref="ab348ea92a940d3082eefb076f60cf602" args="($value)" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>checkValue</b> ($value)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0f99166215aa4aa331a804914c9bf63"></a><!-- doxytag: member="Checker::__construct" ref="aa0f99166215aa4aa331a804914c9bf63" args="($fields)" -->
@@ -102,6 +111,8 @@ Protected Attributes</h2></td></tr>
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>$errmsg</b> = null</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a102a698805bb29fb19aff9a6831c1132"></a><!-- doxytag: member="Checker::$fields" ref="a102a698805bb29fb19aff9a6831c1132" args="" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>$fields</b> = Array()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc4d54962d7c7598570da7152860fe12"></a><!-- doxytag: member="Checker::$autotrigger" ref="acc4d54962d7c7598570da7152860fe12" args="" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><b>$autotrigger</b> = true</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31b813619094db72a8c07b6f832ba01a"></a><!-- doxytag: member="Checker::$form" ref="a31b813619094db72a8c07b6f832ba01a" args="" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>$form</b></td></tr>
 </table>
@@ -126,7 +137,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 14 2011 07:15:46 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Sep 27 2011 06:58:01 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

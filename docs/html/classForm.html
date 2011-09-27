@@ -83,7 +83,7 @@ Public Member Functions</h2></td></tr>
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>current</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ac05c92f146755346c54e7cd6869e34"></a><!-- doxytag: member="Form::key" ref="a0ac05c92f146755346c54e7cd6869e34" args="()" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>key</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#a6245182a31664ec874c6e242d626af3b">__construct</a> ($name=null, $action= '#', $method= 'post')</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#a3d02c9aaa01e4c6ffa5a72dd77002433">__construct</a> ($name=null, $action= '#', $method= 'post', $template=null)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#ade97121e20262215c3381adec69a23f9">getAction</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#a2aac74f869ef183b0c71b41e8fbe85fd">setAction</a> ($value)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForm.html#ab305bb9f0cb6d39d31e95ad95f707ef1">getMethod</a> ()</td></tr>
@@ -129,7 +129,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00008">8</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6245182a31664ec874c6e242d626af3b"></a><!-- doxytag: member="Form::__construct" ref="a6245182a31664ec874c6e242d626af3b" args="($name=null, $action= '#', $method= 'post')" -->
+<a class="anchor" id="a3d02c9aaa01e4c6ffa5a72dd77002433"></a><!-- doxytag: member="Form::__construct" ref="a3d02c9aaa01e4c6ffa5a72dd77002433" args="($name=null, $action= '#', $method= 'post', $template=null)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -149,7 +149,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">$&nbsp;</td>
-          <td class="paramname"> <em>method</em> = <code>'post'</code></td><td>&nbsp;</td>
+          <td class="paramname"> <em>method</em> = <code>'post'</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>template</em> = <code>null</code></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -198,7 +204,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00156">156</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00157">157</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -248,7 +254,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00256">256</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00258">258</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -268,7 +274,7 @@ Protected Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Get's all the data in $_GET or $_POST and fills the data into the corresponding Inpufield added to the form </p>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00211">211</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00213">213</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -290,7 +296,7 @@ Protected Attributes</h2></td></tr>
 <p>public </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>string - the current action of the form </dd></dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00083">83</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00084">84</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -312,7 +318,7 @@ Protected Attributes</h2></td></tr>
 <p>public </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>the action of the form </dd></dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00133">133</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00134">134</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -340,7 +346,7 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classInputfield.html">Inputfield</a> with the given name </dd></dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00236">236</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00238">238</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -362,7 +368,7 @@ Protected Attributes</h2></td></tr>
 <p>public </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>the action of the form </dd></dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00108">108</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00109">109</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -383,7 +389,7 @@ Protected Attributes</h2></td></tr>
 <p>Returns a reference to $_GET or $_POST correspondig to the method set.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>reference to $_GET or $_POST </dd></dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00285">285</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00287">287</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -406,7 +412,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classFormElement.html">FormElement</a>.</p>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00189">189</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00191">191</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -433,7 +439,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00170">170</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00172">172</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -460,7 +466,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00269">269</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00271">271</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -481,7 +487,7 @@ Protected Attributes</h2></td></tr>
 <p>Check's if the user sent the form</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>boolean signifiing if the <a class="el" href="classForm.html">Form</a> has been sent </dd></dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00246">246</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00248">248</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -509,7 +515,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00094">94</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00095">95</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -537,7 +543,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00143">143</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00144">144</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -565,7 +571,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00118">118</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
+<p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00119">119</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 </div>
 </div>
@@ -587,7 +593,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 14 2011 07:15:46 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Sep 27 2011 06:58:02 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

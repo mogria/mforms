@@ -53,88 +53,93 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00004"></a>00004 
 <a name="l00005"></a>00005   <span class="keyword">protected</span> $template_dir;
 <a name="l00006"></a>00006 
-<a name="l00007"></a>00007   <span class="keyword">public</span> function getTemplateDir() {
-<a name="l00008"></a>00008     <span class="keywordflow">return</span> $this-&gt;template_dir;
-<a name="l00009"></a>00009   }
+<a name="l00007"></a>00007   <span class="keyword">protected</span> $theme;
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009   <span class="keyword">protected</span> $theme_index = Array();
 <a name="l00010"></a>00010 
-<a name="l00011"></a>00011   <span class="keyword">public</span> function setTemplateDir($dir) {
-<a name="l00012"></a>00012     $this-&gt;template_dir = realpath(rtrim($dir, <span class="stringliteral">&quot;/&quot;</span>));
-<a name="l00013"></a>00013   }
+<a name="l00011"></a>00011   <span class="keyword">protected</span> $template_index = Array();
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013   <span class="keyword">protected</span> $default_theme_loader;
 <a name="l00014"></a>00014 
-<a name="l00015"></a>00015   <span class="keyword">protected</span> $theme;
+<a name="l00015"></a>00015   <span class="keyword">protected</span> $template_extension;
 <a name="l00016"></a>00016 
-<a name="l00017"></a>00017   <span class="keyword">protected</span> $theme_index = Array();
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019   <span class="keyword">protected</span> $template_index = Array();
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021   <span class="keyword">protected</span> $default_theme_loader;
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023   <span class="keyword">protected</span> $template_extension;
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025   <span class="keyword">public</span> function getTheme() {
-<a name="l00026"></a>00026     <span class="keywordflow">return</span> $this-&gt;theme;
-<a name="l00027"></a>00027   }
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029   <span class="keyword">public</span> function setTheme($value) {
-<a name="l00030"></a>00030     $this-&gt;theme = $value;
-<a name="l00031"></a>00031   }
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033   <span class="keyword">public</span> function getThemeDir() {
-<a name="l00034"></a>00034     <span class="keywordflow">return</span> $this-&gt;theme_index[$this-&gt;theme];
+<a name="l00022"></a><a class="code" href="classTemplateLoader.html#ad82e16a29db87c9f5b85e857155621bf">00022</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#ad82e16a29db87c9f5b85e857155621bf">getTemplateDir</a>() {
+<a name="l00023"></a>00023     <span class="keywordflow">return</span> $this-&gt;template_dir;
+<a name="l00024"></a>00024   }
+<a name="l00025"></a>00025 
+<a name="l00031"></a><a class="code" href="classTemplateLoader.html#a7a432ba38c8c6243e2b260e9a973bfd6">00031</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#a7a432ba38c8c6243e2b260e9a973bfd6">setTemplateDir</a>($dir) {
+<a name="l00032"></a>00032     $this-&gt;template_dir = realpath(rtrim($dir, <span class="stringliteral">&quot;/&quot;</span>));
+<a name="l00033"></a>00033     $tbis-&gt;indexThemes();
+<a name="l00034"></a>00034     $this-&gt;<a class="code" href="classTemplateLoader.html#a97ca3ac51809936ea8f9d603a82d50b8">indexTemplates</a>();
 <a name="l00035"></a>00035   }
 <a name="l00036"></a>00036 
-<a name="l00037"></a>00037   <span class="keyword">public</span> function indexThemes() {
-<a name="l00038"></a>00038     $path = $this-&gt;getTemplateDir();
-<a name="l00039"></a>00039     $files = scandir($path);
-<a name="l00040"></a>00040     <span class="keywordflow">foreach</span>($files as $file) {
-<a name="l00041"></a>00041       $fpath = $path . <span class="stringliteral">&quot;/&quot;</span> . $file;
-<a name="l00042"></a>00042       <span class="keywordflow">if</span>(is_dir($fpath)) {
-<a name="l00043"></a>00043         $this-&gt;theme_index[$file] = $fpath;
-<a name="l00044"></a>00044       }
-<a name="l00045"></a>00045     }
-<a name="l00046"></a>00046   }
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048   <span class="keyword">public</span> function indexTemplates() {
-<a name="l00049"></a>00049     $path = $this-&gt;getThemeDir();
-<a name="l00050"></a>00050     $files = scandir($path);
-<a name="l00051"></a>00051     <span class="keywordflow">foreach</span>($files as $file) {
-<a name="l00052"></a>00052       $fpath = $path . <span class="stringliteral">&quot;/&quot;</span> . $file;
-<a name="l00053"></a>00053       <span class="keywordflow">if</span>(is_file($fpath)) {
-<a name="l00054"></a>00054         $this-&gt;template_index[substr($file, 0, strrpos($file, <span class="stringliteral">&quot;.&quot;</span>))] = $fpath;
-<a name="l00055"></a>00055       }
-<a name="l00056"></a>00056     }
-<a name="l00057"></a>00057   }
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059   <span class="keyword">public</span> function getPathTo($classname) {
-<a name="l00060"></a>00060     $classname = $classname . $this-&gt;getTemplateExtension();
-<a name="l00061"></a>00061     <span class="keywordflow">if</span>(isset($this-&gt;template_index[$classname])) {
-<a name="l00062"></a>00062       <span class="keywordflow">return</span> $this-&gt;template_index[$classname];
-<a name="l00063"></a>00063     } <span class="keywordflow">else</span> {
-<a name="l00064"></a>00064       <span class="keywordflow">return</span> $this-&gt;default_theme_loader-&gt;getPathTo($classname);
-<a name="l00065"></a>00065     }
-<a name="l00066"></a>00066   }
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068   <span class="keyword">public</span> function setTemplateExtension($extension) {
-<a name="l00069"></a>00069     $this-&gt;template_extension = $extension;
-<a name="l00070"></a>00070   }
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072   <span class="keyword">public</span> function getTemplateExtension() {
-<a name="l00073"></a>00073     <span class="keywordflow">return</span> $this-&gt;template_extension;
-<a name="l00074"></a>00074   }
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076   <span class="keyword">public</span> function __construct($theme = <span class="stringliteral">&quot;default&quot;</span>, $template_dir = null) {
-<a name="l00077"></a>00077     $this-&gt;setTemplateDir(($template_dir === null) ? dirname(__FILE__) : $template_dir);
-<a name="l00078"></a>00078     $this-&gt;indexThemes();
-<a name="l00079"></a>00079     <span class="keywordflow">if</span>($theme !== <span class="stringliteral">&quot;default&quot;</span>) {
-<a name="l00080"></a>00080       $this-&gt;default_theme_loader = <span class="keyword">new</span> <a class="code" href="classTemplateLoader.html">TemplateLoader</a>();
-<a name="l00081"></a>00081       $this-&gt;default_theme_loader-&gt;setTheme(<span class="stringliteral">&quot;default&quot;</span>);
-<a name="l00082"></a>00082     } <span class="keywordflow">else</span> {
-<a name="l00083"></a>00083       $this-&gt;default_theme_loader = <span class="keyword">new</span> <a class="code" href="classVoidTemplateLoader.html">VoidTemplateLoader</a>();
-<a name="l00084"></a>00084     }
-<a name="l00085"></a>00085     $this-&gt;setTheme($theme);
-<a name="l00086"></a>00086     $this-&gt;indexTemplates();
-<a name="l00087"></a>00087   }
-<a name="l00088"></a>00088 }
+<a name="l00042"></a><a class="code" href="classTemplateLoader.html#a50a3d31d22f45bf4825a527bbff7b612">00042</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#a50a3d31d22f45bf4825a527bbff7b612">getTheme</a>() {
+<a name="l00043"></a>00043     <span class="keywordflow">return</span> $this-&gt;theme;
+<a name="l00044"></a>00044   }
+<a name="l00045"></a>00045 
+<a name="l00051"></a><a class="code" href="classTemplateLoader.html#ad933f503ae5b3ec0da985df3270af824">00051</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#ad933f503ae5b3ec0da985df3270af824">setTheme</a>($value) {
+<a name="l00052"></a>00052     $this-&gt;theme = $value;
+<a name="l00053"></a>00053     $this-&gt;indexTemplate();
+<a name="l00054"></a>00054   }
+<a name="l00055"></a>00055 
+<a name="l00061"></a><a class="code" href="classTemplateLoader.html#a5883e2fd807a31ecd92461d2c3c6d40b">00061</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#a5883e2fd807a31ecd92461d2c3c6d40b">getThemeDir</a>() {
+<a name="l00062"></a>00062     <span class="keywordflow">return</span> $this-&gt;theme_index[$this-&gt;theme];
+<a name="l00063"></a>00063   }
+<a name="l00064"></a>00064 
+<a name="l00068"></a><a class="code" href="classTemplateLoader.html#a303290f0dd7cf7161e98fde82ee11a6d">00068</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#a303290f0dd7cf7161e98fde82ee11a6d">indexThemes</a>() {
+<a name="l00069"></a>00069     $path = $this-&gt;<a class="code" href="classTemplateLoader.html#ad82e16a29db87c9f5b85e857155621bf">getTemplateDir</a>();
+<a name="l00070"></a>00070     $files = scandir($path);
+<a name="l00071"></a>00071     <span class="keywordflow">foreach</span>($files as $file) {
+<a name="l00072"></a>00072       $fpath = $path . <span class="stringliteral">&quot;/&quot;</span> . $file;
+<a name="l00073"></a>00073       <span class="keywordflow">if</span>(is_dir($fpath)) {
+<a name="l00074"></a>00074         $this-&gt;theme_index[$file] = $fpath;
+<a name="l00075"></a>00075       }
+<a name="l00076"></a>00076     }
+<a name="l00077"></a>00077   }
+<a name="l00078"></a>00078 
+<a name="l00082"></a><a class="code" href="classTemplateLoader.html#a97ca3ac51809936ea8f9d603a82d50b8">00082</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#a97ca3ac51809936ea8f9d603a82d50b8">indexTemplates</a>() {
+<a name="l00083"></a>00083     $path = $this-&gt;<a class="code" href="classTemplateLoader.html#a5883e2fd807a31ecd92461d2c3c6d40b">getThemeDir</a>();
+<a name="l00084"></a>00084     $files = scandir($path);
+<a name="l00085"></a>00085     <span class="keywordflow">foreach</span>($files as $file) {
+<a name="l00086"></a>00086       $fpath = $path . <span class="stringliteral">&quot;/&quot;</span> . $file;
+<a name="l00087"></a>00087       <span class="keywordflow">if</span>(is_file($fpath)) {
+<a name="l00088"></a>00088         $this-&gt;template_index[substr($file, 0, strrpos($file, <span class="stringliteral">&quot;.&quot;</span>))] = $fpath;
+<a name="l00089"></a>00089       }
+<a name="l00090"></a>00090     }
+<a name="l00091"></a>00091   }
+<a name="l00092"></a>00092 
+<a name="l00096"></a><a class="code" href="classTemplateLoader.html#a01fc15189a8621afbac371049d37e15a">00096</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#a01fc15189a8621afbac371049d37e15a">getPathTo</a>($classname) {
+<a name="l00097"></a>00097     $classname = $classname . $this-&gt;<a class="code" href="classTemplateLoader.html#a5acada0d749b6b7a8bc39d83af63fd1c">getTemplateExtension</a>();
+<a name="l00098"></a>00098     <span class="keywordflow">if</span>(isset($this-&gt;template_index[$classname])) {
+<a name="l00099"></a>00099       <span class="keywordflow">return</span> $this-&gt;template_index[$classname];
+<a name="l00100"></a>00100     } <span class="keywordflow">else</span> {
+<a name="l00101"></a>00101       <span class="keywordflow">return</span> $this-&gt;default_theme_loader-&gt;getPathTo($classname);
+<a name="l00102"></a>00102     }
+<a name="l00103"></a>00103   }
+<a name="l00104"></a>00104 
+<a name="l00110"></a><a class="code" href="classTemplateLoader.html#a5acada0d749b6b7a8bc39d83af63fd1c">00110</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#a5acada0d749b6b7a8bc39d83af63fd1c">getTemplateExtension</a>() {
+<a name="l00111"></a>00111     <span class="keywordflow">return</span> $this-&gt;template_extension;
+<a name="l00112"></a>00112   }
+<a name="l00113"></a>00113 
+<a name="l00119"></a><a class="code" href="classTemplateLoader.html#a3329010dd96171847b1d3c28b8931668">00119</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#a3329010dd96171847b1d3c28b8931668">setTemplateExtension</a>($extension) {
+<a name="l00120"></a>00120     $this-&gt;template_extension = $extension;
+<a name="l00121"></a>00121   }
+<a name="l00122"></a>00122 
+<a name="l00129"></a><a class="code" href="classTemplateLoader.html#a740d6f0fd998b26b0964b618815f8001">00129</a>   <span class="keyword">public</span> function <a class="code" href="classTemplateLoader.html#a740d6f0fd998b26b0964b618815f8001">__construct</a>($theme = <span class="stringliteral">&quot;default&quot;</span>, $template_dir = null) {
+<a name="l00130"></a>00130     <span class="comment">//Set template directory</span>
+<a name="l00131"></a>00131     $this-&gt;<a class="code" href="classTemplateLoader.html#a7a432ba38c8c6243e2b260e9a973bfd6">setTemplateDir</a>(($template_dir === null) ? dirname(__FILE__) : $template_dir);
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133     <span class="comment">//Create a fallback Template Loader</span>
+<a name="l00134"></a>00134     <span class="keywordflow">if</span>($theme !== <span class="stringliteral">&quot;default&quot;</span>) {
+<a name="l00135"></a>00135       $this-&gt;default_theme_loader = <span class="keyword">new</span> <a class="code" href="classTemplateLoader.html">TemplateLoader</a>();
+<a name="l00136"></a>00136     } <span class="keywordflow">else</span> {
+<a name="l00137"></a>00137       $this-&gt;default_theme_loader = <span class="keyword">new</span> <a class="code" href="classVoidTemplateLoader.html">VoidTemplateLoader</a>();
+<a name="l00138"></a>00138     }
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140     <span class="comment">//Set theme</span>
+<a name="l00141"></a>00141     $this-&gt;<a class="code" href="classTemplateLoader.html#ad933f503ae5b3ec0da985df3270af824">setTheme</a>($theme);
+<a name="l00142"></a>00142   }
+<a name="l00143"></a>00143 }
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -151,7 +156,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 14 2011 07:15:45 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Sep 27 2011 06:58:01 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
