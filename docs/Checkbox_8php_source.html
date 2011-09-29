@@ -62,28 +62,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00004"></a><a class="code" href="classCheckbox.html">00004</a> <span class="keyword">class </span><a class="code" href="classCheckbox.html">Checkbox</a> <span class="keyword">extends</span> <a class="code" href="classInputfield.html">Inputfield</a> {
 <a name="l00005"></a><a class="code" href="classCheckbox_a946eb0453aec80b5866e38a048e7212d.html#a946eb0453aec80b5866e38a048e7212d">00005</a>   <span class="keyword">protected</span> <a class="code" href="classCheckbox_a946eb0453aec80b5866e38a048e7212d.html#a946eb0453aec80b5866e38a048e7212d">$checked</a>;
 <a name="l00006"></a>00006 
-<a name="l00007"></a><a class="code" href="classCheckbox_a89052204e8abe3ed86d6f42f9f5ea87c.html#a89052204e8abe3ed86d6f42f9f5ea87c">00007</a>   <span class="keyword">protected</span> function <a class="code" href="classCheckbox_a89052204e8abe3ed86d6f42f9f5ea87c.html#a89052204e8abe3ed86d6f42f9f5ea87c">addAttributes</a>() {
-<a name="l00008"></a>00008     <a class="code" href="classCheckbox_a89052204e8abe3ed86d6f42f9f5ea87c.html#a89052204e8abe3ed86d6f42f9f5ea87c">parent::addAttributes</a>();
-<a name="l00009"></a>00009     $this-&gt;attributes[] = <span class="stringliteral">&#39;checked&#39;</span>;
-<a name="l00010"></a>00010   }
-<a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="classCheckbox_a70a9013be9a8a711555161d26c405062.html#a70a9013be9a8a711555161d26c405062">00012</a>   <span class="keyword">final</span> <span class="keyword">public</span> function <a class="code" href="classCheckbox_a70a9013be9a8a711555161d26c405062.html#a70a9013be9a8a711555161d26c405062">getChecked</a>()
-<a name="l00013"></a>00013   {
-<a name="l00014"></a>00014     <span class="keywordflow">return</span> $this-&gt;checked;
-<a name="l00015"></a>00015   }
-<a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="classCheckbox_ac240b7fc1cac80e4e14d1e42b9dcb2b1.html#ac240b7fc1cac80e4e14d1e42b9dcb2b1">00017</a>   <span class="keyword">public</span> function <a class="code" href="classCheckbox_ac240b7fc1cac80e4e14d1e42b9dcb2b1.html#ac240b7fc1cac80e4e14d1e42b9dcb2b1">setChecked</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>)
-<a name="l00018"></a>00018   {
-<a name="l00019"></a>00019     $this-&gt;checked = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
-<a name="l00020"></a>00020   }
-<a name="l00021"></a>00021 
-<a name="l00022"></a><a class="code" href="classCheckbox_ae782db3f349263259ab2c4ffaadd56a3.html#ae782db3f349263259ab2c4ffaadd56a3">00022</a>   <span class="keyword">public</span> function <a class="code" href="classCheckbox_ae782db3f349263259ab2c4ffaadd56a3.html#ae782db3f349263259ab2c4ffaadd56a3">getType</a>()
-<a name="l00023"></a>00023   {
-<a name="l00024"></a>00024     <span class="keywordflow">return</span> <span class="stringliteral">&quot;checkbox&quot;</span>;
-<a name="l00025"></a>00025   }
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 }
-<a name="l00028"></a>00028 
+<a name="l00011"></a><a class="code" href="classCheckbox_a89052204e8abe3ed86d6f42f9f5ea87c.html#a89052204e8abe3ed86d6f42f9f5ea87c">00011</a>   <span class="keyword">protected</span> function <a class="code" href="classCheckbox_a89052204e8abe3ed86d6f42f9f5ea87c.html#a89052204e8abe3ed86d6f42f9f5ea87c">addAttributes</a>() {
+<a name="l00012"></a>00012     <a class="code" href="classCheckbox_a89052204e8abe3ed86d6f42f9f5ea87c.html#a89052204e8abe3ed86d6f42f9f5ea87c">parent::addAttributes</a>();
+<a name="l00013"></a>00013     $this-&gt;attributes[] = <span class="stringliteral">&#39;checked&#39;</span>;
+<a name="l00014"></a>00014   }
+<a name="l00015"></a>00015 
+<a name="l00021"></a><a class="code" href="classCheckbox_a70a9013be9a8a711555161d26c405062.html#a70a9013be9a8a711555161d26c405062">00021</a>   <span class="keyword">public</span> function <a class="code" href="classCheckbox_a70a9013be9a8a711555161d26c405062.html#a70a9013be9a8a711555161d26c405062">getChecked</a>() {
+<a name="l00022"></a>00022     <span class="keywordflow">return</span> $this-&gt;checked;
+<a name="l00023"></a>00023   }
+<a name="l00024"></a>00024 
+<a name="l00030"></a><a class="code" href="classCheckbox_ac240b7fc1cac80e4e14d1e42b9dcb2b1.html#ac240b7fc1cac80e4e14d1e42b9dcb2b1">00030</a>   <span class="keyword">public</span> function <a class="code" href="classCheckbox_ac240b7fc1cac80e4e14d1e42b9dcb2b1.html#ac240b7fc1cac80e4e14d1e42b9dcb2b1">setChecked</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
+<a name="l00031"></a>00031     $this-&gt;checked = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
+<a name="l00032"></a>00032   }
+<a name="l00033"></a>00033 
+<a name="l00039"></a><a class="code" href="classCheckbox_ae782db3f349263259ab2c4ffaadd56a3.html#ae782db3f349263259ab2c4ffaadd56a3">00039</a>   <span class="keyword">public</span> function <a class="code" href="classCheckbox_ae782db3f349263259ab2c4ffaadd56a3.html#ae782db3f349263259ab2c4ffaadd56a3">getType</a>() {
+<a name="l00040"></a>00040     <span class="keywordflow">return</span> <span class="stringliteral">&quot;checkbox&quot;</span>;
+<a name="l00041"></a>00041   }
+<a name="l00042"></a>00042 }
+<a name="l00043"></a>00043 
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -100,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 17:54:52 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Sep 29 2011 18:12:25 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

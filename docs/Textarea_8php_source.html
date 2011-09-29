@@ -64,46 +64,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00006"></a>00006 
 <a name="l00007"></a><a class="code" href="classTextarea_ab74212f7557b7f9e578df0513cbbce46.html#ab74212f7557b7f9e578df0513cbbce46">00007</a>   <span class="keyword">protected</span> <a class="code" href="classTextarea_ab74212f7557b7f9e578df0513cbbce46.html#ab74212f7557b7f9e578df0513cbbce46">$cols</a>;
 <a name="l00008"></a>00008 
-<a name="l00009"></a><a class="code" href="classTextarea_aacf1aa6c02a9a133b4f3310b8f7c3e19.html#aacf1aa6c02a9a133b4f3310b8f7c3e19">00009</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_aacf1aa6c02a9a133b4f3310b8f7c3e19.html#aacf1aa6c02a9a133b4f3310b8f7c3e19">getRows</a>()
-<a name="l00010"></a>00010   {
-<a name="l00011"></a>00011     <span class="keywordflow">return</span> $this-&gt;rows;
-<a name="l00012"></a>00012   }
-<a name="l00013"></a>00013 
-<a name="l00014"></a><a class="code" href="classTextarea_af48bcd8981c730ef0c51f05d8e0bddf1.html#af48bcd8981c730ef0c51f05d8e0bddf1">00014</a>   <span class="keyword">protected</span> function <a class="code" href="classTextarea_af48bcd8981c730ef0c51f05d8e0bddf1.html#af48bcd8981c730ef0c51f05d8e0bddf1">addAttributes</a>() {
-<a name="l00015"></a>00015     <a class="code" href="classTextarea_af48bcd8981c730ef0c51f05d8e0bddf1.html#af48bcd8981c730ef0c51f05d8e0bddf1">parent::addAttributes</a>();
-<a name="l00016"></a>00016     $this-&gt;attributes[] = <span class="stringliteral">&#39;rows&#39;</span>;
-<a name="l00017"></a>00017     $this-&gt;attributes[] = <span class="stringliteral">&#39;cols&#39;</span>;
-<a name="l00018"></a>00018     unset($this-&gt;attributes[array_search(<span class="stringliteral">&#39;type&#39;</span>, $this-&gt;attributes)]);
-<a name="l00019"></a>00019     unset($this-&gt;attributes[array_search(<span class="stringliteral">&#39;value&#39;</span>, $this-&gt;attributes)]);
-<a name="l00020"></a>00020   }
-<a name="l00021"></a>00021 
-<a name="l00022"></a><a class="code" href="classTextarea_ae1f26f8dd1268ffa02438d9a0ecdd720.html#ae1f26f8dd1268ffa02438d9a0ecdd720">00022</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_ae1f26f8dd1268ffa02438d9a0ecdd720.html#ae1f26f8dd1268ffa02438d9a0ecdd720">setRows</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>)
-<a name="l00023"></a>00023   {
-<a name="l00024"></a>00024     $this-&gt;rows = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
-<a name="l00025"></a>00025   }
-<a name="l00026"></a>00026 
-<a name="l00027"></a><a class="code" href="classTextarea_ad580a88e2574b0d4ea9cf80f1ba14a9f.html#ad580a88e2574b0d4ea9cf80f1ba14a9f">00027</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_ad580a88e2574b0d4ea9cf80f1ba14a9f.html#ad580a88e2574b0d4ea9cf80f1ba14a9f">getCols</a>()
-<a name="l00028"></a>00028   {
-<a name="l00029"></a>00029     <span class="keywordflow">return</span> $this-&gt;cols;
-<a name="l00030"></a>00030   }
-<a name="l00031"></a>00031 
-<a name="l00032"></a><a class="code" href="classTextarea_a2447e2141b363f347acf61d09db934bf.html#a2447e2141b363f347acf61d09db934bf">00032</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_a2447e2141b363f347acf61d09db934bf.html#a2447e2141b363f347acf61d09db934bf">setCols</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>)
-<a name="l00033"></a>00033   {
-<a name="l00034"></a>00034     $this-&gt;cols = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
-<a name="l00035"></a>00035   }
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037   <span class="comment">/*public function display()</span>
-<a name="l00038"></a>00038 <span class="comment">  {</span>
-<a name="l00039"></a>00039 <span class="comment">    return $this-&gt;displayLabel(&quot;&lt;textarea&quot; . parent::getAttributeNodes($this-&gt;attributes) . &quot;&gt;&quot; . htmlspecialchars($this-&gt;getValue()) . &quot;&lt;/textarea&gt;\n&quot;);</span>
-<a name="l00040"></a>00040 <span class="comment">  }*/</span>
-<a name="l00041"></a>00041 
-<a name="l00042"></a><a class="code" href="classTextarea_aa36c8b9fa26ef4a7b17f802bb5fc127a.html#aa36c8b9fa26ef4a7b17f802bb5fc127a">00042</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_aa36c8b9fa26ef4a7b17f802bb5fc127a.html#aa36c8b9fa26ef4a7b17f802bb5fc127a">getType</a>()
-<a name="l00043"></a>00043   {
-<a name="l00044"></a>00044     <span class="keywordflow">return</span> <span class="stringliteral">&quot;textarea&quot;</span>;
-<a name="l00045"></a>00045   }
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 }
-<a name="l00048"></a>00048 
+<a name="l00013"></a><a class="code" href="classTextarea_af48bcd8981c730ef0c51f05d8e0bddf1.html#af48bcd8981c730ef0c51f05d8e0bddf1">00013</a>   <span class="keyword">protected</span> function <a class="code" href="classTextarea_af48bcd8981c730ef0c51f05d8e0bddf1.html#af48bcd8981c730ef0c51f05d8e0bddf1">addAttributes</a>() {
+<a name="l00014"></a>00014     <a class="code" href="classTextarea_af48bcd8981c730ef0c51f05d8e0bddf1.html#af48bcd8981c730ef0c51f05d8e0bddf1">parent::addAttributes</a>();
+<a name="l00015"></a>00015     $this-&gt;attributes[] = <span class="stringliteral">&#39;rows&#39;</span>;
+<a name="l00016"></a>00016     $this-&gt;attributes[] = <span class="stringliteral">&#39;cols&#39;</span>;
+<a name="l00017"></a>00017     unset($this-&gt;attributes[array_search(<span class="stringliteral">&#39;type&#39;</span>, $this-&gt;attributes)]);
+<a name="l00018"></a>00018     unset($this-&gt;attributes[array_search(<span class="stringliteral">&#39;value&#39;</span>, $this-&gt;attributes)]);
+<a name="l00019"></a>00019   }
+<a name="l00020"></a>00020 
+<a name="l00026"></a><a class="code" href="classTextarea_aacf1aa6c02a9a133b4f3310b8f7c3e19.html#aacf1aa6c02a9a133b4f3310b8f7c3e19">00026</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_aacf1aa6c02a9a133b4f3310b8f7c3e19.html#aacf1aa6c02a9a133b4f3310b8f7c3e19">getRows</a>() {
+<a name="l00027"></a>00027     <span class="keywordflow">return</span> $this-&gt;rows;
+<a name="l00028"></a>00028   }
+<a name="l00029"></a>00029 
+<a name="l00035"></a><a class="code" href="classTextarea_ae1f26f8dd1268ffa02438d9a0ecdd720.html#ae1f26f8dd1268ffa02438d9a0ecdd720">00035</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_ae1f26f8dd1268ffa02438d9a0ecdd720.html#ae1f26f8dd1268ffa02438d9a0ecdd720">setRows</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
+<a name="l00036"></a>00036     $this-&gt;rows = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
+<a name="l00037"></a>00037   }
+<a name="l00038"></a>00038 
+<a name="l00044"></a><a class="code" href="classTextarea_ad580a88e2574b0d4ea9cf80f1ba14a9f.html#ad580a88e2574b0d4ea9cf80f1ba14a9f">00044</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_ad580a88e2574b0d4ea9cf80f1ba14a9f.html#ad580a88e2574b0d4ea9cf80f1ba14a9f">getCols</a>() {
+<a name="l00045"></a>00045     <span class="keywordflow">return</span> $this-&gt;cols;
+<a name="l00046"></a>00046   }
+<a name="l00047"></a>00047 
+<a name="l00053"></a><a class="code" href="classTextarea_a2447e2141b363f347acf61d09db934bf.html#a2447e2141b363f347acf61d09db934bf">00053</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_a2447e2141b363f347acf61d09db934bf.html#a2447e2141b363f347acf61d09db934bf">setCols</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
+<a name="l00054"></a>00054     $this-&gt;cols = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
+<a name="l00055"></a>00055   }
+<a name="l00056"></a>00056 
+<a name="l00062"></a><a class="code" href="classTextarea_aa36c8b9fa26ef4a7b17f802bb5fc127a.html#aa36c8b9fa26ef4a7b17f802bb5fc127a">00062</a>   <span class="keyword">public</span> function <a class="code" href="classTextarea_aa36c8b9fa26ef4a7b17f802bb5fc127a.html#aa36c8b9fa26ef4a7b17f802bb5fc127a">getType</a>() {
+<a name="l00063"></a>00063     <span class="keywordflow">return</span> <span class="stringliteral">&quot;textarea&quot;</span>;
+<a name="l00064"></a>00064   }
+<a name="l00065"></a>00065 }
+<a name="l00066"></a>00066 
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -120,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 17:54:52 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Sep 29 2011 18:12:26 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

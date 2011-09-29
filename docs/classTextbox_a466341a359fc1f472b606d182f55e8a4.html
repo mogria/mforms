@@ -77,14 +77,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </table>
 </div>
 <div class="memdoc">
+<p>Checks if the inputfield is valid includes the maxlength</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>(bool) </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classInputfield_a6abed5d55fa7434702a7df5e4e186f99.html#a6abed5d55fa7434702a7df5e4e186f99">Inputfield</a>.</p>
 
-<p>Definition at line <a class="el" href="Textbox_8php_source.html#l00040">40</a> of file <a class="el" href="Textbox_8php_source.html">Textbox.php</a>.</p>
+<p>Definition at line <a class="el" href="Textbox_8php_source.html#l00069">69</a> of file <a class="el" href="Textbox_8php_source.html">Textbox.php</a>.</p>
 
-<p>References <a class="el" href="input_2Inputfield_8php_source.html#l00012">Inputfield::$valid</a>, <a class="el" href="Textbox_8php_source.html#l00009">getMaxlength()</a>, and <a class="el" href="input_2Inputfield_8php_source.html#l00026">Inputfield::getValue()</a>.</p>
+<p>References <a class="el" href="input_2Inputfield_8php_source.html#l00012">Inputfield::$valid</a>, <a class="el" href="Textbox_8php_source.html#l00024">getMaxlength()</a>, and <a class="el" href="input_2Inputfield_8php_source.html#l00035">Inputfield::getValue()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment">  {
+<p><div class="fragment"><pre class="fragment">                            {
     <a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">$valid</a> = <a class="code" href="classTextbox_a466341a359fc1f472b606d182f55e8a4.html#a466341a359fc1f472b606d182f55e8a4">parent::isValid</a>();
     <span class="keywordflow">if</span>($this-&gt;<a class="code" href="classTextbox_adf5c1f1785687db5106ecafe2bf8f08c.html#adf5c1f1785687db5106ecafe2bf8f08c">getMaxlength</a>() !== null &amp;&amp; strlen($this-&gt;<a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">getValue</a>()) &gt; $this-&gt;<a class="code" href="classTextbox_adf5c1f1785687db5106ecafe2bf8f08c.html#adf5c1f1785687db5106ecafe2bf8f08c">getMaxlength</a>()) {
         <a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">$valid</a> = <span class="keyword">false</span>;
@@ -113,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 17:54:57 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Sep 29 2011 18:12:31 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
