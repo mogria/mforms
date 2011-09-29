@@ -6,39 +6,67 @@ class Textbox extends Inputfield {
 
   protected $maxlength;
 
-  final public function getMaxlength()
-  {
-    return $this->maxlength;
-  }
-
+  /**
+   *  Adds the Attributes for this class to the Attributes list
+   *
+   */
   protected function addAttributes() {
     parent::addAttributes();
     $this->attributes[] = 'size';
     $this->attributes[] = 'maxlength';
   }
 
-  public function setMaxlength($value)
-  {
+  /**
+   * Getter for Attribute maxlength
+   * 
+   * @return (int)
+   */
+  public function getMaxlength() {
+    return $this->maxlength;
+  }
+
+  /**
+   * Getter for Attribute maxlength
+   * 
+   * @return (int)
+   */
+  public function setMaxlength($value) {
     $this->maxlength = $value;
   }
 
-  public function getSize()
-  {
+  /**
+   * Getter for Attribute size
+   * 
+   * @return (int)
+   */
+  public function getSize() {
     return $this->size;
   }
 
-  public function setSize($value)
-  {
+  /**
+   * Getter for Attribute size
+   * 
+   * @return (int)
+   */
+  public function setSize($value) {
     $this->size = $value;
   }
 
-  public function getType()
-  {
+  /**
+   * returns the Attribute Type
+   *
+   * @return (string) ; "checkbox"
+   */
+  public function getType() {
     return "text";
   }
 
-  public function isValid()
-  {
+  /**
+   * Checks if the inputfield is valid includes the maxlength
+   *
+   * @return (bool) 
+   */
+  public function isValid() {
     $valid = parent::isValid();
     if($this->getMaxlength() !== null && strlen($this->getValue()) > $this->getMaxlength()) {
         $valid = false;

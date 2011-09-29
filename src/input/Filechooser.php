@@ -2,10 +2,14 @@
 
 
 class Filechooser extends Inputfield {
-  public function getType()
-  {
+
+  /**
+   * returns the Attribute Type
+   *
+   * @return (string) ; "file"
+   */
+  public function getType() {
     return "file";
   }
-
 }
 

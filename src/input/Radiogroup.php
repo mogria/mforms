@@ -2,15 +2,13 @@
 
 class Radiogroup extends InputfieldGroup {
 
-  public function display() {
-    $append = "";
-    foreach($this->inputs as $i) {
-      $append .= $i->display();
-      $append .= "\n";
-    }
-    return $append;
-  }
+  //@todo create a template file for RadioGroup
 
+  /**
+   * returns the Attribute Type
+   *
+   * @return (string) ; "checkbox"
+   */
   public function getType() {
     return "radiogroup";
   }

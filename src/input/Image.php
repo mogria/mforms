@@ -6,36 +6,61 @@ class Image extends Inputfield {
 
   protected $alt;
 
-  public function getSrc()
-  {
+  /**
+   * Getter for Attribute src
+   *
+   * @return (string)
+   */
+  public function getSrc() {
     return $this->src;
   }
 
+  /**
+   *  Adds the Attributes for this class to the Attributes list
+   *
+   */
   protected function addAttributes() {
     parent::addAttributes();
     $this->attributes[] = 'src';
     $this->attributes[] = 'alt';
   }
 
-  public function setSrc($value)
-  {
+  /**
+   * Setter for Attribute src
+   *
+   * @param (string) : new value
+   */
+  public function setSrc($value) {
     $this->src = $value;
   }
 
+  /**
+   * Setter for Attribute alt
+   *
+   * @param (string) : new value
+   */
   public function getAlt()
   {
     return $this->alt;
   }
 
+  /**
+   * Setter for Attribute alt
+   *
+   * @param (string) : new value
+   */
   public function setAlt($value)
   {
     $this->alt = $value;
   }
 
-  public function getType()
-  {
+  /**
+   * returns the Attribute Type
+   *
+   * @return (string) ; "hidden"
+   */
+  public function getType() {
     return "image";
   }
-
 }
 

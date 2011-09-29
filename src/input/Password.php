@@ -2,8 +2,13 @@
 
 
 class Password extends Textbox {
-  public function getType()
-  {
+
+  /**
+   * returns the Attribute Type
+   *
+   * @return (string) ; "checkbox"
+   */
+  public function getType() {
     return "password";
   }
 

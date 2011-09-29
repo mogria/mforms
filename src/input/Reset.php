@@ -2,8 +2,13 @@
 
 
 class Reset extends Inputfield {
-  public function getType()
-  {
+
+  /**
+   * returns the Attribute Type
+   *
+   * @return (string) ; "checkbox"
+   */
+  public function getType() {
     return "reset";
   }
 

@@ -6,11 +6,10 @@ class Textarea extends Inputfield {
 
   protected $cols;
 
-  public function getRows()
-  {
-    return $this->rows;
-  }
-
+  /**
+   *  Adds/removes the Attributes for this class to the Attributes list
+   *
+   */
   protected function addAttributes() {
     parent::addAttributes();
     $this->attributes[] = 'rows';
@@ -19,30 +18,49 @@ class Textarea extends Inputfield {
     unset($this->attributes[array_search('value', $this->attributes)]);
   }
 
-  public function setRows($value)
-  {
+  /**
+   * Getter for Attribute rows
+   *
+   * @return (int)
+   */
+  public function getRows() {
+    return $this->rows;
+  }
+
+  /**
+   * Setter for Attribute rows
+   *
+   * @param (int) : new value
+   */
+  public function setRows($value) {
     $this->rows = $value;
   }
 
-  public function getCols()
-  {
+  /**
+   * Getter for Attribute cols
+   * 
+   * @return (int)
+   */
+  public function getCols() {
     return $this->cols;
   }
 
-  public function setCols($value)
-  {
+  /**
+   * Setter for Attribute cols
+   *
+   * @param (int) : new value
+   */
+  public function setCols($value) {
     $this->cols = $value;
   }
 
-  /*public function display()
-  {
-    return $this->displayLabel("<textarea" . parent::getAttributeNodes($this->attributes) . ">" . htmlspecialchars($this->getValue()) . "</textarea>\n");
-  }*/
-
-  public function getType()
-  {
+  /**
+   * returns the Attribute Type
+   *
+   * @return (string) ; "checkbox"
+   */
+  public function getType() {
     return "textarea";
   }
-
 }
 

@@ -2,28 +2,16 @@
 
 
 class Optgroup extends InputfieldGroup implements InputfieldGroupMember {
+
+  /**
+   * returns the Attribute Type
+   *
+   * @return (string) ; "checkbox"
+   */
   public function getType() {
     return "optgroup";
   }
 
-  public function getSelected() {
-    return false;
-  }
-
-  public function setSelected($value) {
-    return false;
-  }
-
-  public function display() {
-    $output = "<optgroup>";
-    foreach($inputs as $i) {
-      $output .= $i->display();
-    }
-    $output = "</optgroup>";
-    return $output;
-  }
-
-  public function displayLabel($inside) {
-    return $inside;
-  }
+  //@todo: need this thing a get & set for selected???
+  //@todo: create template file for this
 }

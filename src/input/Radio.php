@@ -2,8 +2,13 @@
 
 
 class Radio extends InputfieldOption {
-  public function getType()
-  {
+
+  /**
+   * returns the Attribute Type
+   *
+   * @return (string) ; "checkbox"
+   */
+  public function getType() {
     return "radio";
   }
   
