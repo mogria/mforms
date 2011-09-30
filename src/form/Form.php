@@ -213,7 +213,7 @@ class Form extends FormElement implements Iterator {
   public function catchRequestData() {
     $method = $this->getRequestVariableByMethod();
     foreach($this->inputfields as $input) {
-      //@todo: what if Filechooser? or an image button with x and y coords?
+      /* @todo: what if Filechooser? or an image button with x and y coords? */
       $converted = str_replace(".", "_", $input->getName());
   
       if(isset($method[$converted])) {
@@ -237,7 +237,7 @@ class Form extends FormElement implements Iterator {
    */
   public function getInputfieldByName($name) {
     return array_key_exists($name, $this->names) ? $this->inputfields[$this->names[$name]]: null ;
-    //@todo: throw Exception instead of returning null if there is no inputfield with the corresponding name?
+    /* @todo: throw Exception instead of returning null if there is no inputfield with the corresponding name? */
   }
   
   /**
@@ -256,7 +256,7 @@ class Form extends FormElement implements Iterator {
    * @param c - Checker
    */
   public function addChecker($c) {
-    if($c instanceof Checker || $c instanceof ChainChecker) { //@todo: create a new class instead of this 
+    if($c instanceof Checker || $c instanceof ChainChecker) { /* @todo: create a new class instead of this  */
       $this->checker[] = $c;
     } else {
       throw new InvalidArgumentException("param 1 of " . __METHOD__ . " has to be an instance of ChainChecker or Checker");

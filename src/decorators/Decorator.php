@@ -27,7 +27,7 @@ abstract class Decorator {
     }
   }
 
-  //@todo: contains the second parameter the params?
+  /* @todo: contains the second parameter the params? */
   public function __call($method, $params) {
     return call_user_func_array(array($this->object, $method), $params);
   }
