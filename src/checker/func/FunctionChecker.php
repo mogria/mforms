@@ -2,7 +2,7 @@
 
 class FunctionChecker extends Checker {
   protected $callback;
-  protected $params; //@todo: create getters & setters?
+  protected $params; /* @todo: create getters & setters? */
   protected $field_param_num;
 
   /** Constructor
