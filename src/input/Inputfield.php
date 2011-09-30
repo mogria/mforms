@@ -14,7 +14,7 @@ abstract class Inputfield extends FormElement implements InputfieldInterface {
   public function __construct($name, $required = false, $match = "/.*/") {
     parent::__construct($name);
     $this->setRequired($required);
-    $this->setMatch($match); /* @todo: not needed anymore */
+    $this->setMatch($match); /** @todo: not needed anymore  */
   }
 
   /**
