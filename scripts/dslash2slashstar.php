@@ -14,7 +14,7 @@ function go($dir) {
     if(is_file($f) && substr($f, strrpos($f, ".") + 1) == "php") {
       echo "file: $f   ";
       $content = file_get_contents($f);
-      $ncontent = preg_replace("#//\s*(\\@todo[^\n]*)\n#i", "/* \\1 */\n", $content);
+      $ncontent = preg_replace("#/\*\s*(@todo[^\*]*)\*/\n#i", "/** \\1 */\n", $content);
       if($ncontent == $content) {
         echo "same";
       }

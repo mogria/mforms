@@ -14,7 +14,7 @@ abstract class CompareChecker extends Checker {
     $valid = true;
     for($i = 0; $i < $anz && $valid; $i++) {
       $val1 = $this->getValueOf($form, $this->fields[$i]);
-      $val2 = $this->getValueOf($form, $this->fields[$i] ); /* @todo: make this also work with strings instead of Inputfields */
+      $val2 = $this->getValueOf($form, $this->fields[$i] ); /** @todo: make this also work with strings instead of Inputfields  */
       if(!$this->checkValue($val1, $val2)) {
         $valid = false;
         $this->triggerErrorMsg($this->fields[$i])

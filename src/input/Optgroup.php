@@ -12,6 +12,6 @@ class Optgroup extends InputfieldGroup implements InputfieldGroupMember {
     return "optgroup";
   }
 
-  /* @todo: need this thing a get & set for selected??? */
-  /* @todo: create template file for this */
+  /** @todo: need this thing a get & set for selected???  */
+  /** @todo: create template file for this  */
 }
