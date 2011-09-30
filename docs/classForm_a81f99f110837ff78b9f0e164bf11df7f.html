@@ -17,6 +17,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -102,6 +103,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="memdoc">
 <p>Get's all the data in $_GET or $_POST and fills the data into the corresponding Inpufield added to the form </p>
 
+<p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>: what if <a class="el" href="classFilechooser.html">Filechooser</a>? or an image button with x and y coords? </dd></dl>
+</p>
+
 <p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00213">213</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 <p>References <a class="el" href="form_2Form_8php_source.html#l00013">$method</a>, and <a class="el" href="form_2Form_8php_source.html#l00287">getRequestVariableByMethod()</a>.</p>
@@ -109,7 +113,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><div class="fragment"><pre class="fragment">                                     {
     <a class="code" href="classForm_a3ca31ec7032a41b95c94de22a850672c.html#a3ca31ec7032a41b95c94de22a850672c">$method</a> = $this-&gt;<a class="code" href="classForm_ac589ae7753bac8f4a39c6908819c3ecd.html#ac589ae7753bac8f4a39c6908819c3ecd">getRequestVariableByMethod</a>();
     <span class="keywordflow">foreach</span>($this-&gt;inputfields as $input) {
-      <span class="comment">/* @todo: what if Filechooser? or an image button with x and y coords? */</span>
       $converted = str_replace(<span class="stringliteral">&quot;.&quot;</span>, <span class="stringliteral">&quot;_&quot;</span>, $input-&gt;getName());
   
       <span class="keywordflow">if</span>(isset(<a class="code" href="classForm_a3ca31ec7032a41b95c94de22a850672c.html#a3ca31ec7032a41b95c94de22a850672c">$method</a>[$converted])) {
@@ -146,7 +149,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Sep 30 2011 17:50:16 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Sep 30 2011 18:04:44 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

@@ -17,6 +17,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -74,6 +75,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Overrides the <a class="el" href="classCompareChecker_a91065addc70d96db6777b60d028b4b92.html#a91065addc70d96db6777b60d028b4b92">check()</a>-Method of <a class="el" href="classChecker.html">Checker</a> It now passes 2 Inputfields to <a class="el" href="classCompareChecker_abf8e8ee1613190afe394291e97ef96b3.html#abf8e8ee1613190afe394291e97ef96b3">checkValue()</a></p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>(bool) : true if comparison were successful, false if not </dd></dl>
 
+<p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>: make this also work with strings instead of Inputfields </dd></dl>
+</p>
+
 <p>Reimplemented from <a class="el" href="classChecker_a519898e42449ab8c305edb6c3a946df9.html#a519898e42449ab8c305edb6c3a946df9">Checker</a>.</p>
 
 <p>Definition at line <a class="el" href="CompareChecker_8php_source.html#l00012">12</a> of file <a class="el" href="CompareChecker_8php_source.html">CompareChecker.php</a>.</p>
@@ -85,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     $valid = <span class="keyword">true</span>;
     <span class="keywordflow">for</span>($i = 0; $i &lt; $anz &amp;&amp; $valid; $i++) {
       $val1 = $this-&gt;getValueOf(<a class="code" href="classChecker_a31b813619094db72a8c07b6f832ba01a.html#a31b813619094db72a8c07b6f832ba01a">$form</a>, $this-&gt;fields[$i]);
-      $val2 = $this-&gt;getValueOf(<a class="code" href="classChecker_a31b813619094db72a8c07b6f832ba01a.html#a31b813619094db72a8c07b6f832ba01a">$form</a>, $this-&gt;fields[$i] ); <span class="comment">/* @todo: make this also work with strings instead of Inputfields */</span>
+      $val2 = $this-&gt;getValueOf(<a class="code" href="classChecker_a31b813619094db72a8c07b6f832ba01a.html#a31b813619094db72a8c07b6f832ba01a">$form</a>, $this-&gt;fields[$i] ); 
       <span class="keywordflow">if</span>(!$this-&gt;<a class="code" href="classCompareChecker_abf8e8ee1613190afe394291e97ef96b3.html#abf8e8ee1613190afe394291e97ef96b3">checkValue</a>($val1, $val2)) {
         $valid = <span class="keyword">false</span>;
         $this-&gt;<a class="code" href="classChecker_a93ece67f9f070d59c61fd3001b8f526d.html#a93ece67f9f070d59c61fd3001b8f526d">triggerErrorMsg</a>($this-&gt;fields[$i])
@@ -116,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Sep 30 2011 17:50:16 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Sep 30 2011 18:04:44 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
