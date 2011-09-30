@@ -85,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     $valid = <span class="keyword">true</span>;
     <span class="keywordflow">for</span>($i = 0; $i &lt; $anz &amp;&amp; $valid; $i++) {
       $val1 = $this-&gt;getValueOf(<a class="code" href="classChecker_a31b813619094db72a8c07b6f832ba01a.html#a31b813619094db72a8c07b6f832ba01a">$form</a>, $this-&gt;fields[$i]);
-      $val2 = $this-&gt;getValueOf(<a class="code" href="classChecker_a31b813619094db72a8c07b6f832ba01a.html#a31b813619094db72a8c07b6f832ba01a">$form</a>, $this-&gt;fields[$i] ); <span class="comment">//@todo: make this also work with strings instead of Inputfields</span>
+      $val2 = $this-&gt;getValueOf(<a class="code" href="classChecker_a31b813619094db72a8c07b6f832ba01a.html#a31b813619094db72a8c07b6f832ba01a">$form</a>, $this-&gt;fields[$i] ); <span class="comment">/* @todo: make this also work with strings instead of Inputfields */</span>
       <span class="keywordflow">if</span>(!$this-&gt;<a class="code" href="classCompareChecker_abf8e8ee1613190afe394291e97ef96b3.html#abf8e8ee1613190afe394291e97ef96b3">checkValue</a>($val1, $val2)) {
         $valid = <span class="keyword">false</span>;
         $this-&gt;<a class="code" href="classChecker_a93ece67f9f070d59c61fd3001b8f526d.html#a93ece67f9f070d59c61fd3001b8f526d">triggerErrorMsg</a>($this-&gt;fields[$i])
@@ -116,7 +116,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Sep 29 2011 18:12:27 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Sep 30 2011 17:50:16 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
