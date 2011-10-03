@@ -1,6 +1,10 @@
 <?php
 
+
 class TemplateLoader implements TemplateLoaderInterface {
+  /** Note
+   * the path to the single template file is $template_dir + $theme + $classname
+   */
 
   protected $template_dir;
 
@@ -30,7 +34,7 @@ class TemplateLoader implements TemplateLoaderInterface {
    */
   public function setTemplateDir($dir) {
     $this->template_dir = realpath(rtrim($dir, "/"));
-    $tbis->indexThemes();
+    $this->indexThemes();
     $this->indexTemplates();
   }
 
@@ -49,8 +53,18 @@ class TemplateLoader implements TemplateLoaderInterface {
    * @param (string) $theme : The template theme
    */
   public function setTheme($value) {
+    if(!in_array((string)$value, array_keys($this->theme_index), true)) {
+      throw new InvalidArgumentException("invalid theme");
+    }
+
     $this->theme = $value;
-    $this->indexTemplate();
+
+    if($this->theme !== "default") {
+      $this->default_theme_loader = new TemplateLoader();
+    } else {
+      $this->default_theme_loader = new VoidTemplateLoader();
+    }
+    $this->indexTemplates();
   }
 
   /**
@@ -59,7 +73,7 @@ class TemplateLoader implements TemplateLoaderInterface {
    * @return (string) : directory of the current theme
    */
   public function getThemeDir() {
-    return $this->theme_index[$this->theme];
+    return (isset($this->theme_index[$this->theme]) ? $this->theme_index[$this->theme] : ".");
   }
 
   /**
@@ -68,6 +82,7 @@ class TemplateLoader implements TemplateLoaderInterface {
   public function indexThemes() {
     $path = $this->getTemplateDir();
     $files = scandir($path);
+    $files = array_diff($files, array(".", ".."));
     foreach($files as $file) {
       $fpath = $path . "/" . $file;
       if(is_dir($fpath)) {
@@ -124,18 +139,12 @@ class TemplateLoader implements TemplateLoaderInterface {
    * Set's the theme and the Template Directory
    *
    * @param (string) $theme : the Theme
-   * @param (string) $template_dir : the directory with the themes in it default NULL
+   * @param (string) $template_dir : the directory with the themes in it. default directory of which contains this file
+   * @param (string) $extension: the extension of the template files
    */
-  public function __construct($theme = "default", $template_dir = null) {
+  public function __construct($theme = "default", $template_dir = null, $extension = ".php") {
     //Set template directory
     $this->setTemplateDir(($template_dir === null) ? dirname(__FILE__) : $template_dir);
-
-    //Create a fallback Template Loader
-    if($theme !== "default") {
-      $this->default_theme_loader = new TemplateLoader();
-    } else {
-      $this->default_theme_loader = new VoidTemplateLoader();
-    }
 
     //Set theme
     $this->setTheme($theme);
