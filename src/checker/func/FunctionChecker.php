@@ -2,8 +2,60 @@
 
 class FunctionChecker extends Checker {
   protected $callback;
-  protected $params; /** @todo: create getters & setters?  */
+  protected $params;
   protected $field_param_num;
+
+  /**
+   * Get one or all params
+   *
+   * @param (mixed) $num : number of param you want to get. If not set all params will be returned
+   * @return (mixed) : one or all parameters
+   */
+  public function getParams($num = null) {
+    if($num == null) {
+      return $this->params;
+    } elseif (isset($this->params[$num])) {
+      return $this->params[$num];
+    } else {
+      throw new InvalidArgumentException("there is no param $num");
+    }
+  }
+
+  /**
+   * Set one or all params
+   *
+   * @param (mixed) $value : the new value(s), can be an array if $num == null
+   * @param (mixed) $num : number of param you want to set. If not set all params will be set
+   */
+  public function setParams($value, $num = null) {
+    if($num == null) {
+      if(!is_array($value) {
+        $value = array($value);
+      }
+      $this->params = $value;
+    } else {
+      $this->params[$num] = $value;
+    }
+  }
+
+  /**
+   * Get on which position the value of the Inputfield is used
+   *
+   * @return (int) : the position
+   */
+  public function getFieldParamNum() {
+    return $this->field_param_num;
+  }
+
+  /**
+   * Set on which position the value of the Inputfield is used
+   *
+   * @param (int) $value : the position
+   */
+  public function setFieldParamNum($value) {
+    $this->field_param_num = (int)$value;
+  }
+
 
   /** Constructor
    *
