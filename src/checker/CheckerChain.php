@@ -1,6 +1,6 @@
 <?php
 
-abstract class CheckerChain extends Checker {
+class CheckerChain extends Checker {
 
   protected $loperation;
 
