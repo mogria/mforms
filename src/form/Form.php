@@ -236,8 +236,11 @@ class Form extends FormElement implements Iterator {
    * @return Inputfield with the given name
    */
   public function getInputfieldByName($name) {
-    return array_key_exists($name, $this->names) ? $this->inputfields[$this->names[$name]]: null ;
-    /** @todo: throw Exception instead of returning null if there is no inputfield with the corresponding name?  */
+    if(array_key_exists($name, $this->names)) {
+      return $this->inputfields[$this->names[$name]];
+    } else {
+      throw new InvalidArgumentException("There is no Inputfield with name '$name'");
+    }
   }
   
   /**
