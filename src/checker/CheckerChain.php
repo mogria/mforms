@@ -46,7 +46,7 @@ class CheckerChain extends Checker {
     if($operation === null) {
       $operation = new AndOperator();
     }
-    $this->setOperation($operation);
+    $this->setLogicalOperation($operation);
   }
 
   /**
@@ -57,14 +57,21 @@ class CheckerChain extends Checker {
   public function check() {
     $anz = count($this->fields = array_keys($this->fields));
     
-    $last = $this->fields[0]->check();
-    for($i = 1; $i < $anz; $i++) {
-      $before = $this->fields[$i]->getAutotrigger();
-      $this->fields[$i]->setAutotrigger(false);
-      $last = $this->loperation->check($last, $this->fields[$i]->check());
-      $this->fields[$i]->setAutotrigger($before);
+    $last = false;
+    if($anz > 0) {
+      $last = $this->fields[0]->check();
+      for($i = 1; $i < $anz; $i++) {
+        $before = $this->fields[$i]->getAutotrigger();
+        $this->fields[$i]->setAutotrigger(false);
+        $last = $this->loperation->check($last, $this->fields[$i]->check());
+        $this->fields[$i]->setAutotrigger($before);
+      }
     }
     return $last;
+  }
+
+  public function checkValue($value) {
+
   }
 }
 
