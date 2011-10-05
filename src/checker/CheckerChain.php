@@ -55,7 +55,7 @@ class CheckerChain extends Checker {
    * @return (bool) 
    */
   public function check() {
-    $anz = count($this->fields = array_keys($this->fields));
+    $anz = count($this->fields = array_values($this->fields));
     
     $last = false;
     if($anz > 0) {

@@ -34,7 +34,8 @@ abstract class Checker {
    */
   public function remove($c) {
     foreach($this->fields as $key => $member) {
-      if($this->fields === $member) {
+      if($member === $c) {
+        $member->checkerUnregister($c);
         unset($this->fields[$key]);
         return;
       }
@@ -47,8 +48,9 @@ abstract class Checker {
    * @param (mixed) $c : Inputfield/Value which should be added to the list
    */
   public function add($c) {
-     if($c instanceof InputfieldInterface) {
+    if($c instanceof InputfieldInterface) {
       $this->fields[] = $c;
+      $c->CheckerRegister($this);
     }
   }
 
