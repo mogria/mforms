@@ -6,6 +6,6 @@ class NumericChecker extends FunctionChecker {
    * @param (Array) $field : Inputfields
    */
   public function __construct(Array $fields) {
-    parent::__construct($field, 'ctype_digit');
+    parent::__construct($fields, 'ctype_digit');
   }
 }
