@@ -66,66 +66,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00007"></a>00007 
 <a name="l00008"></a><a class="code" href="classInputfield_a8b8972410a5defce77fda779c3c5d75d.html#a8b8972410a5defce77fda779c3c5d75d">00008</a>   <span class="keyword">protected</span> <a class="code" href="classInputfield_a8b8972410a5defce77fda779c3c5d75d.html#a8b8972410a5defce77fda779c3c5d75d">$required</a>;
 <a name="l00009"></a>00009 
-<a name="l00010"></a><a class="code" href="classInputfield_a75e20635df8e005a679f00abd597796b.html#a75e20635df8e005a679f00abd597796b">00010</a>   <span class="keyword">protected</span> <a class="code" href="classInputfield_a75e20635df8e005a679f00abd597796b.html#a75e20635df8e005a679f00abd597796b">$match</a>;
+<a name="l00010"></a><a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">00010</a>   <span class="keyword">protected</span> <a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">$valid</a> = <span class="keyword">true</span>;
 <a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">00012</a>   <span class="keyword">protected</span> <a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">$valid</a> = <span class="keyword">true</span>;
+<a name="l00012"></a><a class="code" href="classInputfield_ac8fd7c60124dd60104270c8e6eadd211.html#ac8fd7c60124dd60104270c8e6eadd211">00012</a>   <span class="keyword">protected</span> <a class="code" href="classInputfield_ac8fd7c60124dd60104270c8e6eadd211.html#ac8fd7c60124dd60104270c8e6eadd211">$checkers</a>;
 <a name="l00013"></a>00013 
-<a name="l00014"></a><a class="code" href="classInputfield_a9381bef8f1fb081f056e8ec20767e5fa.html#a9381bef8f1fb081f056e8ec20767e5fa">00014</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a9381bef8f1fb081f056e8ec20767e5fa.html#a9381bef8f1fb081f056e8ec20767e5fa">__construct</a>(<a class="code" href="classFormElement_a8208f594054faba02f66bc222a9fbf92.html#a8208f594054faba02f66bc222a9fbf92">$name</a>, <a class="code" href="classInputfield_a8b8972410a5defce77fda779c3c5d75d.html#a8b8972410a5defce77fda779c3c5d75d">$required</a> = <span class="keyword">false</span>, <a class="code" href="classInputfield_a75e20635df8e005a679f00abd597796b.html#a75e20635df8e005a679f00abd597796b">$match</a> = <span class="stringliteral">&quot;/.*/&quot;</span>) {
-<a name="l00015"></a>00015     <a class="code" href="classInputfield_a9381bef8f1fb081f056e8ec20767e5fa.html#a9381bef8f1fb081f056e8ec20767e5fa">parent::__construct</a>(<a class="code" href="classFormElement_a8208f594054faba02f66bc222a9fbf92.html#a8208f594054faba02f66bc222a9fbf92">$name</a>);
+<a name="l00014"></a><a class="code" href="classInputfield_a54aab6953b8b926de9cb791d5db3db91.html#a54aab6953b8b926de9cb791d5db3db91">00014</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a54aab6953b8b926de9cb791d5db3db91.html#a54aab6953b8b926de9cb791d5db3db91">__construct</a>(<a class="code" href="classFormElement_a8208f594054faba02f66bc222a9fbf92.html#a8208f594054faba02f66bc222a9fbf92">$name</a>, <a class="code" href="classInputfield_a8b8972410a5defce77fda779c3c5d75d.html#a8b8972410a5defce77fda779c3c5d75d">$required</a> = <span class="keyword">false</span>) {
+<a name="l00015"></a>00015     <a class="code" href="classInputfield_a54aab6953b8b926de9cb791d5db3db91.html#a54aab6953b8b926de9cb791d5db3db91">parent::__construct</a>(<a class="code" href="classFormElement_a8208f594054faba02f66bc222a9fbf92.html#a8208f594054faba02f66bc222a9fbf92">$name</a>);
 <a name="l00016"></a>00016     $this-&gt;<a class="code" href="classInputfield_abdde343f282f09e3053b29ade2f00d4e.html#abdde343f282f09e3053b29ade2f00d4e">setRequired</a>(<a class="code" href="classInputfield_a8b8972410a5defce77fda779c3c5d75d.html#a8b8972410a5defce77fda779c3c5d75d">$required</a>);
-<a name="l00017"></a>00017     $this-&gt;<a class="code" href="classInputfield_ab38bffb1d5be1e1a1ae161dfcf3d5e12.html#ab38bffb1d5be1e1a1ae161dfcf3d5e12">setMatch</a>(<a class="code" href="classInputfield_a75e20635df8e005a679f00abd597796b.html#a75e20635df8e005a679f00abd597796b">$match</a>); 
-<a name="l00018"></a>00018   }
-<a name="l00019"></a>00019 
-<a name="l00024"></a><a class="code" href="classInputfield_a39c8d21c8bb4cbef9fd2fa96bab7e757.html#a39c8d21c8bb4cbef9fd2fa96bab7e757">00024</a>   <span class="keyword">protected</span> function <a class="code" href="classInputfield_a39c8d21c8bb4cbef9fd2fa96bab7e757.html#a39c8d21c8bb4cbef9fd2fa96bab7e757">addAttributes</a>() {
-<a name="l00025"></a>00025     $this-&gt;attributes[] = <span class="stringliteral">&#39;value&#39;</span>;
-<a name="l00026"></a>00026     $this-&gt;attributes[] = <span class="stringliteral">&#39;type&#39;</span>;
-<a name="l00027"></a>00027     $this-&gt;attributes[] = <span class="stringliteral">&#39;disabled&#39;</span>;
-<a name="l00028"></a>00028   }
-<a name="l00029"></a>00029 
-<a name="l00035"></a><a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">00035</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">getValue</a>() {
-<a name="l00036"></a>00036     <span class="keywordflow">return</span> $this-&gt;value;
-<a name="l00037"></a>00037   }
-<a name="l00038"></a>00038 
-<a name="l00044"></a><a class="code" href="classInputfield_a3f0d57f35624a682cb94969de250e915.html#a3f0d57f35624a682cb94969de250e915">00044</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a3f0d57f35624a682cb94969de250e915.html#a3f0d57f35624a682cb94969de250e915">setValue</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
-<a name="l00045"></a>00045     $this-&gt;value = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
-<a name="l00046"></a>00046   }
-<a name="l00047"></a>00047 
-<a name="l00053"></a><a class="code" href="classInputfield_af08accc4953f1e9d0b2ef5377bdc50b0.html#af08accc4953f1e9d0b2ef5377bdc50b0">00053</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_af08accc4953f1e9d0b2ef5377bdc50b0.html#af08accc4953f1e9d0b2ef5377bdc50b0">getDisabled</a>() {
-<a name="l00054"></a>00054     <span class="keywordflow">return</span> $this-&gt;disabled;
-<a name="l00055"></a>00055   }
-<a name="l00056"></a>00056 
-<a name="l00062"></a><a class="code" href="classInputfield_a6398183199160e3385306c8ab5bb5754.html#a6398183199160e3385306c8ab5bb5754">00062</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a6398183199160e3385306c8ab5bb5754.html#a6398183199160e3385306c8ab5bb5754">setDisabled</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
-<a name="l00063"></a>00063     $this-&gt;disabled = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
-<a name="l00064"></a>00064   }
-<a name="l00065"></a>00065 
-<a name="l00071"></a><a class="code" href="classInputfield_a000196d09f5656b0cbd4e4850529363b.html#a000196d09f5656b0cbd4e4850529363b">00071</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a000196d09f5656b0cbd4e4850529363b.html#a000196d09f5656b0cbd4e4850529363b">getRequired</a>() {
-<a name="l00072"></a>00072     <span class="keywordflow">return</span> $this-&gt;required;
-<a name="l00073"></a>00073   }
-<a name="l00074"></a>00074 
-<a name="l00080"></a><a class="code" href="classInputfield_abdde343f282f09e3053b29ade2f00d4e.html#abdde343f282f09e3053b29ade2f00d4e">00080</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_abdde343f282f09e3053b29ade2f00d4e.html#abdde343f282f09e3053b29ade2f00d4e">setRequired</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
-<a name="l00081"></a>00081     $this-&gt;required = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
-<a name="l00082"></a>00082   }
-<a name="l00083"></a>00083 
-<a name="l00089"></a><a class="code" href="classInputfield_a82dac75493c499cd584694d8562f990c.html#a82dac75493c499cd584694d8562f990c">00089</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a82dac75493c499cd584694d8562f990c.html#a82dac75493c499cd584694d8562f990c">getMatch</a>() {
-<a name="l00090"></a>00090     <span class="keywordflow">return</span> $this-&gt;match;
-<a name="l00091"></a>00091   }
-<a name="l00092"></a>00092 
-<a name="l00098"></a><a class="code" href="classInputfield_ab38bffb1d5be1e1a1ae161dfcf3d5e12.html#ab38bffb1d5be1e1a1ae161dfcf3d5e12">00098</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_ab38bffb1d5be1e1a1ae161dfcf3d5e12.html#ab38bffb1d5be1e1a1ae161dfcf3d5e12">setMatch</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
-<a name="l00099"></a>00099     $this-&gt;match = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
-<a name="l00100"></a>00100   }
-<a name="l00101"></a>00101 
-<a name="l00107"></a><a class="code" href="classInputfield_a6abed5d55fa7434702a7df5e4e186f99.html#a6abed5d55fa7434702a7df5e4e186f99">00107</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a6abed5d55fa7434702a7df5e4e186f99.html#a6abed5d55fa7434702a7df5e4e186f99">isValid</a>() {
-<a name="l00108"></a>00108     <a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">$valid</a> = <span class="keyword">true</span>;
-<a name="l00109"></a>00109     <span class="keywordflow">if</span>($this-&gt;<a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">getValue</a>() !== null &amp;&amp; $this-&gt;<a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">getValue</a>() !== <span class="stringliteral">&quot;&quot;</span>) {
-<a name="l00110"></a>00110       <a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">$valid</a> = (bool)preg_match($this-&gt;<a class="code" href="classInputfield_a82dac75493c499cd584694d8562f990c.html#a82dac75493c499cd584694d8562f990c">getMatch</a>(), $this-&gt;<a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">getValue</a>());
-<a name="l00111"></a>00111     } <span class="keywordflow">else</span> {
-<a name="l00112"></a>00112       <a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">$valid</a> = !$this-&gt;<a class="code" href="classInputfield_a000196d09f5656b0cbd4e4850529363b.html#a000196d09f5656b0cbd4e4850529363b">getRequired</a>();
-<a name="l00113"></a>00113     }
-<a name="l00114"></a>00114     $this-&gt;valid = <a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">$valid</a>;
-<a name="l00115"></a>00115     <span class="keywordflow">return</span> <a class="code" href="classInputfield_ab903dde0fe40013fb012d6c79b818d8c.html#ab903dde0fe40013fb012d6c79b818d8c">$valid</a>;
-<a name="l00116"></a>00116   }
-<a name="l00117"></a>00117 }
-<a name="l00118"></a>00118 
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018     $this-&gt;checkers = <span class="keyword">new</span> <a class="code" href="classCheckerChain.html">CheckerChain</a>(Array());
+<a name="l00019"></a>00019   }
+<a name="l00020"></a>00020 
+<a name="l00025"></a><a class="code" href="classInputfield_a39c8d21c8bb4cbef9fd2fa96bab7e757.html#a39c8d21c8bb4cbef9fd2fa96bab7e757">00025</a>   <span class="keyword">protected</span> function <a class="code" href="classInputfield_a39c8d21c8bb4cbef9fd2fa96bab7e757.html#a39c8d21c8bb4cbef9fd2fa96bab7e757">addAttributes</a>() {
+<a name="l00026"></a>00026     $this-&gt;attributes[] = <span class="stringliteral">&#39;value&#39;</span>;
+<a name="l00027"></a>00027     $this-&gt;attributes[] = <span class="stringliteral">&#39;type&#39;</span>;
+<a name="l00028"></a>00028     $this-&gt;attributes[] = <span class="stringliteral">&#39;disabled&#39;</span>;
+<a name="l00029"></a>00029   }
+<a name="l00030"></a>00030 
+<a name="l00036"></a><a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">00036</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">getValue</a>() {
+<a name="l00037"></a>00037     <span class="keywordflow">return</span> $this-&gt;value;
+<a name="l00038"></a>00038   }
+<a name="l00039"></a>00039 
+<a name="l00045"></a><a class="code" href="classInputfield_a3f0d57f35624a682cb94969de250e915.html#a3f0d57f35624a682cb94969de250e915">00045</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a3f0d57f35624a682cb94969de250e915.html#a3f0d57f35624a682cb94969de250e915">setValue</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
+<a name="l00046"></a>00046     $this-&gt;value = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
+<a name="l00047"></a>00047   }
+<a name="l00048"></a>00048 
+<a name="l00054"></a><a class="code" href="classInputfield_af08accc4953f1e9d0b2ef5377bdc50b0.html#af08accc4953f1e9d0b2ef5377bdc50b0">00054</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_af08accc4953f1e9d0b2ef5377bdc50b0.html#af08accc4953f1e9d0b2ef5377bdc50b0">getDisabled</a>() {
+<a name="l00055"></a>00055     <span class="keywordflow">return</span> $this-&gt;disabled;
+<a name="l00056"></a>00056   }
+<a name="l00057"></a>00057 
+<a name="l00063"></a><a class="code" href="classInputfield_a6398183199160e3385306c8ab5bb5754.html#a6398183199160e3385306c8ab5bb5754">00063</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a6398183199160e3385306c8ab5bb5754.html#a6398183199160e3385306c8ab5bb5754">setDisabled</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
+<a name="l00064"></a>00064     $this-&gt;disabled = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
+<a name="l00065"></a>00065   }
+<a name="l00066"></a>00066 
+<a name="l00072"></a><a class="code" href="classInputfield_a000196d09f5656b0cbd4e4850529363b.html#a000196d09f5656b0cbd4e4850529363b">00072</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a000196d09f5656b0cbd4e4850529363b.html#a000196d09f5656b0cbd4e4850529363b">getRequired</a>() {
+<a name="l00073"></a>00073     <span class="keywordflow">return</span> $this-&gt;required;
+<a name="l00074"></a>00074   }
+<a name="l00075"></a>00075 
+<a name="l00081"></a><a class="code" href="classInputfield_abdde343f282f09e3053b29ade2f00d4e.html#abdde343f282f09e3053b29ade2f00d4e">00081</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_abdde343f282f09e3053b29ade2f00d4e.html#abdde343f282f09e3053b29ade2f00d4e">setRequired</a>(<a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>) {
+<a name="l00082"></a>00082     $this-&gt;required = <a class="code" href="classInputfield_a3d778e51a890eab796629dfea8910bee.html#a3d778e51a890eab796629dfea8910bee">$value</a>;
+<a name="l00083"></a>00083   }
+<a name="l00084"></a>00084 
+<a name="l00090"></a><a class="code" href="classInputfield_a6abed5d55fa7434702a7df5e4e186f99.html#a6abed5d55fa7434702a7df5e4e186f99">00090</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a6abed5d55fa7434702a7df5e4e186f99.html#a6abed5d55fa7434702a7df5e4e186f99">isValid</a>() {
+<a name="l00091"></a>00091     <span class="keywordflow">return</span> $this-&gt;valid =
+<a name="l00092"></a>00092       ($this-&gt;<a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">getValue</a>() !== null &amp;&amp; $this-&gt;<a class="code" href="classInputfield_aa5fca6c7a825349a56cb98d71f8ef1a9.html#aa5fca6c7a825349a56cb98d71f8ef1a9">getValue</a>() !== <span class="stringliteral">&quot;&quot;</span>) 
+<a name="l00093"></a>00093         ? $this-&gt;checkers-&gt;check()
+<a name="l00094"></a>00094         : !$this-&gt;<a class="code" href="classInputfield_a000196d09f5656b0cbd4e4850529363b.html#a000196d09f5656b0cbd4e4850529363b">getRequired</a>();
+<a name="l00095"></a>00095   }
+<a name="l00096"></a>00096   
+<a name="l00102"></a><a class="code" href="classInputfield_a87ac783e8a6b62b78a5bdc8c99150efc.html#a87ac783e8a6b62b78a5bdc8c99150efc">00102</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a87ac783e8a6b62b78a5bdc8c99150efc.html#a87ac783e8a6b62b78a5bdc8c99150efc">checkerRegister</a>(<a class="code" href="classChecker.html">Checker</a> $c) {
+<a name="l00103"></a>00103     $this-&gt;checkers-&gt;add($c);
+<a name="l00104"></a>00104   }
+<a name="l00105"></a>00105 
+<a name="l00111"></a><a class="code" href="classInputfield_a23168696bbe5c998cac8f6e7b2ed5223.html#a23168696bbe5c998cac8f6e7b2ed5223">00111</a>   <span class="keyword">public</span> function <a class="code" href="classInputfield_a23168696bbe5c998cac8f6e7b2ed5223.html#a23168696bbe5c998cac8f6e7b2ed5223">checkerUnregister</a>(<a class="code" href="classChecker.html">Checker</a> $c) {
+<a name="l00112"></a>00112     $this-&gt;checkers-&gt;remove($c);
+<a name="l00113"></a>00113   }
+<a name="l00114"></a>00114 }
+<a name="l00115"></a>00115 
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -142,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 5 2011 18:21:53 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 6 2011 06:51:40 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

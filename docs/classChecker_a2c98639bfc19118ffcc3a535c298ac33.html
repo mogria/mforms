@@ -98,7 +98,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><div class="fragment"><pre class="fragment">                             {
     <span class="keywordflow">foreach</span>($this-&gt;fields as $key =&gt; $member) {
-      <span class="keywordflow">if</span>($this-&gt;fields === $member) {
+      <span class="keywordflow">if</span>($member === $c) {
+        $member-&gt;checkerUnregister($c);
         unset($this-&gt;fields[$key]);
         <span class="keywordflow">return</span>;
       }
@@ -126,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 5 2011 18:21:54 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 6 2011 06:51:41 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

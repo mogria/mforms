@@ -55,6 +55,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           <tr><td class="navtab"><a class="qindex" href="classCheckerChain_a69ab5e6419f20ac73d1250ab651667dd.html#a69ab5e6419f20ac73d1250ab651667dd">__construct</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="classCheckerChain_a8c7e22ab782cb6863dbc5f0b5c8059fa.html#a8c7e22ab782cb6863dbc5f0b5c8059fa">add</a></td></tr>
           <tr><td class="navtab"><a class="qindexHL" href="classCheckerChain_a0af6d20e02e1cdc2307f60f58809a4ce.html#a0af6d20e02e1cdc2307f60f58809a4ce">check</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="classCheckerChain_a0022ee58b47da10040b2f2363de36e9d.html#a0022ee58b47da10040b2f2363de36e9d">checkValue</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="classCheckerChain_aefdddae250cf2d0a404f8764b026809e.html#aefdddae250cf2d0a404f8764b026809e">getLogicalOperation</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="classCheckerChain_a95a2d02e04e6f020b7d1960d6d76c8a3.html#a95a2d02e04e6f020b7d1960d6d76c8a3">setLogicalOperation</a></td></tr>
         </table>
@@ -83,14 +84,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Definition at line <a class="el" href="CheckerChain_8php_source.html#l00057">57</a> of file <a class="el" href="CheckerChain_8php_source.html">CheckerChain.php</a>.</p>
 
 <p><div class="fragment"><pre class="fragment">                          {
-    $anz = count($this-&gt;fields = array_keys($this-&gt;fields));
+    $anz = count($this-&gt;fields = array_values($this-&gt;fields));
     
-    $last = $this-&gt;fields[0]-&gt;check();
-    <span class="keywordflow">for</span>($i = 1; $i &lt; $anz; $i++) {
-      $before = $this-&gt;fields[$i]-&gt;getAutotrigger();
-      $this-&gt;fields[$i]-&gt;setAutotrigger(<span class="keyword">false</span>);
-      $last = $this-&gt;loperation-&gt;check($last, $this-&gt;fields[$i]-&gt;<a class="code" href="classCheckerChain_a0af6d20e02e1cdc2307f60f58809a4ce.html#a0af6d20e02e1cdc2307f60f58809a4ce">check</a>());
-      $this-&gt;fields[$i]-&gt;setAutotrigger($before);
+    $last = <span class="keyword">false</span>;
+    <span class="keywordflow">if</span>($anz &gt; 0) {
+      $last = $this-&gt;fields[0]-&gt;check();
+      <span class="keywordflow">for</span>($i = 1; $i &lt; $anz; $i++) {
+        $before = $this-&gt;fields[$i]-&gt;getAutotrigger();
+        $this-&gt;fields[$i]-&gt;setAutotrigger(<span class="keyword">false</span>);
+        $last = $this-&gt;loperation-&gt;check($last, $this-&gt;fields[$i]-&gt;<a class="code" href="classCheckerChain_a0af6d20e02e1cdc2307f60f58809a4ce.html#a0af6d20e02e1cdc2307f60f58809a4ce">check</a>());
+        $this-&gt;fields[$i]-&gt;setAutotrigger($before);
+      }
     }
     <span class="keywordflow">return</span> $last;
   }
@@ -116,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 5 2011 18:21:54 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 6 2011 06:51:41 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

@@ -111,17 +111,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classInputfield.html">Inputfield</a> with the given name </dd></dl>
 
-<p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>: throw <a class="el" href="classException.html">Exception</a> instead of returning null if there is no inputfield with the corresponding name? </dd></dl>
-</p>
-
 <p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00238">238</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
 <p>References <a class="el" href="FormElement_8php_source.html#l00009">FormElement::$name</a>.</p>
 
-<p>Referenced by <a class="el" href="form_2Form_8php_source.html#l00278">get()</a>.</p>
+<p>Referenced by <a class="el" href="form_2Form_8php_source.html#l00281">get()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment">                                             {
-    <span class="keywordflow">return</span> array_key_exists(<a class="code" href="classFormElement_a8208f594054faba02f66bc222a9fbf92.html#a8208f594054faba02f66bc222a9fbf92">$name</a>, $this-&gt;names) ? $this-&gt;inputfields[$this-&gt;names[<a class="code" href="classFormElement_a8208f594054faba02f66bc222a9fbf92.html#a8208f594054faba02f66bc222a9fbf92">$name</a>]]: null ;
+    <span class="keywordflow">if</span>(array_key_exists(<a class="code" href="classFormElement_a8208f594054faba02f66bc222a9fbf92.html#a8208f594054faba02f66bc222a9fbf92">$name</a>, $this-&gt;names)) {
+      <span class="keywordflow">return</span> $this-&gt;inputfields[$this-&gt;names[<a class="code" href="classFormElement_a8208f594054faba02f66bc222a9fbf92.html#a8208f594054faba02f66bc222a9fbf92">$name</a>]];
+    } <span class="keywordflow">else</span> {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> InvalidArgumentException(<span class="stringliteral">&quot;There is no Inputfield with name &#39;$name&#39;&quot;</span>);
+    }
   }
 </pre></div></p>
 
@@ -145,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 5 2011 18:21:55 for mforms by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 6 2011 06:51:42 for mforms by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
