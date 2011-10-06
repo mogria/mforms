@@ -89,7 +89,7 @@ abstract class Inputfield extends FormElement implements InputfieldInterface {
    */
   public function isValid() {
     return $this->valid =
-      ($this->getValue() !== null && $this->getValue() !== "") /** @todo: probably remove this !=== "" */
+      ($this->getValue() !== null && $this->getValue() !== "")
         ? $this->checkers->check()
         : !$this->getRequired();
   }

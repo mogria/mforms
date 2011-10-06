@@ -2,8 +2,6 @@
 
 class Radiogroup extends InputfieldGroup {
 
-  /** @todo create a template file for RadioGroup  */
-
   /**
    * returns the Attribute Type
    *

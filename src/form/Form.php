@@ -259,7 +259,7 @@ class Form extends FormElement implements Iterator {
    * @param c - Checker
    */
   public function addChecker($c) {
-    if($c instanceof Checker || $c instanceof ChainChecker) { /** @todo: create a new class instead of this   */
+    if($c instanceof Checker) {
       $this->checker[] = $c;
     } else {
       throw new InvalidArgumentException("param 1 of " . __METHOD__ . " has to be an instance of ChainChecker or Checker");
