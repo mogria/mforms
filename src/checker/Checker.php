@@ -119,7 +119,6 @@ abstract class Checker {
     }
   }
 
-  abstract public function checkValue($value);
 
   /** Constructor
    * Adds some Inputfields

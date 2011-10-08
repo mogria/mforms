@@ -27,7 +27,7 @@ $field = new Label(new ErrorMessage(new Textbox('name'), "FEHLER!"), "Benutzerna
 $field->setClass("tbox");
 $field->setSize(40);
 $field->setMaxlength(10);
-$field->setValue("void void void void");
+$field->setValue("void");
 
 //Add Control to Form
 $form->add($field);
@@ -107,7 +107,7 @@ $field->add($opt);
 $form->add($field);
 
 $form->catchRequestData();
-$form->addChecker(new NotInListChecker($form->get('name'), array('voidvoid', 'rayray')));
+$form->addChecker(new EqualChecker($form->get('name'), "void"));
 //Display the Form
 echo $form->display();
 

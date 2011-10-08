@@ -13,16 +13,14 @@ abstract class CompareChecker extends Checker {
     $anz = count($this->fields) - 1;
     $valid = true;
     for($i = 0; $i < $anz && $valid; $i++) {
-      $val1 = $this->getValueOf($form, $this->fields[$i]);
-      $val2 = $this->getValueOf($form, $this->fields[$i] ); /** @todo: make this also work with strings instead of Inputfields  */
+      $val1 = ($fields[$i] instanceof InputfieldInterface) ? $this->fields[$i]->getValue() : $fields[$i];
+      $val2 = ($fields[$i + 1] instanceof InputfieldInterface) ? $this->fields[$i + 1]->getValue() : $fields[$i + 1];
       if(!$this->checkValue($val1, $val2)) {
         $valid = false;
-        $this->triggerErrorMsg($this->fields[$i])
-        $this->triggerErrorMsg($this->fields[$i + 1])
+        $this->triggerErrorMsg($this->fields[$i]);
+        $this->triggerErrorMsg($this->fields[$i + 1]);
       }
     }
     return $valid;
   }
-
-  abstract public function checkValue($val1, $val2);
 }
