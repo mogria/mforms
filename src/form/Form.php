@@ -213,18 +213,24 @@ class Form extends FormElement implements Iterator {
   public function catchRequestData() {
     $method = $this->getRequestVariableByMethod();
     foreach($this->inputfields as $input) {
-      /** @todo: what if Filechooser? or an image button with x and y coords?  */
       $converted = str_replace(".", "_", $input->getName());
   
       if(isset($method[$converted])) {
         $value = $method[$converted];
-  
+        
+        if($input instanceof Image) {
+          if(isset($method[$converted . "_x"]) && isset($method[$converted . "_y"])) {
+            $value = array($value, "x" => $method[$converted . "_x"], "y" => $method[$converted . "_y"]);
+          }
+        }
          //kill magic qoutes if there
         $array = array($value);
         array_walk_recursive($array, '_fix_magic_quotes_walk');
         $value = $array[0];
   
         $input->setValue($value);
+      } else if($input instanceof FileChooser && isset($_FILE[$converted]) && is_array($_FILE[$converted])) {
+        $input->setValue($_FILE[$converted]));
       }
     }
   }
