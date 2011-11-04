@@ -17,7 +17,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -103,12 +102,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="memdoc">
 <p>Get's all the data in $_GET or $_POST and fills the data into the corresponding Inpufield added to the form </p>
 
-<p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>: what if <a class="el" href="classFilechooser.html">Filechooser</a>? or an image button with x and y coords? </dd></dl>
-</p>
-
 <p>Definition at line <a class="el" href="form_2Form_8php_source.html#l00213">213</a> of file <a class="el" href="form_2Form_8php_source.html">Form.php</a>.</p>
 
-<p>References <a class="el" href="form_2Form_8php_source.html#l00013">$method</a>, and <a class="el" href="form_2Form_8php_source.html#l00290">getRequestVariableByMethod()</a>.</p>
+<p>References <a class="el" href="form_2Form_8php_source.html#l00013">$method</a>, and <a class="el" href="form_2Form_8php_source.html#l00296">getRequestVariableByMethod()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment">                                     {
     <a class="code" href="classForm_a3ca31ec7032a41b95c94de22a850672c.html#a3ca31ec7032a41b95c94de22a850672c">$method</a> = $this-&gt;<a class="code" href="classForm_ac589ae7753bac8f4a39c6908819c3ecd.html#ac589ae7753bac8f4a39c6908819c3ecd">getRequestVariableByMethod</a>();
@@ -117,13 +113,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   
       <span class="keywordflow">if</span>(isset(<a class="code" href="classForm_a3ca31ec7032a41b95c94de22a850672c.html#a3ca31ec7032a41b95c94de22a850672c">$method</a>[$converted])) {
         $value = <a class="code" href="classForm_a3ca31ec7032a41b95c94de22a850672c.html#a3ca31ec7032a41b95c94de22a850672c">$method</a>[$converted];
-  
+        
+        <span class="keywordflow">if</span>($input instanceof <a class="code" href="classImage.html">Image</a>) {
+          <span class="keywordflow">if</span>(isset(<a class="code" href="classForm_a3ca31ec7032a41b95c94de22a850672c.html#a3ca31ec7032a41b95c94de22a850672c">$method</a>[$converted . <span class="stringliteral">&quot;_x&quot;</span>]) &amp;&amp; isset(<a class="code" href="classForm_a3ca31ec7032a41b95c94de22a850672c.html#a3ca31ec7032a41b95c94de22a850672c">$method</a>[$converted . <span class="stringliteral">&quot;_y&quot;</span>])) {
+            $value = array($value, <span class="stringliteral">&quot;x&quot;</span> =&gt; <a class="code" href="classForm_a3ca31ec7032a41b95c94de22a850672c.html#a3ca31ec7032a41b95c94de22a850672c">$method</a>[$converted . <span class="stringliteral">&quot;_x&quot;</span>], <span class="stringliteral">&quot;y&quot;</span> =&gt; <a class="code" href="classForm_a3ca31ec7032a41b95c94de22a850672c.html#a3ca31ec7032a41b95c94de22a850672c">$method</a>[$converted . <span class="stringliteral">&quot;_y&quot;</span>]);
+          }
+        }
          <span class="comment">//kill magic qoutes if there</span>
         $array = array($value);
         array_walk_recursive($array, <span class="stringliteral">&#39;_fix_magic_quotes_walk&#39;</span>);
         $value = $array[0];
   
         $input-&gt;setValue($value);
+      } <span class="keywordflow">else</span> <span class="keywordflow">if</span>($input instanceof FileChooser &amp;&amp; isset($_FILE[$converted]) &amp;&amp; is_array($_FILE[$converted])) {
+        $input-&gt;setValue($_FILE[$converted]);
       }
     }
   }
