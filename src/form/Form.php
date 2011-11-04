@@ -230,7 +230,7 @@ class Form extends FormElement implements Iterator {
   
         $input->setValue($value);
       } else if($input instanceof FileChooser && isset($_FILE[$converted]) && is_array($_FILE[$converted])) {
-        $input->setValue($_FILE[$converted]));
+        $input->setValue($_FILE[$converted]);
       }
     }
   }
