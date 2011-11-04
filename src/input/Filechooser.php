@@ -3,6 +3,16 @@
 
 class Filechooser extends Inputfield {
 
+  protected $location_filename;
+
+  public function getLocationFilename() {
+    return $this->location_filename;
+  }
+
+  public function setLocationFilename($value) {
+    $this->location_filename = $value;
+  }
+
   /**
    * returns the Attribute Type
    *
@@ -18,16 +28,13 @@ class Filechooser extends Inputfield {
    * to the correct location
    *
    * @param (string) $location_filename : the new location of the file
-   * @param (int) $max_size : the maximal size of the uploaded file in bytes, false -> unlimited
-   * @param (Array) $mine_types : An array containing the allowed/disallowd MIME-TYPE of the file
-   * @param (bool) $is_whitelist : is the list of mime_types a while-(true) or a blacklist(false)
    */
-  public function upload_to($location_filename, $max_size = false, $mime_types = Array(), $is_whitelist = false) {
-    $file = $this->getValue();
-    if(isset($file['tmp_name'], $file['name'], $file['size'])) {
-      /** @todo the upload function finish, by using checkers */
-    } else {
+  public function upload() {
+    if($this->check()) {
       throw new BadMethodCallException("there is no uploaded file in value property!");
+    } else {
+      $value = $this->getValue();
+      move_uploaded_file($value['tmp_name'],  $this->getLocationFilename());
     }
   }
 }
